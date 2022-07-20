@@ -10,6 +10,7 @@ public class TestController {
 	public String demo() {
 		//test html.
 		return "russell gay af";
+		return "testing for commit";
 	}
 
 }
