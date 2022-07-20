@@ -8,7 +8,11 @@ public class TestController {
 
 	@GetMapping("/test")
 	public String demo() {
-		return "test";
+		//test html.
+		return "russell gay af";
+		return "testing for commit";
+
+		
 	}
 	
 	@GetMapping("/") 
