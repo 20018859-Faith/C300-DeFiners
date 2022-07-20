@@ -10,5 +10,10 @@ public class TestController {
 	public String demo() {
 		return "test";
 	}
+	
+	@GetMapping("/") 
+	public String index() {
+		return "index";
+	}
 
 }
