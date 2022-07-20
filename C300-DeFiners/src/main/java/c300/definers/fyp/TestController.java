@@ -9,10 +9,8 @@ public class TestController {
 	@GetMapping("/test")
 	public String demo() {
 		//test html.
-		return "russell gay af";
-		return "testing for commit";
+		return "test";
 
-		
 	}
 	
 	@GetMapping("/") 
