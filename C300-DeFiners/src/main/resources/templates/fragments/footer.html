@@ -1,6 +1,13 @@
 <footer>
 	<div class="mb-3 fixed-bottom text-center">
-		<span class="text-muted"> &#9679;24 gwei</span>
-		<span class="text-success">&#9679;15177431</span>
+		<a href="#" data-toggle="tooltip" title="The Current fast gas amount
+		for sending a transaction on L1." class="text-muted"> &#9679;24 gwei</a>
+		<a href="#" data-toggle="tooltip" title="The most recent block on this network." class="text-success"> &#9679;15177431</a>
 	</div>
 </footer>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
