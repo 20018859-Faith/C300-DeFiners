@@ -14,30 +14,48 @@
 	<div class="container">
 		<div th:replace="fragments/header"></div>
 
-		<br>
-		<br>
-		<br>
-
+		<br> <br> <br>
+		
 		<h5 class="card-title">
 			<b>SWAP</b>
 		</h5>
 		<div class="card w-50">
 			<div class="card-body">
 				<form>
-					<div class="form-group">
+					<div class="input-group">
 						<input type="amt1" class="form-control"
 							style="background-color: rgb(211, 211, 211);"
 							id="exampleInputamt1" placeholder="0.0">
+							<div class="input-group-prepend"> 
+							<select
+							class="select form-control" style="background-color: #EEE6E6;">
+							<option selected>BTC</option>
+							<option value="1">BTC</option>
+							<option value="2">ETH</option>
+							<option value="3">DAI</option>
+						</select>
+						</div>
 					</div>
 					<br>
-					<div class="form-group">
+					<div class="input-group">
 						<input type="amt2" class="form-control"
 							style="background-color: rgb(211, 211, 211);"
 							id="exampleInputamt2" placeholder="0.0">
+							<div class="input-group-prepend"> 
+							<select
+							class="selectpicker form-control" style="background-color: #EEE6E6;">
+							<option selected>BTC</option>
+							<option value="1">BTC</option>
+							<option value="2">ETH</option>
+							<option value="3">DAI</option>
+						</select>
+						</div>
 					</div>
 					<br>
 
-					<button type="connect" class="btn" style="background-color: rgb(224, 234, 251)">Connect button</button>
+					<button type="connect" class="btn"
+						style="background-color: rgb(224, 234, 251)">Connect
+						button</button>
 				</form>
 			</div>
 		</div>
