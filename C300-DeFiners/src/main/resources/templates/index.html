@@ -16,60 +16,6 @@
 
 <body style="background-color: #E1EECC;">
 
-	<script>
-		var myModal = document.getElementById('myModal')
-		var myInput = document.getElementById('myInput')
-
-		myModal.addEventListener('shown.bs.modal', function() {
-			myInput.focus()
-		})
-
-		function displayCurr1() {
-			let html = document.getElementById("eth").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr2() {
-			let html = document.getElementById("dai").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr3() {
-			let html = document.getElementById("usdt").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr4() {
-			let html = document.getElementById("wbtc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr5() {
-			let html = document.getElementById("usdc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr6() {
-			let html = document.getElementById("iinch").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr7() {
-			let html = document.getElementById("aave").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr8() {
-			let html = document.getElementById("ach").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr9() {
-			let html = document.getElementById("aergo").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-	</script>
-
 	<div class="container">
 		<div th:replace="fragments/header"></div>
 
@@ -328,6 +274,61 @@
 		</div>
 		<div th:replace="fragments/footer"></div>
 	</div>
+	
+	<script>
+		var myModal = document.getElementById('myModal')
+		var myInput = document.getElementById('myInput')
+
+		myModal.addEventListener('shown.bs.modal', function() {
+			myInput.focus()
+		})
+
+		function displayCurr1() {
+			let html = document.getElementById("eth").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr2() {
+			let html = document.getElementById("dai").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr3() {
+			let html = document.getElementById("usdt").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr4() {
+			let html = document.getElementById("wbtc").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr5() {
+			let html = document.getElementById("usdc").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr6() {
+			let html = document.getElementById("iinch").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr7() {
+			let html = document.getElementById("aave").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr8() {
+			let html = document.getElementById("ach").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr9() {
+			let html = document.getElementById("aergo").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+	</script>
+	
 </body>
 </html>
 
