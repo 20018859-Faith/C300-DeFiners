@@ -1,24 +1,156 @@
+<style>
+
+/* Wallet active */
+#cen.active {
+	background-color: #D2D2D2;
+	color: #fff;
+	border-radius: 40px;
+}
+
+/* center navbar */
+.cent {
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: large;
+}
+
+/* Wallet dropdown menu*/
+.dropbtn {
+	border: none; /* remove button border (the black thick border) */
+	cursor: pointer; /* change cursor to point */
+}
+
+/* Wallet dropdown menu*/
+.dropdown {
+	display: inline-block;
+	position: relative; /* start inline */
+}
+
+/* Wallet dropdown menu*/
+.dropdown-content {
+	margin-top: 15px;
+	border-radius: 25px;
+	display: none;
+	position: absolute;
+	min-width: 150px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 4; /* overlay other elements */
+}
+
+/* Wallet dropdown menu*/
+.dropdown-content a {
+	padding: 12px 16px; /* space between each element */
+	text-decoration: none; /* remove underline - link has underline */
+	display: block;
+}
+
+/* Wallet dropdown menu*/
+.dropdown a:hover {
+	background-color: #D2D2D2; /* hover color */
+}
+
+/* Wallet dropdown menu*/
+.show {
+	display: block;
+}
+
+/* margin between each navbar */
+.marg {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.margi {
+	margin-left: 280px;
+}
+
+/* Connect Wallet */
+.connectbtn {
+	border: none; /* remove button border (the black thick border) */
+	cursor: pointer; /* change cursor to point */
+}
+</style>
+
 <header>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-sm">
+
 		<div class="container-fluid">
-		
-			<a class="navbar-brand" href="#"> 
-				<img src="/images/definers_logo.png" width="30" height="30">
+
+			<!-- logo -->
+			<a class="navbar-brand" href="#"> <img
+				src="/images/definers_logo.png" width="35" height="35">
 			</a>
-			
-			<div class="navbar-nav me-auto main">
-				<a class="nav-link active" href="/">Swap</a> 
-				<a class="nav-link active" href="/pool">Pool</a> 
-				<a class="nav-link active" href="/vote">Vote</a> 
-				<a class="nav-link active" href="/chart">Charts</a> 
+
+			<div class="margi"></div>
+
+			<!-- center navbar -->
+			<div
+				class="cent navbar navbar-nav justify-content-center bg-light mx-auto"
+				style="border-radius: 40px;">
+				<a id="cen" class="nav-link text-dark" href="/">Swap</a> <a id="cen"
+					class="nav-link text-dark" href="/pool">Pool</a> <a id="cen"
+					class="nav-link text-dark" href="/charts">Charts&#11127;</a>
 			</div>
-			
-			<div class="navbar-right navbar-nav me-auto">
-				<a class="nav-link active" href="/"><img src="/images/ethereum_icon.png" width="20" height="20"> Ethereum</a>
-				<a class="nav-link active bg-dark text-light" href="/pool">Connect wallet</a>
-				 
+
+			<!-- right navbar -->
+			<div
+				class="navbar navbar-nav justify-content-center bg-light ml-auto dropdown"
+				style="border-radius: 40px;">
+				<button onclick="myFunction()" class="dropbtn bg-light"
+					style="border-radius: 40px;">
+					<img src="/images/ethereum_icon.png" width="22" height="22">
+					Ethereum&#11167;
+				</button>
+				<div id="dropdown" class="dropdown-content bg-light">
+					<a class="text-dark" href="#">Ethereum <span class="text-success">&#9679;</span></a> 
+					<a class="text-dark" href="#">Polygon</a> 
+					<a class="text-dark" href="#">Optimism</a> 
+					<a class="text-dark" href="#">Arbitrum</a>
+				</div>
 			</div>
-			
+
+			<div class="marg"></div>
+
+			<div class="navbar navbar-nav bg-light ml-auto"
+				style="border-radius: 40px;">
+				<button class="connectbtn text-dark bg-light"
+					style="border-radius: 40px;">Connect Wallet</button>
+			</div>
+
+			<div class="marg"></div>
 		</div>
+
 	</nav>
 </header>
+
+<script>
+	/* add active*/
+	$(function() {
+		$('a').each(function() {
+			if ($(this).prop('href') == window.location.href) {
+				$(this).addClass('active');
+				$(this).parents('a').addClass('active');
+			}
+		});
+	});
+
+	/* When user click button, toggle between hiding and showing the dropdown content */
+	function myFunction() {
+		document.getElementById("dropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+</script>
