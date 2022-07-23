@@ -8,14 +8,8 @@ public class TestController {
 
 	@GetMapping("/test")
 	public String demo() {
-		//test html.
+		//test project.
 		return "test";
-
-	}
-	
-	@GetMapping("/") 
-	public String index() {
-		return "index";
 	}
 
 }
