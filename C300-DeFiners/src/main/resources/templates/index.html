@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background-color: #E1EECC;">
@@ -26,92 +26,136 @@
 		<div th:replace="fragments/header"></div>
 
 		<br> <br> <br>
+		<div class="d-flex justify-content-center">
+			<h4 class="card-title">
+				<b>SWAP</b>
+			</h4>
+		</div>
 
-		<h5 class="card-title">
-			<b>SWAP</b>
-		</h5>
-		<div class="card w-50">
-			<div class="card-body">
-				<form>
-					<div class="input-group">
-						<input type="amt1" class="form-control"
-							style="background-color: rgb(211, 211, 211); text-align:center;"
-							id="exampleInputamt1" placeholder="0.0" >
-						<div class="input-group-prepend">
-							<button selected type="button" class="btn form-control"
-								style="background-color: #EEE6E6;" data-bs-toggle="modal"
-								data-bs-target="#exampleModal">BTC</button>
+		<div class="d-flex justify-content-center">
+			<div class="card w-50">
+				<div class="card-body">
+					<form>
+						<div class="input-group input-group-lg">
+							<input type="amt1" class="form-control"
+								style="background-color: rgb(211, 211, 211);"
+								id="exampleInputamt1" placeholder="0.0">
+							<div class="input-group-prepend input-group-lg">
+								<button selected type="button" class="btn form-control"
+									style="background-color: #EEE6E6;" data-bs-toggle="modal"
+									data-bs-target="#exampleModal">SELECT <i class="fa fa-caret-down"></i></button>
 
 
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1"
-								aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel"><b>Select a
-												token</b></h5>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-										</div>
-										<div class="modal-body">
-											<input type="amt1" class="form-control"
-												style="background-color: rgb(211, 211, 211);"
-												id="exampleInputamt1"
-												placeholder="search name or paste address">
-										</div>
-										<div class="modal-body">
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211);"><img src="/images/ethereum_icon.png" width="20" height="20"> ETH</button>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211);"><img src="/images/DAI_icon.JPG" width="20" height="20"> DAI</button>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211);"><img src="/images/USDT.JPG" width="20" height="20"> USDT</button><br><br>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211);"><img src="/images/BTC.JPG" width="20" height="20"> WBTC</button>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211);"><img src="/images/USDC.JPG" width="20" height="20"> USDC</button>
-										</div>
-										<div class="modal-body">
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align:left; padding-left:6px"><img src="/images/ethereum_icon.png" width="20" height="20"> ETH</button><br><br>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align:left; padding-left:6px"><img src="/images/IINCH_icon.JPG" width="20" height="20"> lINCH</button><br><br>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align:left; padding-left:6px"><img src="/images/AAVE_icon.JPG" width="20" height="20"> AAVE</button><br><br>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align:left; padding-left:6px"><img src="/images/ACH_icon.JPG" width="20" height="20"> ACH</button><br><br>
-											<button type="button" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align:left; padding-left:6px"><img src="/images/AERGO_icon.JPG" width="20" height="20"> AERGO</button><br><br>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn" style="background-color: rgb(211, 211, 211);">Manage token list</button>
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">
+													<b>Select a token</b>
+												</h5>
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Close</button>
+											</div>
+											<div class="modal-body">
+												<input type="amt1" class="form-control"
+													style="background-color: rgb(211, 211, 211);"
+													id="exampleInputamt1"
+													placeholder="search name or paste address">
+											</div>
+											<div class="modal-body">
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">
+													<img src="/images/ethereum_icon.png" width="20" height="20">
+													ETH
+												</button>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">
+													<img src="/images/DAI_icon.JPG" width="20" height="20">
+													DAI
+												</button>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">
+													<img src="/images/USDT.JPG" width="20" height="20">
+													USDT
+												</button>
+												<br> <br>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">
+													<img src="/images/BTC.JPG" width="20" height="20">
+													WBTC
+												</button>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">
+													<img src="/images/USDC.JPG" width="20" height="20">
+													USDC
+												</button>
+											</div>
+											<div class="modal-body">
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+													<img src="/images/ethereum_icon.png" width="20" height="20">
+													ETH
+												</button>
+												<br> <br>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+													<img src="/images/IINCH_icon.JPG" width="20" height="20">
+													lINCH
+												</button>
+												<br> <br>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+													<img src="/images/AAVE_icon.JPG" width="20" height="20">
+													AAVE
+												</button>
+												<br> <br>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+													<img src="/images/ACH_icon.JPG" width="20" height="20">
+													ACH
+												</button>
+												<br> <br>
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+													<img src="/images/AERGO_icon.JPG" width="20" height="20">
+													AERGO
+												</button>
+												<br> <br>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211);">Manage
+													token list</button>
+											</div>
 										</div>
 									</div>
 								</div>
+
 							</div>
-
 						</div>
-					</div>
-					<br>
-					<div class="input-group">
-						<input type="amt2" class="form-control"
-							style="background-color: rgb(211, 211, 211); text-align:center;"
-							id="exampleInputamt2" placeholder="0.0">
-						<div class="input-group-prepend">
-							<button type="button" class="btn form-control"
-								style="background-color: #EEE6E6;" data-bs-toggle="modal"
-								data-bs-target="#exampleModal">BTC</button>
-							
+						<br>
+						<div class="input-group input-group-lg">
+							<input type="amt2" class="form-control col-xs-3"
+								style="background-color: rgb(211, 211, 211);"
+								id="exampleInputamt2" placeholder="0.0">
+							<div class="input-group-prepend input-group-lg">
+								<button type="button" class="btn form-control"
+									style="background-color: #EEE6E6;" data-bs-toggle="modal"
+									data-bs-target="#exampleModal">SELECT <i class="fa fa-caret-down"></i></button>
 
+
+							</div>
 						</div>
-					</div>
-					<br>
-
-					<button type="connect" class="btn"
-						style="background-color: rgb(224, 234, 251);">Connect
-						button</button>
-				</form>
+						<br>
+						<div class="d-flex justify-content-center">
+							<button type="connect" class="btn"
+								style="background-color: rgb(224, 234, 251);">Connect
+								button</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 		<div th:replace="fragments/footer"></div>
