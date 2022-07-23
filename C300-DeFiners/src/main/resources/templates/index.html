@@ -8,7 +8,9 @@
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background-color: #E1EECC;">
@@ -20,7 +22,54 @@
 		myModal.addEventListener('shown.bs.modal', function() {
 			myInput.focus()
 		})
+
+		function displayCurr1() {
+			let html = document.getElementById("eth").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr2() {
+			let html = document.getElementById("dai").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr3() {
+			let html = document.getElementById("usdt").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr4() {
+			let html = document.getElementById("wbtc").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr5() {
+			let html = document.getElementById("usdc").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr6() {
+			let html = document.getElementById("iinch").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr7() {
+			let html = document.getElementById("aave").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr8() {
+			let html = document.getElementById("ach").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
+
+		function displayCurr9() {
+			let html = document.getElementById("aergo").innerHTML;
+			document.getElementById("demo").innerHTML = html;
+		}
 	</script>
+
+
 
 	<div class="container">
 		<div th:replace="fragments/header"></div>
@@ -41,9 +90,11 @@
 								style="background-color: rgb(211, 211, 211);"
 								id="exampleInputamt1" placeholder="0.0">
 							<div class="input-group-prepend input-group-lg">
-								<button selected type="button" class="btn form-control"
+								<button id="demo" type="button" class="btn form-control"
 									style="background-color: #EEE6E6;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">SELECT <i class="fa fa-caret-down"></i></button>
+									data-bs-target="#exampleModal">
+									SELECT <i class="fa fa-caret-down"></i>
+								</button>
 
 
 								<!-- Modal -->
@@ -65,60 +116,75 @@
 													placeholder="search name or paste address">
 											</div>
 											<div class="modal-body">
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">
+												<button id="eth" onclick="displayCurr1()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
 													<img src="/images/ethereum_icon.png" width="20" height="20">
 													ETH
 												</button>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">
+												<button id="dai" onclick="displayCurr2()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
 													<img src="/images/DAI_icon.JPG" width="20" height="20">
 													DAI
 												</button>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">
+												<button id="usdt" onclick="displayCurr3()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
 													<img src="/images/USDT.JPG" width="20" height="20">
 													USDT
 												</button>
 												<br> <br>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">
+												<button id="wbtc" onclick="displayCurr4()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
 													<img src="/images/BTC.JPG" width="20" height="20">
 													WBTC
 												</button>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">
+												<button id="usdc" onclick="displayCurr5()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
 													<img src="/images/USDC.JPG" width="20" height="20">
 													USDC
 												</button>
 											</div>
 											<div class="modal-body">
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+												<button id="eth" onclick="displayCurr1()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
 													<img src="/images/ethereum_icon.png" width="20" height="20">
 													ETH
 												</button>
 												<br> <br>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+												<button id="iinch" onclick="displayCurr6()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
 													<img src="/images/IINCH_icon.JPG" width="20" height="20">
 													lINCH
 												</button>
 												<br> <br>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+												<button id="aave" onclick="displayCurr7()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
 													<img src="/images/AAVE_icon.JPG" width="20" height="20">
 													AAVE
 												</button>
 												<br> <br>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+												<button id="ach" onclick="displayCurr8()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
 													<img src="/images/ACH_icon.JPG" width="20" height="20">
 													ACH
 												</button>
 												<br> <br>
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px">
+												<button id="aergo" onclick="displayCurr9()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
 													<img src="/images/AERGO_icon.JPG" width="20" height="20">
 													AERGO
 												</button>
@@ -126,7 +192,7 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211);">Manage
+													style="background-color: rgb(211, 211, 211); width: 500px;">Manage
 													token list</button>
 											</div>
 										</div>
@@ -141,10 +207,113 @@
 								style="background-color: rgb(211, 211, 211);"
 								id="exampleInputamt2" placeholder="0.0">
 							<div class="input-group-prepend input-group-lg">
-								<button type="button" class="btn form-control"
+								<button id="demo" type="button" class="btn form-control"
 									style="background-color: #EEE6E6;" data-bs-toggle="modal"
-									data-bs-target="#exampleModal">SELECT <i class="fa fa-caret-down"></i></button>
+									data-bs-target="#exampleModal">
+									SELECT <i class="fa fa-caret-down"></i>
+								</button>
 
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">
+													<b>Select a token</b>
+												</h5>
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Close</button>
+											</div>
+											<div class="modal-body">
+												<input type="amt1" class="form-control"
+													style="background-color: rgb(211, 211, 211);"
+													id="exampleInputamt1"
+													placeholder="search name or paste address">
+											</div>
+											<div class="modal-body">
+												<button id="eth" onclick="displayCurr1()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
+													<img src="/images/ethereum_icon.png" width="20" height="20">
+													ETH
+												</button>
+												<button id="dai" onclick="displayCurr2()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
+													<img src="/images/DAI_icon.JPG" width="20" height="20">
+													DAI
+												</button>
+												<button id="usdt" onclick="displayCurr3()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
+													<img src="/images/USDT.JPG" width="20" height="20">
+													USDT
+												</button>
+												<br> <br>
+												<button id="wbtc" onclick="displayCurr4()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
+													<img src="/images/BTC.JPG" width="20" height="20">
+													WBTC
+												</button>
+												<button id="usdc" onclick="displayCurr5()" type="button"
+													class="btn" style="background-color: rgb(211, 211, 211);"
+													data-bs-dismiss="modal">
+													<img src="/images/USDC.JPG" width="20" height="20">
+													USDC
+												</button>
+											</div>
+											<div class="modal-body">
+												<button id="eth" onclick="displayCurr1()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
+													<img src="/images/ethereum_icon.png" width="20" height="20">
+													ETH
+												</button>
+												<br> <br>
+												<button id="iinch" onclick="displayCurr6()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
+													<img src="/images/IINCH_icon.JPG" width="20" height="20">
+													lINCH
+												</button>
+												<br> <br>
+												<button id="aave" onclick="displayCurr7()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
+													<img src="/images/AAVE_icon.JPG" width="20" height="20">
+													AAVE
+												</button>
+												<br> <br>
+												<button id="ach" onclick="displayCurr8()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
+													<img src="/images/ACH_icon.JPG" width="20" height="20">
+													ACH
+												</button>
+												<br> <br>
+												<button id="aergo" onclick="displayCurr9()" type="button"
+													class="btn"
+													style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
+													data-bs-dismiss="modal">
+													<img src="/images/AERGO_icon.JPG" width="20" height="20">
+													AERGO
+												</button>
+												<br> <br>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn"
+													style="background-color: rgb(211, 211, 211); width: 500px;">Manage
+													token list</button>
+											</div>
+										</div>
+									</div>
+								</div>
 
 							</div>
 						</div>
