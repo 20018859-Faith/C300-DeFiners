@@ -26,4 +26,9 @@ public class MainController {
 		return "walletConnect";
 	}
 	
+	@GetMapping("/pool/newPosition")
+	public String newPos() {
+		return "newPos";
+	}
+	
 }

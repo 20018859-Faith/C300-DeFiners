@@ -4,20 +4,25 @@
 #cen.active {
 	background-color: #D2D2D2;
 	color: #fff;
-	border-radius: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
 }
 
-/* center navbar */
-.cent {
+/* left navbar */
+.lft {
 	padding-left: 15px;
 	padding-right: 15px;
-	font-size: large;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	min-width: 250px;
 }
 
 /* Wallet dropdown menu*/
 .dropbtn {
 	border: none; /* remove button border (the black thick border) */
 	cursor: pointer; /* change cursor to point */
+	min-width: 140px;
 }
 
 /* Wallet dropdown menu*/
@@ -32,7 +37,7 @@
 	border-radius: 25px;
 	display: none;
 	position: absolute;
-	min-width: 150px;
+	min-width: 180px;
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 4; /* overlay other elements */
@@ -58,17 +63,35 @@
 /* margin between each navbar */
 .marg {
 	margin-left: 20px;
-	margin-right: 20px;
 }
 
-.margi {
-	margin-left: 280px;
-}
-
-/* Connect Wallet */
+/* wallet */
 .connectbtn {
 	border: none; /* remove button border (the black thick border) */
 	cursor: pointer; /* change cursor to point */
+	min-width: 140px;
+}
+
+/* active wallet */
+#dt.active {
+	content: \25CF;
+}
+
+/* wallet dropdown title */
+.sw {
+	color: #9A9999;
+	justify-content: center;
+	margin-left: 40px;
+}
+
+/* wallet hover color */
+.wl {
+	color: #9A9999;
+}
+
+/* wallet hidden when not hover*/
+.hideWlt {
+	display: none;
 }
 </style>
 
@@ -84,34 +107,61 @@
 
 			<div class="margi"></div>
 
-			<!-- center navbar -->
-			<div
-				class="cent navbar navbar-nav justify-content-center bg-light mx-auto"
-				style="border-radius: 40px;">
+			<!-- left navbar -->
+			<div class="lft navbar navbar-nav bg-light"
+				style="border-radius: 30px;">
 				<a id="cen" class="nav-link text-dark" href="/">Swap</a> <a id="cen"
-					class="nav-link text-dark" href="/pool">Pool</a> <a id="cen"
-					class="nav-link text-dark" href="/charts">Charts&#11127;</a>
+					class="poolnav nav-link text-dark" href="/pool">Pool</a> <a
+					id="cen" class="nav-link text-dark" href="/charts">Charts&#11127;</a>
 			</div>
 
-			<!-- right navbar -->
+			<!-- center spacing -->
+			<div class="mx-auto"></div>
+
+			<!-- wallet -->
 			<div
 				class="navbar navbar-nav justify-content-center bg-light ml-auto dropdown"
 				style="border-radius: 40px;">
-				<button onclick="myFunction()" class="dropbtn bg-light"
+				<button onclick="dropWallet()" class="dropbtn bg-light"
 					style="border-radius: 40px;">
 					<img src="/images/ethereum_icon.png" width="22" height="22">
 					Ethereum&#11167;
 				</button>
 				<div id="dropdown" class="dropdown-content bg-light">
-					<a class="text-dark" href="#">Ethereum <span class="text-success">&#9679;</span></a> 
-					<a class="text-dark" href="#">Polygon</a> 
-					<a class="text-dark" href="#">Optimism</a> 
-					<a class="text-dark" href="#">Arbitrum</a>
+					<span class="sw">Select Wallet</span> 
+					
+					<!-- Ethereum -->
+					<a class="text-dark wrap1"
+						href="#ethereum"><img src="/images/ethereum_icon.png"
+						width="18" height="18"> <b>Ethereum</b> <span id="dt"
+						class="text-success">&#9679;</span><br>
+					<span class="wl wlt1 hideWlt">Etherscan</span></a> 
+					
+					<!-- Polygon -->
+					<a class="text-dark wrap2" href="#polygon"><img
+						src="/images/polygon_icon.png" width="18" height="18"> <b>Polygon</b>
+						<span id="dt" class="text-success"></span><br>
+					<span class="wl wlt2 hideWlt">Polygon Bridge Polygonscan</span></a> 
+					
+					<!-- Optimism -->
+					<a class="text-dark wrap3" href="#optimism"><img
+						src="/images/optimism_icon.png" width="18" height="18"> <b>Optimism</b>
+						<span id="dt" class="text-success"></span><br>
+					<span class="wl wlt3 hideWlt">Optimism Bridge Optimism
+							Etherscan</span></a> 
+					
+					<!-- Arbitrum -->
+					<a class="text-dark wrap4" href="#arbitrum"><img
+						src="/images/arbitrum_icon.png" width="18" height="18"> <b>Arbitrum</b>
+						<span id="dt" class="text-success"></span><br>
+					<span class="wl wlt4 hideWlt">Arbitrum Bridge Arbiscan</span></a>
 				</div>
 			</div>
 
+			<!-- button spacing -->
 			<div class="marg"></div>
 
+			<!-- connect button -->
 			<div class="navbar navbar-nav bg-light ml-auto"
 				style="border-radius: 40px;">
 				<button class="connectbtn text-dark bg-light"
@@ -125,7 +175,7 @@
 </header>
 
 <script>
-	/* add active*/
+	/* add active, for left navbar */
 	$(function() {
 		$('a').each(function() {
 			if ($(this).prop('href') == window.location.href) {
@@ -136,7 +186,7 @@
 	});
 
 	/* When user click button, toggle between hiding and showing the dropdown content */
-	function myFunction() {
+	function dropWallet() {
 		document.getElementById("dropdown").classList.toggle("show");
 	}
 
@@ -153,4 +203,62 @@
 			}
 		}
 	}
+
+	// 	// if hover -> display txt
+	// 	function displayTxt(evt) {
+	// 		evt.currentTarget.parentNode.querySelector('.wlt').classList.remove('hideWlt');
+	// 	}
+	// 	// if leave -> hide txt
+	// 	function removeTxt(evt) {
+	// 		evt.currentTarget.querySelector('.wlt').classList.add('hideWlt');
+	// 	}
+
+	// 	/* mouseover and mouseout events */
+	// 	var wrap = document.querySelector('.wrap'); // find the element in the document
+	// 	wrap.addEventListener('mouseenter', displayTxt);
+	// 	wrap.addEventListener('mouseleave', removeTxt);
+
+	/* Ethereum */
+	$('.wrap1').hover(
+			function displayTxt(evt) {
+				evt.currentTarget.parentNode.querySelector('.wlt1').classList
+						.remove('hideWlt');
+			},
+			function removeTxt(evt) {
+				evt.currentTarget.querySelector('.wlt1').classList
+						.add('hideWlt');
+			})
+
+	/* Polygon */
+	$('.wrap2').hover(
+			function displayTxt(evt) {
+				evt.currentTarget.parentNode.querySelector('.wlt2').classList
+						.remove('hideWlt');
+			},
+			function removeTxt(evt) {
+				evt.currentTarget.querySelector('.wlt2').classList
+						.add('hideWlt');
+			})
+
+	/* Optimism */
+	$('.wrap3').hover(
+			function displayTxt(evt) {
+				evt.currentTarget.parentNode.querySelector('.wlt3').classList
+						.remove('hideWlt');
+			},
+			function removeTxt(evt) {
+				evt.currentTarget.querySelector('.wlt3').classList
+						.add('hideWlt');
+			})
+
+	/* Arbitrum */
+	$('.wrap4').hover(
+			function displayTxt(evt) {
+				evt.currentTarget.parentNode.querySelector('.wlt4').classList
+						.remove('hideWlt');
+			},
+			function removeTxt(evt) {
+				evt.currentTarget.querySelector('.wlt4').classList
+						.add('hideWlt');
+			})
 </script>
