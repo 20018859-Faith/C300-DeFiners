@@ -94,7 +94,6 @@
 	padding: 10px;
 	border-radius: 20px;
 	margin-top: 5px;
-	min-width: 180px;
 	background-color: #D9D9D9;
 }
 
@@ -103,9 +102,93 @@
 	padding-left: 10px;
 }
 
-.feeTier {
+.leftSpace {
 	margin-top: 15px;
 	padding-left: 15px;
+}
+
+.feeTier {
+	margin-top: 15px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border: 1px solid grey;
+	border-radius: 20px;
+}
+
+.feeText {
+	float: right;
+	padding-right: 20px;
+}
+
+.feeShown {
+	float: right;
+	padding-right: 50px;
+}
+
+.editbtn {
+	border: none; /* remove button border (the black thick border) */
+	cursor: pointer; /* change cursor to point */
+	float: left;
+	margin-right: 10px;
+	border: none;
+	background-color: #D9D9D9;
+	border-radius: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.dropEdit {
+	display: inline-block;
+	position: relative; /* start inline */
+}
+
+.dropEdit-content {
+	margin-top: 45px;
+	border-radius: 20px;
+	display: none;
+	position: absolute;
+	min-width: 150px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 4; /* overlay other elements */
+}
+
+.dropEdit-content a {
+	padding: 12px 16px; /* space between each element */
+	text-decoration: none; /* remove underline - link has underline */
+	display: block;
+}
+
+.dropEdit a:hover {
+	background-color: #D2D2D2; /* hover color */
+}
+
+.showEdit {
+	display: block;
+}
+
+.depAmt {
+	margin-top: 15px;
+	padding-left: 10px;
+}
+
+.inputAmt1 {
+	border: 1px solid grey;
+	border-radius: 20px;
+	font-size: large;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.select1 {
+	border: none;
+	background-color: #D9D9D9;
+	border-radius: 20px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 </style>
 
@@ -132,13 +215,45 @@
 				<div class="bottmLeft">
 					<h6 class="selectPair">Select Pair</h6>
 					<div>
-						<button class="tokenSel" data-bs-toggle="modal">Select a token <span class="fa fa-caret-down"></span></button>
-						<button class="tokenSel selRight" data-bs-toggle="modal">Select a token <span class="fa fa-caret-down"></span></button>
-					</div>
-					<div class="feeTier">
-						<h6>Fee Tier</h6>
+						<button class="tokenSel">
+							Select a token <span class="fa fa-caret-down"></span>
+						</button>
+						<button class="tokenSel selRight">
+							Select a token <span class="fa fa-caret-down"></span>
+						</button>
 					</div>
 
+					<!-- left side -->
+					<div class="leftSpace">
+						<div class="feeTier">
+							<h6>Fee Tier</h6>
+							<span class="feeShown"><b>0.01%</b></span>
+							<div class="dropEdit">
+								<button onclick="dropEdit()" class="editbtn">Edit</button>
+								<div id="dropEdit" class="dropEdit-content bg-light"
+									style="border-radius: 20px;">
+									<a class="text-dark vstablePairs">0.01% - Best for very
+										stable pairs</a> <a class="text-dark stablePairs"> 0.05% -
+										Best for stable pairs</a> <a class="text-dark mostPairs">0.3%
+										- Best for most pairs</a> <a class="text-dark exoticPairs">1%
+										- Best for exotic pairs</a>
+								</div>
+							</div>
+							<p class="feeText" style="color: #9A9999;">The % you will
+								earn in fees.</p>
+						</div>
+
+						<div class="depAmt">
+							<h6>Deposit Amounts</h6>
+							<div>
+								<input type="text" id="amt1" name="amount1" placeholder="0.0"
+									class="inputAmt1">
+								<button class="select1">
+									SELECT <span class="fa fa-caret-down"></span>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="bottomright">
@@ -153,5 +268,25 @@
 	</div>
 </body>
 
+<script>
+	/* When user click button, toggle between hiding and showing the dropdown content */
+	function dropEdit() {
+		document.getElementById("dropEdit").classList.toggle("showEdit");
+	}
 
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.editbtn')) {
+			var dropdownse = document
+					.getElementsByClassName("dropEdit-content");
+			var i;
+			for (i = 0; i < dropdownse.length; i++) {
+				var openDropdowne = dropdownse[i];
+				if (openDropdowne.classList.contains('showEdit')) {
+					openDropdowne.classList.remove('showEdit');
+				}
+			}
+		}
+	}
+</script>
 </html>

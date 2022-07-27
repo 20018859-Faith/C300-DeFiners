@@ -62,7 +62,7 @@
 
 /* margin between each navbar */
 .marg {
-	margin-left: 20px;
+	margin-left: 10px;
 }
 
 /* wallet */
@@ -94,6 +94,14 @@
 /* wallet hidden when not hover*/
 .hideWlt {
 	display: none;
+}
+
+.loginbtn {
+	border: none; /* remove button border (the black thick border) */
+	cursor: pointer; /* change cursor to point */
+	min-width: 70px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 </style>
 
@@ -168,6 +176,17 @@
 					style="border-radius: 40px;">Connect Wallet</button>
 			</div>
 
+			<!-- button spacing -->
+			<div class="marg"></div>
+
+			<!-- log in member -->
+			<div class="navbar navbar-nav bg-light ml-auto"
+				style="border-radius: 40px;">
+				<button class="loginbtn text-dark bg-light"
+					style="border-radius: 40px;">Log In</button>
+			</div>
+
+			<!-- button spacing -->
 			<div class="marg"></div>
 		</div>
 
