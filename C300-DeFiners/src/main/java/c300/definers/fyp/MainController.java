@@ -21,11 +21,6 @@ public class MainController {
 		return "charts";
 	}
 	
-	@GetMapping("/walletConnect")
-	public String walletConnect() {
-		return "walletConnect";
-	}
-	
 	@GetMapping("/pool/newPosition")
 	public String newPos() {
 		return "newPos";

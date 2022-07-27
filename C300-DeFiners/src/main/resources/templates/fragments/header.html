@@ -70,6 +70,8 @@
 	border: none; /* remove button border (the black thick border) */
 	cursor: pointer; /* change cursor to point */
 	min-width: 140px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 /* active wallet */
@@ -125,36 +127,34 @@
 				<button onclick="dropWallet()" class="dropbtn bg-light"
 					style="border-radius: 40px;">
 					<img src="/images/ethereum_icon.png" width="22" height="22">
-					Ethereum&#11167;
+					Ethereum <span class="fa fa-caret-down"></span>
 				</button>
 				<div id="dropdown" class="dropdown-content bg-light">
-					<span class="sw">Select Wallet</span> 
-					
+					<span class="sw">Select Wallet</span>
+
 					<!-- Ethereum -->
-					<a class="text-dark wrap1"
-						href="#ethereum"><img src="/images/ethereum_icon.png"
-						width="18" height="18"> <b>Ethereum</b> <span id="dt"
-						class="text-success">&#9679;</span><br>
-					<span class="wl wlt1 hideWlt">Etherscan</span></a> 
-					
+					<a class="text-dark wrap1" href="#ethereum"><img
+						src="/images/ethereum_icon.png" width="18" height="18"> <b>Ethereum</b>
+						<span id="dt" class="text-success">&#9679;</span><br> <span
+						class="wl wlt1 hideWlt">Etherscan</span></a>
+
 					<!-- Polygon -->
 					<a class="text-dark wrap2" href="#polygon"><img
 						src="/images/polygon_icon.png" width="18" height="18"> <b>Polygon</b>
-						<span id="dt" class="text-success"></span><br>
-					<span class="wl wlt2 hideWlt">Polygon Bridge Polygonscan</span></a> 
-					
+						<span id="dt" class="text-success"></span><br> <span
+						class="wl wlt2 hideWlt">Polygon Bridge Polygonscan</span></a>
+
 					<!-- Optimism -->
 					<a class="text-dark wrap3" href="#optimism"><img
 						src="/images/optimism_icon.png" width="18" height="18"> <b>Optimism</b>
-						<span id="dt" class="text-success"></span><br>
-					<span class="wl wlt3 hideWlt">Optimism Bridge Optimism
-							Etherscan</span></a> 
-					
+						<span id="dt" class="text-success"></span><br> <span
+						class="wl wlt3 hideWlt">Optimism Bridge Optimism Etherscan</span></a>
+
 					<!-- Arbitrum -->
 					<a class="text-dark wrap4" href="#arbitrum"><img
 						src="/images/arbitrum_icon.png" width="18" height="18"> <b>Arbitrum</b>
-						<span id="dt" class="text-success"></span><br>
-					<span class="wl wlt4 hideWlt">Arbitrum Bridge Arbiscan</span></a>
+						<span id="dt" class="text-success"></span><br> <span
+						class="wl wlt4 hideWlt">Arbitrum Bridge Arbiscan</span></a>
 				</div>
 			</div>
 
@@ -164,7 +164,7 @@
 			<!-- connect button -->
 			<div class="navbar navbar-nav bg-light ml-auto"
 				style="border-radius: 40px;">
-				<button class="connectbtn text-dark bg-light"
+				<button id="connect-button" class="connectbtn text-dark bg-light"
 					style="border-radius: 40px;">Connect Wallet</button>
 			</div>
 
@@ -175,6 +175,7 @@
 </header>
 
 <script>
+
 	/* add active, for left navbar */
 	$(function() {
 		$('a').each(function() {
@@ -203,20 +204,6 @@
 			}
 		}
 	}
-
-	// 	// if hover -> display txt
-	// 	function displayTxt(evt) {
-	// 		evt.currentTarget.parentNode.querySelector('.wlt').classList.remove('hideWlt');
-	// 	}
-	// 	// if leave -> hide txt
-	// 	function removeTxt(evt) {
-	// 		evt.currentTarget.querySelector('.wlt').classList.add('hideWlt');
-	// 	}
-
-	// 	/* mouseover and mouseout events */
-	// 	var wrap = document.querySelector('.wrap'); // find the element in the document
-	// 	wrap.addEventListener('mouseenter', displayTxt);
-	// 	wrap.addEventListener('mouseleave', removeTxt);
 
 	/* Ethereum */
 	$('.wrap1').hover(
@@ -261,4 +248,32 @@
 				evt.currentTarget.querySelector('.wlt4').classList
 						.add('hideWlt');
 			})
+			
+	/* Connect button */
+	document.getElementById('connect-button').addEventListener('click', event => {
+		
+		// declare account variable
+		let account;
+		
+		// declare button variable as event.target (the button input)
+		let button = event.target;
+		
+		// bring in metamask api to retrieve account
+		ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+			account = accounts[0];
+			console.log(account); // display output of account address in console
+			button.textContent = account; // change button test to account address
+			
+			// bring in metamask api to retrieve account balance
+			ethereum.request({method: 'eth_getBalance', params : [account, 'latest']}).then(result => {
+				console.log(result);
+				
+				// change hex to readable value
+				let wei = parseInt(result, 16);
+				let balance = wei / (10**18);
+				console.log(balance + " ETH"); // display output of account balance in console
+			});
+		});
+	});
+	
 </script>
