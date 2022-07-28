@@ -35,18 +35,9 @@ public class MainController {
 	public String about() {
 		return "aboutUs";
 	}
-	
-<<<<<<< HEAD
-	@GetMapping("/about")
-	public String about() {
-		return "about";
-	}
-	
-=======
+
 	@GetMapping("/docs")
 	public String docs() {
 		return "docs";
 	}
-
->>>>>>> branch 'master' of https://github.com/20018859-Faith/C300-DeFiners.git
 }
