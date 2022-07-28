@@ -8,155 +8,13 @@
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/css/indexstyle.css">
 </head>
 
-<style>
-/* Wallet dropdown menu*/
-.dropbtn2 {
-	border: none; /* remove button border (the black thick border) */
-	cursor: pointer; /* change cursor to point */
-	background-color: #E1EECC;
-}
-
-/* Wallet dropdown menu*/
-.dropdown2 {
-	display: inline-block;
-	position: relative; /* start inline */
-}
-
-/* Wallet dropdown menu*/
-.dropdown-content2 {
-	margin-top: 30px;
-	border-radius: 15px;
-	display: none;
-	position: absolute;
-	min-width: 330px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 4; /* overlay other elements */
-}
-
-/* Wallet dropdown menu*/
-.dropdown-content2 a {
-	padding: 12px 16px; /* space between each element */
-	text-decoration: none; /* remove underline - link has underline */
-	display: block;
-}
-
-/* Wallet dropdown menu*/
-.dropdown2 a:hover {
-	background-color: #E1EECC; /* hover color */
-}
-
-/* Wallet dropdown menu*/
-.show2 {
-	display: block;
-}
-
-.switch {
-	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-}
-
-.switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider {
-	background-color: #2196F3;
-}
-
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
-	border-radius: 50%;
-}
-
-.input-container {
-	display: flex;
-	width: 500px;
-	border: 1px solid #a9a9a9;
-	justify-content: space-between;
-	border-radius: 40px;
-	background-color: rgb(211, 211, 211);
-}
-
-.input-container input:focus, .input-container input:active {
-	outline: none;
-}
-
-.input-container input {
-	width: 100%;
-	border: none;
-	border-radius: 40px;
-}
-
-.input-container button {
-	float: right;
-	border-radius: 40px;
-	width: 130px;
-	height: 50px;
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	font-size: 18px;
-}
-
-.input-field {
-	font-size: 35px;
-	text-align: left;
-	background-color: rgb(211, 211, 211);
-	font-weight: bold;
-}
-
-</style>
 
 <body style="background-color: #E1EECC;">
 
@@ -182,14 +40,14 @@ input:checked+.slider:before {
 								Slippage tolerance ?</span><br>
 						<div class="input-group">
 							&nbsp;&nbsp;
-							<button
+							<button type="button" class="btn"
 								style="border-radius: 40px; background-color: rgb(224, 234, 251); width: 100px;">Auto</button>
 							&nbsp;<input type="tol" class="form-control"
 								style="background-color: rgb(211, 211, 211); text-align: right; border-radius: 40px;"
 								id="exampleInputamt1" placeholder="0.0%">&nbsp;
 						</div>
 						<span>&nbsp; Transaction deadline ?</span><br> &nbsp;&nbsp;<input
-							type="tol" class="input"
+							type="tol" class="form"
 							style="background-color: rgb(211, 211, 211); text-align: center; border-radius: 40px;"
 							id="exampleInputamt1" placeholder="30">&nbsp; minutes <br>
 						<br> &nbsp;&nbsp;&nbsp;<b>Interface setting</b><br> <span>&nbsp;&nbsp;
@@ -216,244 +74,25 @@ input:checked+.slider:before {
 							<input type="amt1" class="input-field" id="exampleInputamt1"
 								placeholder="0.0" style="text-align:center;">
 
-							<button id="demo" type="button" class="form-control"
-								style="background-color: #EEE6E6; font-size: 15px;"
-								data-bs-toggle="modal" data-bs-target="#exampleModal">
-								<b> SELECT <i class="fa fa-caret-down"></i></b>
-							</button>
 
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1"
-								aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
-								<div class="modal-dialog">
-									<div class="modal-content" style="border-radius: 20px;">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">
-												<b>Select a token</b>
-											</h5>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-										</div>
-										<div class="modal-body">
-											<input type="amt1" class="form-control"
-												style="background-color: rgb(211, 211, 211);"
-												id="exampleInputamt1"
-												placeholder="search name or paste address">
-										</div>
-										<div class="modal-body">
-											<button id="eth" onclick="displayCurr1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">
-												<img src="/images/ethereum_icon.png" width="20" height="20">
-												ETH
-											</button>
-											<button id="dai" onclick="displayCurr2()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">
-												<img src="/images/DAI_icon.JPG" width="20" height="20">
-												DAI
-											</button>
-											<button id="usdt" onclick="displayCurr3()" type="button"
-												class="btn" style="background-color: rgb(211, 211, 211);"
-												data-bs-dismiss="modal">
-												<img src="/images/USDT.JPG" width="20" height="20">
-												USDT
-											</button>
-											<br> <br>
-											<button id="wbtc" onclick="displayCurr4()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 80px;"
-												data-bs-dismiss="modal">
-												<img src="/images/BTC.JPG" width="20" height="20">
-												WBTC
-											</button>
-											<button id="usdc" onclick="displayCurr5()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 40px;"
-												data-bs-dismiss="modal">
-												<img src="/images/USDC.JPG" width="20" height="20">
-												USDC
-											</button>
-										</div>
-										<div class="modal-body">
-											<button id="eth" onclick="displayCurr1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
-												data-bs-dismiss="modal">
-												<img src="/images/ethereum_icon.png" width="20" height="20">
-												ETH
-											</button>
-											<br> <br>
-											<button id="iinch" onclick="displayCurr6()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
-												data-bs-dismiss="modal">
-												<img src="/images/IINCH_icon.JPG" width="20" height="20">
-												lINCH
-											</button>
-											<br> <br>
-											<button id="aave" onclick="displayCurr7()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
-												data-bs-dismiss="modal">
-												<img src="/images/AAVE_icon.JPG" width="20" height="20">
-												AAVE
-											</button>
-											<br> <br>
-											<button id="ach" onclick="displayCurr8()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
-												data-bs-dismiss="modal">
-												<img src="/images/ACH_icon.JPG" width="20" height="20">
-												ACH
-											</button>
-											<br> <br>
-											<button id="aergo" onclick="displayCurr9()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px"
-												data-bs-dismiss="modal">
-												<img src="/images/AERGO_icon.JPG" width="20" height="20">
-												AERGO
-											</button>
-											<br> <br>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn" 
-												style="background-color: rgb(211, 211, 211); width: 500px;">Manage
-												token list</button>
-										</div>
-									</div>
-								</div>
-							</div>
-
+							
+							
+							
 
 						</div>
 						<br>
 						<div class="input-container">
 							<input type="amt2" class="input-field" id="exampleInputamt1"
 								placeholder="0.0" style="text-align:center;">
-
-							<button id="demo2" type="button" class="form-control"
-								style="background-color: #EEE6E6; font-size: 15px;"
-								data-bs-toggle="modal" data-bs-target="#exampleModal2">
-								<b> SELECT <i class="fa fa-caret-down"></i></b>
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade2" id="exampleModal2" tabindex="-1"
-								aria-labelledby="exampleModalLabel2" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content" style="border-radius: 20px;">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">
-												<b>Select a token</b>
-											</h5>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-										</div>
-										<div class="modal-body">
-											<input type="amt1" class="form-control"
-												style="background-color: rgb(211, 211, 211);"
-												id="exampleInputamt1"
-												placeholder="search name or paste address">
-										</div>
-										<div class="modal-body">
-											<button id="eth1" onclick="displayCur1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">
-												<img src="/images/ethereum_icon.png" width="20" height="20">
-												ETH
-											</button>
-											<button id="dai1" onclick="displayCur2()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">
-												<img src="/images/DAI_icon.JPG" width="20" height="20">
-												DAI
-											</button>
-											<button id="usdt1" onclick="displayCur3()" type="button"
-												class="btn" style="background-color: rgb(211, 211, 211);"
-												data-bs-dismiss="modal">
-												<img src="/images/USDT.JPG" width="20" height="20">
-												USDT
-											</button>
-											<br> <br>
-											<button id="wbtc1" onclick="displayCur4()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 80px;"
-												data-bs-dismiss="modal">
-												<img src="/images/BTC.JPG" width="20" height="20">
-												WBTC
-											</button>
-											<button id="usdc1" onclick="displayCur5()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 40px;"
-												data-bs-dismiss="modal">
-												<img src="/images/USDC.JPG" width="20" height="20">
-												USDC
-											</button>
-										</div>
-										<div class="modal-body">
-											<button id="eth1" onclick="displayCur1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px;"
-												data-bs-dismiss="modal">
-												<img src="/images/ethereum_icon.png" width="20" height="20">
-												ETH
-											</button>
-											<br> <br>
-											<button id="iinch1" onclick="displayCur6()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px;"
-												data-bs-dismiss="modal">
-												<img src="/images/IINCH_icon.JPG" width="20" height="20">
-												lINCH
-											</button>
-											<br> <br>
-											<button id="aave1" onclick="displayCur7()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px;"
-												data-bs-dismiss="modal">
-												<img src="/images/AAVE_icon.JPG" width="20" height="20">
-												AAVE
-											</button>
-											<br> <br>
-											<button id="ach1" onclick="displayCur8()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px;"
-												data-bs-dismiss="modal">
-												<img src="/images/ACH_icon.JPG" width="20" height="20">
-												ACH
-											</button>
-											<br> <br>
-											<button id="aergo1" onclick="displayCur9()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: left; padding-left: 6px;"
-												data-bs-dismiss="modal">
-												<img src="/images/AERGO_icon.JPG" width="20" height="20">
-												AERGO
-											</button>
-											<br> <br>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn" 
-												style="background-color: rgb(211, 211, 211); width: 500px;">Manage
-												token list</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							
+							
 							
 						</div>
 						<br>
 						<div class="d-flex justify-content-center">
-							<button type="connect" class="btn"
+							<button type="button" class="btn"
 								style="background-color: rgb(224, 234, 251); font-size: 18px; width: 200px; height: 50px; border-radius: 40px;">
-								<b>Connect Wallet</b>
+								<b>Swap</b>
 							</button>
 						</div>
 					</form>
@@ -468,98 +107,6 @@ input:checked+.slider:before {
 			document.getElementById("settingdown").classList.toggle("show");
 		}
 
-		function displayCurr1() {
-			let html = document.getElementById("eth").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr2() {
-			let html = document.getElementById("dai").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr3() {
-			let html = document.getElementById("usdt").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr4() {
-			let html = document.getElementById("wbtc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr5() {
-			let html = document.getElementById("usdc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr6() {
-			let html = document.getElementById("iinch").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr7() {
-			let html = document.getElementById("aave").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr8() {
-			let html = document.getElementById("ach").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr9() {
-			let html = document.getElementById("aergo").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		///
-
-		function displayCur1() {
-			let html = document.getElementById("eth1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur2() {
-			let html = document.getElementById("dai1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur3() {
-			let html = document.getElementById("usdt1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur4() {
-			let html = document.getElementById("wbtc1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur5() {
-			let html = document.getElementById("usdc1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur6() {
-			let html = document.getElementById("iinch1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur7() {
-			let html = document.getElementById("aave1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur8() {
-			let html = document.getElementById("ach1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur9() {
-			let html = document.getElementById("aergo1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-		
 		
 	</script>
 

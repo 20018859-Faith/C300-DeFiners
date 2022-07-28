@@ -26,4 +26,9 @@ public class MainController {
 		return "newPos";
 	}
 	
+	@GetMapping("/about")
+	public String about() {
+		return "about";
+	}
+	
 }
