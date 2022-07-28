@@ -96,12 +96,42 @@
 	display: none;
 }
 
-.loginbtn {
+.dropdownmorebtn {
 	border: none; /* remove button border (the black thick border) */
 	cursor: pointer; /* change cursor to point */
-	min-width: 70px;
+	min-width: 40px;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+.dropdownMore {
+	display: inline-block;
+	position: relative; /* start inline */
+}
+
+.dropdownMore-content {
+	margin-top: 15px;
+	border-radius: 25px;
+	display: none;
+	position: absolute;
+	min-width: 100px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 4; /* overlay other elements */
+}
+
+.dropdownMore-content a {
+	padding: 12px 16px; /* space between each element */
+	text-decoration: none; /* remove underline - link has underline */
+	display: block;
+}
+
+.dropdownMore a:hover {
+	background-color: #D2D2D2; /* hover color */
+}
+
+.showmenu {
+	display: block;
 }
 </style>
 
@@ -179,11 +209,25 @@
 			<!-- button spacing -->
 			<div class="marg"></div>
 
-			<!-- log in member -->
-			<div class="navbar navbar-nav bg-light ml-auto"
+			<!-- dropdown menu more -->
+
+			<div
+				class="navbar navbar-nav justify-content-center bg-light ml-auto dropdownMore"
 				style="border-radius: 40px;">
-				<button class="loginbtn text-dark bg-light"
-					style="border-radius: 40px;">Log In</button>
+				<button onclick="dropdownMore()"
+					class="dropdownmorebtn text-dark bg-light"
+					style="border-radius: 40px;">&#9776;</button>
+
+				<div id="dropdownMore" class="dropdownMore-content bg-light">
+					<!-- About Us -->
+					<a class="text-dark" href="/about">About Us</a>
+
+					<!-- Docs -->
+					<a class="text-dark" href="/docs">Docs</a>
+
+					<!-- Login -->
+					<a class="text-dark" href="/login">Login</a>
+				</div>
 			</div>
 
 			<!-- button spacing -->
@@ -219,6 +263,25 @@
 				var openDropdown = dropdowns[i];
 				if (openDropdown.classList.contains('show')) {
 					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+	
+	/* When user click button, toggle between hiding and showing the dropdown more content */
+	function dropdownMore() {
+		document.getElementById("dropdownMore").classList.toggle("showmenu");
+	}
+
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropdownmorebtn')) {
+			var dropdowns = document.getElementsByClassName("dropdownMore-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('showmenu')) {
+					openDropdown.classList.remove('showmenu');
 				}
 			}
 		}
