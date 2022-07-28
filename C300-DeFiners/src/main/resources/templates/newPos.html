@@ -26,7 +26,7 @@
 }
 
 .poolSet {
-	width: 80%;
+	width: 700px;
 	border-radius: 20px;
 	padding: 10px;
 }
@@ -258,6 +258,26 @@
 	font-size: x-large;
 	font-weight: bold;
 }
+
+.sliderMin {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.sliderMax {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.approve {
+	border: 1px solid grey;
+	border-radius: 10px;
+	width: 300px;
+	height: 50px;
+	margin-top: 30px;
+	background-color: #D9D9D9;
+	font-size: large;
+}
 </style>
 
 <body style="background-color: #E1EECC;">
@@ -348,17 +368,27 @@
 							range</h6>
 						<div class="priceRangeMin">
 							<p>Min Price</p>
-							<p class="minPrice">$0.00</p>
+							<p>
+								$<span class="minPrice">0</span>
+							</p>
 						</div>
 						<div class="minRangeSlide">
-							<input type="range" min="0" max="1000" value="0" class="sliderMin">
+							<input type="range" min="0" max="1000" step="0.01" value="0"
+								class="sliderMin" id="minRange" oninput="sliderChangeMin()">
 						</div>
 						<div class="priceRangeMax">
 							<p>Max Price</p>
-							<p class="maxPrice">$400.00</p>
+							<p>
+								$<span class="maxPrice">400.00</span>
+							</p>
+
 						</div>
 						<div class="maxRangeSlide">
-							<input type="range" min="0" max="1000" value="400" class="sliderMax">
+							<input type="range" min="0" max="1000" step="0.01" value="400"
+								class="sliderMax" id="maxRange" oninput="sliderChangeMax()">
+						</div>
+						<div>
+							<button class="approve">APPROVE</button>
 						</div>
 					</div>
 				</div>
@@ -419,6 +449,18 @@
 		var elem = document.getElementById("feeTierSel4");
 		output = elem.value;
 		document.querySelector('.feeShown').textContent = output;
+	}
+
+	// change min value according to slider
+	function sliderChangeMin() {
+		var min = document.getElementById("minRange").value;
+		document.querySelector('.minPrice').textContent = min;
+	}
+
+	// change max value according to slider
+	function sliderChangeMax() {
+		var max = document.getElementById("maxRange").value;
+		document.querySelector('.maxPrice').textContent = max;
 	}
 </script>
 </html>
