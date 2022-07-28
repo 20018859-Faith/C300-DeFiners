@@ -26,7 +26,7 @@
 }
 
 .poolSet {
-	width: 75%;
+	width: 700px;
 	border-radius: 20px;
 	padding: 10px;
 }
@@ -39,7 +39,12 @@
 	padding-right: 50px;
 	margin-left: 0;
 	margin-right: auto;
-	margin-left: 0;
+}
+
+.addLiq {
+	padding-top: 8px;
+	padding-left: 15px;
+	text-align: center;
 }
 
 .clearall {
@@ -48,12 +53,6 @@
 	margin-left: auto;
 	margin-right: 0;
 	padding-right: 15px;
-}
-
-.addLiq {
-	padding-top: 8px;
-	padding-left: 15px;
-	text-align: center;
 }
 
 .settingsTop {
@@ -81,8 +80,6 @@
 }
 
 .setPrice {
-	padding-top: 5px;
-	padding-left: 15px;
 	margin-left: 0;
 	margin-right: auto;
 }
@@ -90,16 +87,11 @@
 .tokenSel {
 	border: none;
 	margin-left: 10px;
-	margin-right: 5px;
+	margin-right: 10px;
 	padding: 10px;
 	border-radius: 20px;
 	margin-top: 5px;
 	background-color: #D9D9D9;
-}
-
-.selRight {
-	margin-right: 100px;
-	padding-left: 10px;
 }
 
 .leftSpace {
@@ -107,13 +99,18 @@
 	padding-left: 15px;
 }
 
+.rightSpace {
+	margin-top: 5px;
+}
+
 .feeTier {
-	margin-top: 15px;
+	margin-top: 25px;
 	padding-top: 10px;
 	padding-bottom: 5px;
 	padding-left: 10px;
 	border: 1px solid grey;
 	border-radius: 20px;
+	margin-right: 35px;
 }
 
 .feeText {
@@ -123,7 +120,8 @@
 
 .feeShown {
 	float: right;
-	padding-right: 50px;
+	padding-right: 20px;
+	font-weight: bold;
 }
 
 .editbtn {
@@ -148,7 +146,7 @@
 	border-radius: 20px;
 	display: none;
 	position: absolute;
-	min-width: 150px;
+	min-width: 170px;
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 4; /* overlay other elements */
@@ -169,8 +167,17 @@
 }
 
 .depAmt {
-	margin-top: 15px;
+	margin-top: 25px;
+}
+
+.dep1 {
+	margin-top: 10px;
+	margin-right: 35px;
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 10px;
+	background-color: #F6F6F6;
 }
 
 .inputAmt1 {
@@ -180,6 +187,8 @@
 	padding-left: 10px;
 	padding-bottom: 10px;
 	padding-top: 10px;
+	border: none;
+	background-color: #F6F6F6;
 }
 
 .select1 {
@@ -187,8 +196,87 @@
 	background-color: #D9D9D9;
 	border-radius: 20px;
 	padding-left: 10px;
+	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-top: 10px;
+}
+
+.inputAmt2 {
+	border-radius: 20px;
+	font-size: large;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border: none;
+	background-color: #F6F6F6;
+}
+
+.select2 {
+	border: none;
+	background-color: #D9D9D9;
+	border-radius: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.dep2 {
+	margin-top: 10px;
+	margin-right: 35px;
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	background-color: #F6F6F6;
+}
+
+.priceRangeMin {
+	margin-top: 10px;
+	border: 1px solid grey;
+	width: 150px;
+	height: 85px;
+	border-radius: 15px;
+	padding-left: 10px;
+}
+
+.priceRangeMax {
+	margin-top: 10px;
+	border: 1px solid grey;
+	width: 150px;
+	height: 85px;
+	border-radius: 15px;
+	padding-left: 10px;
+}
+
+.minPrice {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.maxPrice {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.sliderMin {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.sliderMax {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.approve {
+	border: 1px solid grey;
+	border-radius: 10px;
+	width: 300px;
+	height: 50px;
+	margin-top: 30px;
+	background-color: #D9D9D9;
+	font-size: large;
 }
 </style>
 
@@ -211,6 +299,7 @@
 
 			<hr>
 
+			<!-- left side -->
 			<div class="bottomPool d-flex">
 				<div class="bottmLeft">
 					<h6 class="selectPair">Select Pair</h6>
@@ -218,37 +307,54 @@
 						<button class="tokenSel">
 							Select a token <span class="fa fa-caret-down"></span>
 						</button>
-						<button class="tokenSel selRight">
+						<button class="tokenSel">
 							Select a token <span class="fa fa-caret-down"></span>
 						</button>
 					</div>
 
-					<!-- left side -->
+					<!-- fee -->
 					<div class="leftSpace">
 						<div class="feeTier">
-							<h6>Fee Tier</h6>
-							<span class="feeShown"><b>0.01%</b></span>
-							<div class="dropEdit">
-								<button onclick="dropEdit()" class="editbtn">Edit</button>
-								<div id="dropEdit" class="dropEdit-content bg-light"
-									style="border-radius: 20px;">
-									<a class="text-dark vstablePairs">0.01% - Best for very
-										stable pairs</a> <a class="text-dark stablePairs"> 0.05% -
-										Best for stable pairs</a> <a class="text-dark mostPairs">0.3%
-										- Best for most pairs</a> <a class="text-dark exoticPairs">1%
-										- Best for exotic pairs</a>
-								</div>
-							</div>
+							<span class="feeShown"><i style="color: #9A9999;">Default:</i>
+								0.3%</span>
+							<h6 class="feeHead">Fee Tier</h6>
 							<p class="feeText" style="color: #9A9999;">The % you will
 								earn in fees.</p>
+							<div class="dropEdit">
+								<button onclick="dropEdit()" class="editbtn">Edit Fee</button>
+								<div id="dropEdit" class="dropEdit-content bg-light"
+									style="border-radius: 20px;">
+									<a class="text-dark"><button onclick="showFee1()"
+											class="vstablePairs" id="feeTierSel1" value="0.01%"
+											style="border: none; border-radius: 20px;">0.01% -
+											Best for very stable pairs</button></a> <a class="text-dark"><button
+											onclick="showFee2()" class="stablePairs" id="feeTierSel2"
+											value="0.05%" style="border: none; border-radius: 20px;">0.05%
+											- Best for stable pairs</button></a> <a class="text-dark"><button
+											onclick="showFee3()" class="mostPairs" id="feeTierSel3"
+											value="0.3%" style="border: none; border-radius: 20px;">0.3%
+											- Best for most pairs</button></a> <a class="text-dark"><button
+											onclick="showFee4()" class="exoticPairs" id="feeTierSel4"
+											value="1%" style="border: none; border-radius: 20px;">1%
+											- Best for exotic pairs</button></a>
+								</div>
+							</div>
 						</div>
 
+						<!-- deposit amount -->
 						<div class="depAmt">
 							<h6>Deposit Amounts</h6>
-							<div>
+							<div class="dep1">
 								<input type="text" id="amt1" name="amount1" placeholder="0.0"
 									class="inputAmt1">
 								<button class="select1">
+									SELECT <span class="fa fa-caret-down"></span>
+								</button>
+							</div>
+							<div class="dep2">
+								<input type="text" id="amt2" name="amount2" placeholder="0.0"
+									class="inputAmt2">
+								<button class="select2">
 									SELECT <span class="fa fa-caret-down"></span>
 								</button>
 							</div>
@@ -257,7 +363,34 @@
 				</div>
 
 				<div class="bottomright">
-					<h6 class="setPrice">Set Price range</h6>
+					<div class="rightSpace">
+						<h6 class="setPrice" style="padding-left: 5px">Set Price
+							range</h6>
+						<div class="priceRangeMin">
+							<p>Min Price</p>
+							<p>
+								$<span class="minPrice">0</span>
+							</p>
+						</div>
+						<div class="minRangeSlide">
+							<input type="range" min="0" max="1000" step="0.01" value="0"
+								class="sliderMin" id="minRange" oninput="sliderChangeMin()">
+						</div>
+						<div class="priceRangeMax">
+							<p>Max Price</p>
+							<p>
+								$<span class="maxPrice">400.00</span>
+							</p>
+
+						</div>
+						<div class="maxRangeSlide">
+							<input type="range" min="0" max="1000" step="0.01" value="400"
+								class="sliderMax" id="maxRange" oninput="sliderChangeMax()">
+						</div>
+						<div>
+							<button class="approve">APPROVE</button>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -287,6 +420,47 @@
 				}
 			}
 		}
+	}
+
+	/* when user select fee tier on dropdown, change the text to show chosen fee tier */
+	// first - v stable
+	function showFee1() {
+		var elem = document.getElementById("feeTierSel1");
+		output = elem.value;
+		document.querySelector('.feeShown').textContent = output;
+	}
+
+	// second - stable
+	function showFee2() {
+		var elem = document.getElementById("feeTierSel2");
+		output = elem.value;
+		document.querySelector('.feeShown').textContent = output;
+	}
+
+	// third - most
+	function showFee3() {
+		var elem = document.getElementById("feeTierSel3");
+		output = elem.value;
+		document.querySelector('.feeShown').textContent = output;
+	}
+
+	// fourth - exotic
+	function showFee4() {
+		var elem = document.getElementById("feeTierSel4");
+		output = elem.value;
+		document.querySelector('.feeShown').textContent = output;
+	}
+
+	// change min value according to slider
+	function sliderChangeMin() {
+		var min = document.getElementById("minRange").value;
+		document.querySelector('.minPrice').textContent = min;
+	}
+
+	// change max value according to slider
+	function sliderChangeMax() {
+		var max = document.getElementById("maxRange").value;
+		document.querySelector('.maxPrice').textContent = max;
 	}
 </script>
 </html>
