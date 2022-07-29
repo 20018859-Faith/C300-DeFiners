@@ -299,100 +299,105 @@
 
 			<hr>
 
-			<!-- left side -->
-			<div class="bottomPool d-flex">
-				<div class="bottmLeft">
-					<h6 class="selectPair">Select Pair</h6>
-					<div>
-						<button class="tokenSel">
-							Select a token <span class="fa fa-caret-down"></span>
-						</button>
-						<button class="tokenSel">
-							Select a token <span class="fa fa-caret-down"></span>
-						</button>
-					</div>
+			<form class="needs-validation" th:action="@{/pool/save}"
+				th:object="${pool}" method="post" enctype="multipart/form-data"
+				novalidate>
 
-					<!-- fee -->
-					<div class="leftSpace">
-						<div class="feeTier">
-							<span class="feeShown"><i style="color: #9A9999;">Default:</i>
-								0.3%</span>
-							<h6 class="feeHead">Fee Tier</h6>
-							<p class="feeText" style="color: #9A9999;">The % you will
-								earn in fees.</p>
-							<div class="dropEdit">
-								<button onclick="dropEdit()" class="editbtn">Edit Fee</button>
-								<div id="dropEdit" class="dropEdit-content bg-light"
-									style="border-radius: 20px;">
-									<a class="text-dark"><button onclick="showFee1()"
-											class="vstablePairs" id="feeTierSel1" value="0.01%"
-											style="border: none; border-radius: 20px;">0.01% -
-											Best for very stable pairs</button></a> <a class="text-dark"><button
-											onclick="showFee2()" class="stablePairs" id="feeTierSel2"
-											value="0.05%" style="border: none; border-radius: 20px;">0.05%
-											- Best for stable pairs</button></a> <a class="text-dark"><button
-											onclick="showFee3()" class="mostPairs" id="feeTierSel3"
-											value="0.3%" style="border: none; border-radius: 20px;">0.3%
-											- Best for most pairs</button></a> <a class="text-dark"><button
-											onclick="showFee4()" class="exoticPairs" id="feeTierSel4"
-											value="1%" style="border: none; border-radius: 20px;">1%
-											- Best for exotic pairs</button></a>
+				<!-- left side -->
+				<div class="bottomPool d-flex">
+					<div class="bottmLeft">
+						<h6 class="selectPair">Select Pair</h6>
+						<div>
+							<button class="tokenSel">
+								Select a token <span class="fa fa-caret-down"></span>
+							</button>
+							<button class="tokenSel">
+								Select a token <span class="fa fa-caret-down"></span>
+							</button>
+						</div>
+
+						<!-- fee -->
+						<div class="leftSpace">
+							<div class="feeTier">
+								<span class="feeShown"><i style="color: #9A9999;">Default:</i>
+									0.3%</span>
+								<h6 class="feeHead">Fee Tier</h6>
+								<p class="feeText" style="color: #9A9999;">The % you will
+									earn in fees.</p>
+								<div class="dropEdit">
+									<button onclick="dropEdit()" class="editbtn">Edit Fee</button>
+									<div id="dropEdit" class="dropEdit-content bg-light"
+										style="border-radius: 20px;">
+										<a class="text-dark"><button onclick="showFee1()"
+												class="vstablePairs" id="feeTierSel1" value="0.01%"
+												style="border: none; border-radius: 20px;">0.01% -
+												Best for very stable pairs</button></a> <a class="text-dark"><button
+												onclick="showFee2()" class="stablePairs" id="feeTierSel2"
+												value="0.05%" style="border: none; border-radius: 20px;">0.05%
+												- Best for stable pairs</button></a> <a class="text-dark"><button
+												onclick="showFee3()" class="mostPairs" id="feeTierSel3"
+												value="0.3%" style="border: none; border-radius: 20px;">0.3%
+												- Best for most pairs</button></a> <a class="text-dark"><button
+												onclick="showFee4()" class="exoticPairs" id="feeTierSel4"
+												value="1%" style="border: none; border-radius: 20px;">1%
+												- Best for exotic pairs</button></a>
+									</div>
+								</div>
+							</div>
+
+							<!-- deposit amount -->
+							<div class="depAmt">
+								<h6>Deposit Amounts</h6>
+								<div class="dep1">
+									<input type="text" id="amt1" name="amount1" placeholder="0.0"
+										class="inputAmt1">
+									<button class="select1">
+										SELECT <span class="fa fa-caret-down"></span>
+									</button>
+								</div>
+								<div class="dep2">
+									<input type="text" id="amt2" name="amount2" placeholder="0.0"
+										class="inputAmt2">
+									<button class="select2">
+										SELECT <span class="fa fa-caret-down"></span>
+									</button>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<!-- deposit amount -->
-						<div class="depAmt">
-							<h6>Deposit Amounts</h6>
-							<div class="dep1">
-								<input type="text" id="amt1" name="amount1" placeholder="0.0"
-									class="inputAmt1">
-								<button class="select1">
-									SELECT <span class="fa fa-caret-down"></span>
-								</button>
+					<div class="bottomright">
+						<div class="rightSpace">
+							<h6 class="setPrice" style="padding-left: 5px">Set Price
+								range</h6>
+							<div class="priceRangeMin">
+								<p>Min Price</p>
+								<p>
+									$<span class="minPrice">0</span>
+								</p>
 							</div>
-							<div class="dep2">
-								<input type="text" id="amt2" name="amount2" placeholder="0.0"
-									class="inputAmt2">
-								<button class="select2">
-									SELECT <span class="fa fa-caret-down"></span>
-								</button>
+							<div class="minRangeSlide">
+								<input type="range" min="0" max="1000" step="0.01" value="0"
+									class="sliderMin" id="minRange" oninput="sliderChangeMin()">
+							</div>
+							<div class="priceRangeMax">
+								<p>Max Price</p>
+								<p>
+									$<span class="maxPrice">400.00</span>
+								</p>
+
+							</div>
+							<div class="maxRangeSlide">
+								<input type="range" min="0" max="1000" step="0.01" value="400"
+									class="sliderMax" id="maxRange" oninput="sliderChangeMax()">
+							</div>
+							<div>
+								<button class="approve" type="submit">APPROVE</button>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="bottomright">
-					<div class="rightSpace">
-						<h6 class="setPrice" style="padding-left: 5px">Set Price
-							range</h6>
-						<div class="priceRangeMin">
-							<p>Min Price</p>
-							<p>
-								$<span class="minPrice">0</span>
-							</p>
-						</div>
-						<div class="minRangeSlide">
-							<input type="range" min="0" max="1000" step="0.01" value="0"
-								class="sliderMin" id="minRange" oninput="sliderChangeMin()">
-						</div>
-						<div class="priceRangeMax">
-							<p>Max Price</p>
-							<p>
-								$<span class="maxPrice">400.00</span>
-							</p>
-
-						</div>
-						<div class="maxRangeSlide">
-							<input type="range" min="0" max="1000" step="0.01" value="400"
-								class="sliderMax" id="maxRange" oninput="sliderChangeMax()">
-						</div>
-						<div>
-							<button class="approve">APPROVE</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			</form>
 
 		</div>
 
@@ -462,5 +467,18 @@
 		var max = document.getElementById("maxRange").value;
 		document.querySelector('.maxPrice').textContent = max;
 	}
+
+	// Form validation, use javascript to perform dynamic functions
+	'use strict'
+
+	var form = document.querySelector('.needs-validation')
+
+	form.addEventListener('submit', function(event) {
+		if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		}
+		form.classList.add('was-validated')
+	})
 </script>
 </html>
