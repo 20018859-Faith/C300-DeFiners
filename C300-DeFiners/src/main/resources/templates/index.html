@@ -21,6 +21,7 @@
 	padding-right: 20px;
 	border-radius: 20px;
 }
+
 </style>
 
 <body style="background-color: #E1EECC;">
@@ -80,20 +81,50 @@
 						<div class="input-container">
 							<input type="amt1" class="input-field" id="exampleInputamt1"
 								placeholder="0.0" style="text-align: center;">
-							<button class="token1" style="background-color: #EEE6E6; font-size: 15px; font-weight:bold;">
-								SELECT <span class="fa fa-caret-down"></span>
-							</button>
-
-
+							<div class="dropToken">
+								<button onclick="dropToken()" class="edittkn">Select</button>
+								<div id="dropToken" class="dropToken-content"
+									style="border-radius: 20px; background-color: #EEE6E6;">
+									<a ><button onclick=""
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="/images/ethereum_icon.png" width="22" height="22"> ETH</button></a> 
+											
+									<a ><button onclick=""
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
+											
+									
+											
+									<a href="#" style="text-align: center;"> Manage Token </a>
+								</div>
+							</div>
 
 						</div>
 						<br>
 						<div class="input-container">
 							<input type="amt2" class="input-field" id="exampleInputamt1"
 								placeholder="0.0" style="text-align: center;">
-							<button class="token2" style="background-color: #EEE6E6; font-size: 15px; font-weight:bold;">
-								SELECT <span class="fa fa-caret-down"></span>
-							</button>
+							<div class="dropToken2">
+								<button onclick="dropToken2()" class="edittkn">Select</button>
+								<div id="dropToken2" class="dropToken-content"
+									style="border-radius: 20px; background-color: #EEE6E6;">
+									<a ><button onclick=""
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="/images/ethereum_icon.png" width="22" height="22"> ETH</button></a> 
+											
+									<a ><button onclick=""
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
+											
+									
+											
+									<a href="#" style="text-align: center;"> Manage Token </a>
+								</div>
+							</div>
 
 						</div>
 						<br>
@@ -114,6 +145,31 @@
 		function mySetting() {
 			document.getElementById("settingdown").classList.toggle("show");
 		}
+
+		function dropToken() {
+			document.getElementById("dropToken").classList.toggle("showToken");
+		}
+		
+		function dropToken2() {
+			document.getElementById("dropToken2").classList.toggle("showToken");
+		}
+		
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+			if (!event.target.matches('.edittkn')) {
+				var dropdownse = document
+						.getElementsByClassName("dropToken-content");
+				var i;
+				for (i = 0; i < dropdownse.length; i++) {
+					var openDropdowne = dropdownse[i];
+					if (openDropdowne.classList.contains('showToken')) {
+						openDropdowne.classList.remove('showToken');
+					}
+				}
+			}
+		}
+		
+		
 	</script>
 
 </body>
