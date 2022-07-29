@@ -19,13 +19,11 @@
 
 	<div class="container">
 		<div th:replace="fragments/header"></div>
-
-<div class="container">
-		<h1>Add New Token</h1>
-		<form action="/token/save" method="post" th:object="${token}" enctype="multipart/form-data">
+		<h1>Edit New Token</h1>
+		<form th:action="@{/token/edit/{id}(id=${token.id})}" th:object="${token}" method="post">
 			<div class="mb-3 col-2">
-				<label for="token_address" class="form-label">Contract Address</label> <input
-					id="token_address" type="text" class="from-control" th:field="*{address}" />
+				<label for="token_address" class="form-label"> Contract Address</label> <input
+					id="item_address" type="text" class="from-control" th:field="*{address}" />
 			</div>
 			<div class="mb-3 col-2">
 				<label for="token_name" class="form-label">
@@ -38,14 +36,13 @@
 					th:field="*{decimal}" />
 			</div>
 			<div class="mb-3 col-2">
-				<label for="token_symbol" class="form-label"> Symbol</label> <input
+				<label for="token_symbol" class="form-label"> Symbols</label> <input
 					name="tokenSymbol" type="file"  accept="image/png, image/jpeg" />
 			</div>
-			<div class="mt-3>">
-				<button type="submit" class="btn btn-secondary">Save</button>
+			<div class="mt-3 mb-5">
+				<input type="submit" value="Update token">
 			</div>
 		</form>
-	</div>
 
 		<div th:replace="fragments/footer"></div>
 	</div>

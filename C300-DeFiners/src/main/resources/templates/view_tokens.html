@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>DeFiners About</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #E1EECC;">
+
+	<div class="container">
+		<div th:replace="fragments/header"></div>
+		
+		<div class="h1">Token</div>
+		<table class="table bordered">
+			<thead>
+				<th>Contract Address</th>
+				<th>Name</th>
+				<th>Decimals</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+			<!-- iterates the list. for loop each item -->
+				<th: block th:each="token : ${listTokens}">
+					<tr>
+					<!-- th:text evaluate the value of expression and display the value in the table cell  -->
+					<!-- ${} retrive information stored in the model attribute -->
+						<td th:text="${token.address}"></td>
+						<td th:text="${token.name}"></td>
+						<td th:text="${token.decimal}"></td>
+						<td><a th:href="@{token/edit/{id}(id=${token.id})}">Edit</a>
+							<a th:href="@{token/delete/{id}(id=${token.id})}">Delete</a></td>
+					</tr>
+					</th:block>
+			</tbody>
+		</table>
+
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+</html>
+
