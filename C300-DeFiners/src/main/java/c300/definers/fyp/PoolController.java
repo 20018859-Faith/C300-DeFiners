@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -20,7 +21,7 @@ public class PoolController {
 	// view pool
 	@GetMapping("/pool")
 	public String pool(Model model) {
-		
+
 		List<Pool> listPool = poolRepository.findAll();
 		model.addAttribute("listPool", listPool);
 
@@ -38,12 +39,48 @@ public class PoolController {
 	// add pool - post
 	@PostMapping("/pool/save")
 	public String savePool(@Valid Pool pool, BindingResult bindingResult) {
-		
-		if(bindingResult.hasErrors()) {
+
+		if (bindingResult.hasErrors()) {
 			return "newPos";
 		}
-		
+
 		poolRepository.save(pool);
 		return "redirect:/pool";
 	}
+
+	// pool manage view
+	@GetMapping("/pool/manage")
+	public String poolManage(Model model) {
+		List<Pool> listPool = poolRepository.findAll();
+		model.addAttribute("listPool", listPool);
+
+		return "poolManage";
+	}
+
+	// edit pool - get
+	@GetMapping("/pool/edit/{id}")
+	public String editPool(@PathVariable("id") Integer id, Model model) {
+		Pool pool = poolRepository.getById(id);
+		model.addAttribute("pool", pool);
+
+		return "poolEdit";
+	}
+
+	// edit pool - post
+	@PostMapping("/pool/edit/{id}")
+	public String saveEditPool(@PathVariable("id") Integer id, Pool pool) {
+
+		poolRepository.save(pool);
+
+		return "redirect:/pool";
+	}
+
+	// delete
+	@GetMapping("/pool/delete/{id}")
+	public String deletePool(@PathVariable("id") Integer id) {
+		poolRepository.deleteById(id);
+
+		return "redirect:/pool";
+	}
+
 }

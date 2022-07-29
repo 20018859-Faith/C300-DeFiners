@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>DeFiners Pool</title>
+<title>DeFiners Pool - Manage</title>
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
@@ -16,6 +16,14 @@
 </head>
 
 <style>
+#cen.poolnav {
+	background-color: #D2D2D2;
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
 /* topbar */
 .topbar {
 	margin-bottom: 15px;
@@ -121,6 +129,7 @@
 								<th>Pool Fee</th>
 								<th>Minimum</th>
 								<th>Maximum</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -137,6 +146,8 @@
 									th:text="${#numbers.formatDecimal(poolitem.minimum, 1, 2)}"></span></td>
 								<td>$<span
 									th:text="${#numbers.formatDecimal(poolitem.maximum, 1, 2)}"></span></td>
+								<td><a th:href="@{/pool/edit/{id}(id=${poolitem.id})}">Edit</a>
+									| <a th:href="@{/pool/delete/{id}(id=${poolitem.id})}">Delete</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -177,4 +188,3 @@
 </script>
 
 </html>
-

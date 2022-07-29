@@ -44,6 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//Members functions
 		.antMatchers("/members","/members/edit/*","/members/delete/*").hasRole("ADMIN")
 		//"/members/add" & "/members/save" open for visitors to sign up
+		
+		//Pool
+		.antMatchers("/pool/newPool").hasRole("ADMIN")
 	
 		
 		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs").permitAll()
