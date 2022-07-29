@@ -126,12 +126,16 @@
 							<tr th:each="poolitem : ${listPool}">
 								<td th:text="${poolitem.id}"></td>
 								<td th:text="${poolitem.token1}"></td>
-								<td>$<span th:text="${#numbers.formatDecimal(poolitem.deposit1, 1, 2)}"></span></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(poolitem.deposit1, 1, 2)}"></span></td>
 								<td th:text="${poolitem.token2}"></td>
-								<td>$<span th:text="${#numbers.formatDecimal(poolitem.deposit2, 1, 2)}"></span></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(poolitem.deposit2, 1, 2)}"></span></td>
 								<td><span th:text="${poolitem.fee}"></span>%</td>
-								<td th:text="${#numbers.formatDecimal(poolitem.minimum, 1, 2)}"></td>
-								<td th:text="${#numbers.formatDecimal(poolitem.maximum, 1, 2)}"></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(poolitem.minimum, 1, 2)}"></span></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(poolitem.maximum, 1, 2)}"></span></td>
 							</tr>
 						</tbody>
 					</table>
