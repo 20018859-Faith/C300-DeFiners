@@ -123,23 +123,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-							<td> 1 </td>
-							<td> ETH </td>
-							<td> 0.02 </td>
-							<td> DAI </td>
-							<td> 0.03 </td>
-							<td> 0.05 </td>
-							<td> 1000 </td>
-							<td> 200 </td>
-								<!-- 								<td th:text="${pool.id}"></td> -->
-								<!-- 								<td th:text="${pool.token1}"></td> -->
-								<!-- 								<td th:text="${pool.token2}"></td> -->
-								<!-- 								<td th:text="${pool.fee}"></td> -->
-								<!-- 								<td th:text="${pool.deposit1}"></td> -->
-								<!-- 								<td th:text="${pool.deposit2}"></td> -->
-								<!-- 								<td th:text="${pool.minimum}"></td> -->
-								<!-- 								<td th:text="${pool.maximum}"></td> -->
+							<tr th:each="poolitem : ${listPool}">
+								<td th:text="${poolitem.id}"></td>
+								<td th:text="${poolitem.token1}"></td>
+								<td>$<span th:text="${#numbers.formatDecimal(poolitem.deposit1, 1, 2)}"></span></td>
+								<td th:text="${poolitem.token2}"></td>
+								<td>$<span th:text="${#numbers.formatDecimal(poolitem.deposit2, 1, 2)}"></span></td>
+								<td><span th:text="${poolitem.fee}"></span>%</td>
+								<td th:text="${#numbers.formatDecimal(poolitem.minimum, 1, 2)}"></td>
+								<td th:text="${#numbers.formatDecimal(poolitem.maximum, 1, 2)}"></td>
 							</tr>
 						</tbody>
 					</table>
