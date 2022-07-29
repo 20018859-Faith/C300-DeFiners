@@ -122,10 +122,10 @@
 	border-radius: 25px;
 	display: none;
 	position: absolute;
-	min-width: 100px;
-	overflow: auto;
+	min-width: 100px; overflow : auto;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 4; /* overlay other elements */
+	z-index: 4;
+	overflow: auto; /* overlay other elements */
 }
 
 .dropdownMore-content a {
@@ -135,6 +135,10 @@
 }
 
 .dropdownMore a:hover {
+	background-color: #D2D2D2; /* hover color */
+}
+
+.dropdownMore button:hover {
 	background-color: #D2D2D2; /* hover color */
 }
 
@@ -242,13 +246,19 @@
 					<!-- Login -->
 					<a sec:authorize="!isAuthenticated()" class="text-dark"
 						href="/login">Login</a>
-						
+
 					<!-- Sign Up -->
 					<a sec:authorize="!isAuthenticated()" class="text-dark"
 						href="/members/add">Sign Up</a>
 
 					<!-- Logout -->
-					<a sec:authorize="isAuthenticated()" class="text-dark" href="/">Logout</a>
+					<!-- 					<a sec:authorize="isAuthenticated()" class="text-dark" href="/">Logout</a> -->
+
+					<form sec:authorize="isAuthenticated()" th:action="@{/logout}"
+						method="post" class="">
+						<button class="btn nav-link text-dark" type="submit"
+							style="min-width: 100px; text-align: left; padding-left: 15px;">Logout</button>
+					</form>
 				</div>
 			</div>
 
