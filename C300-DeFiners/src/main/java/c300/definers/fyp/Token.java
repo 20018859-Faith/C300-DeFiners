@@ -26,7 +26,7 @@ public class Token {
 	private String name;
 	
 	@NotNull
-	private double decimal;
+	private double deci;
 	
 	private String imgToken;
 
@@ -54,12 +54,12 @@ public class Token {
 		this.name = name;
 	}
 
-	public double getDecimal() {
-		return decimal;
+	public double getDeci() {
+		return deci;
 	}
 
-	public void setDecimal(double decimal) {
-		this.decimal = decimal;
+	public void setDeci(double deci) {
+		this.deci = deci;
 	}
 
 	public String getImgToken() {
@@ -69,7 +69,5 @@ public class Token {
 	public void setImgToken(String imgToken) {
 		this.imgToken = imgToken;
 	}
-	
-	
 	
 }
