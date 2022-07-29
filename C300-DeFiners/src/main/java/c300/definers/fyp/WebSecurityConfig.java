@@ -46,9 +46,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//"/members/add" & "/members/save" open for visitors to sign up
 	
 		
-		.antMatchers("/").permitAll()
+		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs").permitAll()
 		.antMatchers("/bootstrap/*/*").permitAll()
 		.antMatchers("/images/*").permitAll()
+		.antMatchers("/css/*").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login").permitAll()
