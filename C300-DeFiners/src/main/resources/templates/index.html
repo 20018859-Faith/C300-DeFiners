@@ -8,7 +8,8 @@
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/indexstyle.css">
 </head>
 
@@ -20,7 +21,6 @@
 	padding-right: 20px;
 	border-radius: 20px;
 }
-
 </style>
 
 <body style="background-color: #E1EECC;">
@@ -84,19 +84,31 @@
 								<button onclick="dropToken()" class="edittkn">Select</button>
 								<div id="dropToken" class="dropToken-content"
 									style="border-radius: 20px; background-color: #EEE6E6;">
-									<a ><button onclick=""
-											class="vstablePairs" id="" value=""
+									<a><button onclick="" class="vstablePairs" id="" value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="/images/ethereum_icon.png" width="22" height="22"> ETH</button></a> 
-											
-									<a ><button onclick=""
-											class="vstablePairs" id="" value=""
+											<img src="/images/ethereum_icon.png" width="22" height="22">
+											ETH
+										</button></a> <a><button onclick="" class="vstablePairs" id=""
+											value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
-											
-									
-											
-									<a href="/tokens/add" style="text-align: center;"> Manage Token </a>
+											<img src="/images/DAI_icon.JPG" width="22" height="22">
+											DAI
+										</button></a>
+
+									<tr th:each="tokenitem : ${listTokens}">
+										<a><button onclick="" class="vstablePairs" id="" value=""
+												style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+												<img
+													th:src="@{/uploads/token/{id}/{imageName}(id=${token.id}, imageName=${token.imgName})}"
+													width="22" height="22">
+												<td th:text="${tokenitem.name}"></td>
+											</button></a>
+									</tr>
+
+
+
+									<a href="/tokens/add" style="text-align: center;"> Manage
+										Token </a>
 								</div>
 							</div>
 
@@ -109,19 +121,16 @@
 								<button onclick="dropToken2()" class="edittkn">Select</button>
 								<div id="dropToken2" class="dropToken-content"
 									style="border-radius: 20px; background-color: #EEE6E6;">
-									<a ><button onclick=""
-											class="vstablePairs" id="" value=""
+									<a><button onclick="" class="vstablePairs" id="" value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="/images/ethereum_icon.png" width="22" height="22"> ETH</button></a> 
-											
-									<a ><button onclick=""
-											class="vstablePairs" id="" value=""
+											<img src="/images/ethereum_icon.png" width="22" height="22">
+											ETH
+										</button></a> <a><button onclick="" class="vstablePairs" id=""
+											value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
-											
-									
-											
-									<a href="#" style="text-align: center;"> Manage Token </a>
+											<img src="/images/DAI_icon.JPG" width="22" height="22">
+											DAI
+										</button></a> <a href="#" style="text-align: center;"> Manage Token </a>
 								</div>
 							</div>
 
@@ -148,11 +157,11 @@
 		function dropToken() {
 			document.getElementById("dropToken").classList.toggle("showToken");
 		}
-		
+
 		function dropToken2() {
 			document.getElementById("dropToken2").classList.toggle("showToken");
 		}
-		
+
 		// Close the dropdown if the user clicks outside of it
 		window.onclick = function(event) {
 			if (!event.target.matches('.edittkn')) {
@@ -167,8 +176,6 @@
 				}
 			}
 		}
-		
-		
 	</script>
 
 </body>

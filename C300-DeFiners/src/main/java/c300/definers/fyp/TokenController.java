@@ -26,7 +26,7 @@ public class TokenController {
 	
 	// view token
 		@GetMapping("/tokens")
-		public String viewTokens(Model model) {
+		public String token(Model model) {
 			
 			List<Token> listTokens = tokenRepository.findAll();
 			model.addAttribute("listTokens", listTokens);
@@ -36,7 +36,7 @@ public class TokenController {
 		
 		// add token - get
 		@GetMapping("/tokens/add")
-		public String addTokens(Model model) {
+		public String addToken(Model model) {
 			model.addAttribute("token", new Token());
 
 			return "add_token";
