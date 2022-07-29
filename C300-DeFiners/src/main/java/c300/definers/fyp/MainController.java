@@ -11,20 +11,10 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
-
-	@GetMapping("/pool")
-	public String pool() {
-		return "pool";
-	}
 	
 	@GetMapping("/charts")
 	public String charts() {
 		return "charts";
-	}
-	
-	@GetMapping("/pool/newPosition")
-	public String newPos() {
-		return "newPos";
 	}
 
 	@GetMapping("/login")
