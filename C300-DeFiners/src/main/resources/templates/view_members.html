@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Definers Members</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link href="/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+<link href="/font-awesome/css/brands.min.css" rel="stylesheet" />
+<link href="/font-awesome/css/solid.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body style="background-color: #E1EECC;">
+
+	<div class="container">
+		<div th:replace="fragments/header"></div>
+
+		<main>
+			<div class="h1">View Members</div>
+			<div class="alert alert-primary" role="alert" th:text="${success}"
+				th:if="${success}"></div>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Role</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="member : ${listMembers}">
+						<td th:text="${member.id}"></td>
+						<td th:text="${member.name}"></td>
+						<td th:text="${member.username}"></td>
+						<td th:text="${member.email}"></td>
+						<td th:text="${member.role}"></td>
+						<td><a th:href="@{/members/edit/{id}(id=${member.id})}"><i
+								class="fas fa-edit">Edit </i></a> | <a
+							th:href="@{/members/delete/{id}(id=${member.id})}"><i
+								class="fas fa-minus-circle">Delete</i></a></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="/members/add" class="btn btn-primary">Add Member</a> <a
+				href="/books/transaction_history" class="btn btn-primary">View
+				Member transaction History</a>
+		</main>
+
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+</html>
+
