@@ -3,10 +3,20 @@
 /* Wallet active */
 #cen.active {
 	background-color: #D2D2D2;
-	color: #fff;
 	padding-left: 20px;
 	padding-right: 20px;
 	border-radius: 20px;
+	border: none;
+}
+
+#cen {
+	border-right: 0.5px dotted grey;
+	border-left: 0.5px dotted grey;
+	border-radius: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
 }
 
 /* left navbar */
@@ -65,11 +75,9 @@
 	margin-left: 10px;
 }
 
-/* wallet */
-.connectbtn {
-	border: none; /* remove button border (the black thick border) */
-	cursor: pointer; /* change cursor to point */
-	min-width: 140px;
+/* User log */
+.userLog {
+	border: none;
 	margin-left: 5px;
 	margin-right: 5px;
 }
@@ -150,9 +158,13 @@
 			<!-- left navbar -->
 			<div class="lft navbar navbar-nav bg-light"
 				style="border-radius: 30px;">
-				<a id="cen" class="swapnav nav-link text-dark" href="/">Swap</a> <a id="cen"
-					class="poolnav nav-link text-dark" href="/pool">Pool</a> <a
+				<a id="cen" class="swapnav nav-link text-dark" href="/">Swap</a> <a
+					id="cen" class="poolnav nav-link text-dark" href="/pool">Pool</a> <a
 					id="cen" class="nav-link text-dark" href="/charts">Charts&#11127;</a>
+				<a id="cen" class="nav-link text-dark" href="/members"
+					sec:authorize="hasRole('ROLE_ADMIN')">Members</a> <a id="cen"
+					class="nav-link text-dark" href="/about">About Us</a> <a id="cen"
+					class="nav-link text-dark" href="/docs">Docs</a>
 			</div>
 
 			<!-- center spacing -->
@@ -199,11 +211,13 @@
 			<!-- button spacing -->
 			<div class="marg"></div>
 
-			<!-- connect button -->
+			<!-- logged in user -->
 			<div class="navbar navbar-nav bg-light ml-auto"
-				style="border-radius: 40px;">
-				<button id="connect-button" class="connectbtn text-dark bg-light"
-					style="border-radius: 40px;">Connect Wallet</button>
+				style="border-radius: 40px;" sec:authorize="isAuthenticated()">
+				<button class="userLog text-dark bg-light"
+					style="border-radius: 40px;">
+					User: <i sec:authentication="principal.username"></i>
+				</button>
 			</div>
 
 			<!-- button spacing -->
@@ -226,7 +240,15 @@
 					<a class="text-dark" href="/docs">Docs</a>
 
 					<!-- Login -->
-					<a class="text-dark" href="/login">Login</a>
+					<a sec:authorize="!isAuthenticated()" class="text-dark"
+						href="/login">Login</a>
+						
+					<!-- Sign Up -->
+					<a sec:authorize="!isAuthenticated()" class="text-dark"
+						href="/members/add">Sign Up</a>
+
+					<!-- Logout -->
+					<a sec:authorize="isAuthenticated()" class="text-dark" href="/">Logout</a>
 				</div>
 			</div>
 
