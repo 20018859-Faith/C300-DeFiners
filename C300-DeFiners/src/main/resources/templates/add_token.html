@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>DeFiners About</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #E1EECC;">
+
+	<div class="container">
+		<div th:replace="fragments/header"></div>
+
+<div class="container">
+		<h1>Add New Token</h1>
+		<form action="/ /" method="post" th:object="${}" enctype="">
+			<div class="mb-3 col-2">
+				<label for="item_name" class="form-label">Contract Address</label> <input
+					id="item_name" type="text" class="from-control" th:field="*{name}" />
+			</div>
+			<div class="mb-3 col-2">
+				<label for="item_description" class="form-label">
+					Name</label> <input id="item_description" type="text"
+					class="from-control" th:field="*{description}" />
+			</div>
+			<div class="mb-3 col-2">
+				<label for="item_size" class="form-label"> Decimals</label> <input
+					id="item_size" type="text" class="from-control"
+					th:field="*{size}" />
+			</div>
+			<div class="mb-3 col-2">
+				<label for="item_image" class="form-label"> Symbol</label> <input
+					name="itemImage" type="file"  accept="image/png, image/jpeg" />
+			</div>
+			<div class="mt-3>">
+				<button type="submit" class="btn btn-secondary">Save</button>
+			</div>
+		</form>
+	</div>
+
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+</html>
