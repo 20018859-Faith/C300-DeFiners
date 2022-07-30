@@ -100,10 +100,11 @@
 									<a ><button onclick="" th:each="token : ${listTokens}"
 											class="vstablePairs" id="" value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="" width="22" height="22"><td th:text="${token.name}"></td></button></a> 
+											<img th:src="@{/uploads/tokens/{id}/{imageName}(id=${token.id}, imageName=${token.imgToken})}" width="22" height="22">
+											<td th:text="${token.name}"></td></button></a> 
 									
 											
-									<a href="#" style="text-align: center;"> Manage Token </a>
+									<a href="/tokens" style="text-align: center;"> Manage Token </a>
 								</div>
 							</div>
 
@@ -129,9 +130,10 @@
 									<a ><button onclick="" th:each="token : ${listTokens}"
 											class="vstablePairs" id="" value=""
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img src="" width="22" height="22"><td th:text="${token.name}"></td></button></a> 
+											<img th:src="@{/uploads/tokens/{id}/{imageName}(id=${token.id}, imageName=${token.imgToken})}" width="22" height="22">
+											<td th:text="${token.name}"></td></button></a> 
 											
-									<a href="#" style="text-align: center;"> Manage Token </a>
+									<a href="/tokens" style="text-align: center;"> Manage Token </a>
 								</div>
 							</div>
 

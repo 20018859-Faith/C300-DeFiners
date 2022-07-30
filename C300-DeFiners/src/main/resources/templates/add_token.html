@@ -24,7 +24,7 @@
 	<div class="card w-55" style="border-radius: 20px;">
 		<div class="card-body">
 		<h1>Add New Token</h1>
-		<form action="/tokens/save" method="post" th:object="${token}" enctype="multipart/form-data">
+		<form th:action="@{/tokens/save}" method="post" th:object="${token}" enctype="multipart/form-data">
 			<div class="mb-4 col-4">
 				<label for="token_address" class="form-label">Contract Address</label> <input
 					id="token_address" type="text" class="form-control" th:field="*{address}" style="width:500px;"/>
@@ -40,8 +40,8 @@
 					th:field="*{deci}" />
 			</div>
 			<div class="mb-4 col-5">
-				<label for="itemImage" class="form-label"> Symbol</label> <input
-					id="itemImage" name="itemImage" type="file"  accept="image/png, image/jpeg" />
+				<label for="token_imgToken" class="form-label"> Symbol</label> <input
+					 name="itemImage" type="file"  accept="image/png, image/jpeg" />
 			</div>
 			<div class="mt-4>">
 				<button type="submit" class="form-control" style="background-color: rgb(224, 234, 251);

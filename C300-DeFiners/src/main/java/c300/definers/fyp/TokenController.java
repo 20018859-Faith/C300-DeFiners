@@ -44,39 +44,41 @@ public class TokenController {
 		}
 		
 		// add token - post
-		@RequestMapping("/tokens/save")
+		@PostMapping("/tokens/save")
 		public String saveToken(Token token, @RequestParam("itemImage") MultipartFile imgFile) {
-
+			
 			String imageName = imgFile.getOriginalFilename();
-
-			// Set the image name in item object
+			
+			// Set the image name in clothing object
 			token.setImgToken(imageName);
-
-			// Save the item obj to the db
+			
+			// Saved the item object to the database
 			Token savedToken = tokenRepository.save(token);
-
+			
+			tokenRepository.save(token);
+			
 			try {
-				// Preparing the directory path
+				//Preparing directory path
 				String uploadDir = "uploads/tokens/" + savedToken.getId();
 				Path uploadPath = Paths.get(uploadDir);
 				System.out.println("Directory path: " + uploadPath);
-
-				// Checking if the upload path exists, if not it will be created.
-				if (!Files.exists(uploadPath)) {
+				
+				//Checking if the upload path exists, if not it will be created.
+				if(!Files.exists(uploadPath)) {
 					Files.createDirectories(uploadPath);
 				}
-
-				// Prepare path for file
+				
+				//Prepare path for file
 				Path fileToCreatePath = uploadPath.resolve(imageName);
 				System.out.println("File path: " + fileToCreatePath);
-
-				// Copy file to the upload location
-				Files.copy(imgFile.getInputStream(), fileToCreatePath, StandardCopyOption.REPLACE_EXISTING);
-
+				
+				
+				//Copy file to upload location
+				Files.copy(imgFile.getInputStream(), fileToCreatePath, StandardCopyOption.REPLACE_EXISTING); 
 			} catch (IOException io) {
 				io.printStackTrace();
 			}
-
+			
 			return "redirect:/tokens";
 		}
 		
