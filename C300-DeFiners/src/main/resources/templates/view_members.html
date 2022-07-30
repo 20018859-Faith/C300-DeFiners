@@ -22,15 +22,19 @@
 	<div class="container">
 		<div th:replace="fragments/header"></div>
 
+		<br>
 		<main>
-			<div class="h1">View Members</div>
+		
 			<div class="alert alert-primary" role="alert" th:text="${success}"
 				th:if="${success}"></div>
 
 			<!-- box, below top bar -->
 			<div class="d-flex justify-content-center">
-				<div class="card w-75" style="border-radius: 20px; color: #D2D2D2;">
+				<div class="card w-75" style="border-radius: 20px; color: black;">
 					<div class="card-body">
+
+						<h2>View Members</h2>
+
 						<table class="table bordered">
 							<thead>
 								<tr>
@@ -49,20 +53,19 @@
 									<td th:text="${member.username}"></td>
 									<td th:text="${member.email}"></td>
 									<td th:text="${member.role}"></td>
-									<td><a th:href="@{/members/edit/{id}(id=${member.id})}">Edit</a> | <a
-										th:href="@{/members/delete/{id}(id=${member.id})}">Delete</a></td>
+									<td><a th:href="@{/members/edit/{id}(id=${member.id})}">Edit</a>
+										| <a th:href="@{/members/delete/{id}(id=${member.id})}">Delete</a></td>
 								</tr>
 							</tbody>
 						</table>
-						<a href="/members/add" class="btn btn-primary">Add Member</a> <a
-							href="/books/transaction_history" class="btn btn-primary">View
-							Member transaction History</a>
+						
+						<a href="/books/transaction_history" class="btn btn-primary">View Member transaction History</a>
 					</div>
 				</div>
 			</div>
-
+			
 		</main>
-
+		
 		<div th:replace="fragments/footer"></div>
 	</div>
 </body>
