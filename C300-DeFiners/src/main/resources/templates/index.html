@@ -84,7 +84,7 @@
 							<input type="amt1" class="input-field" id="exampleInputamt1"
 								placeholder="0.0" style="text-align: center;">
 							<div class="dropToken">
-								<button onclick="dropToken()" class="edittkn">Select</button>
+								<button onclick="dropToken()" class="droptkn edittkn">Select</button>
 								<div id="dropToken" class="dropToken-content"
 									style="border-radius: 20px; background-color: #EEE6E6;">
 									<a ><button onclick=""
@@ -97,6 +97,10 @@
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
 											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
 											
+									<a ><button onclick="" th:each="token : ${listTokens}"
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="" width="22" height="22"><td th:text="${token.name}"></td></button></a> 
 									
 											
 									<a href="#" style="text-align: center;"> Manage Token </a>
@@ -122,7 +126,10 @@
 											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
 											<img src="/images/DAI_icon.JPG" width="22" height="22"> DAI</button></a> 
 											
-									
+									<a ><button onclick="" th:each="token : ${listTokens}"
+											class="vstablePairs" id="" value=""
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
+											<img src="" width="22" height="22"><td th:text="${token.name}"></td></button></a> 
 											
 									<a href="#" style="text-align: center;"> Manage Token </a>
 								</div>

@@ -12,38 +12,44 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/indexstyle.css">
 </head>
 
 <body style="background-color: #E1EECC;">
 
 	<div class="container">
 		<div th:replace="fragments/header"></div>
-
-<div class="container">
+<br>
+<div class="d-flex justify-content-center">
+	<div class="card w-55" style="border-radius: 20px;">
+		<div class="card-body">
 		<h1>Add New Token</h1>
 		<form action="/tokens/save" method="post" th:object="${token}" enctype="multipart/form-data">
-			<div class="mb-3 col-2">
+			<div class="mb-4 col-4">
 				<label for="token_address" class="form-label">Contract Address</label> <input
-					id="token_address" type="text" class="from-control" th:field="*{address}" />
+					id="token_address" type="text" class="form-control" th:field="*{address}" style="width:500px;"/>
 			</div>
-			<div class="mb-3 col-2">
+			<div class="mb-4 col-4">
 				<label for="token_name" class="form-label">
 					Name</label> <input id="token_name" type="text"
-					class="from-control" th:field="*{name}" />
+					class="form-control" th:field="*{name}" style="width:250px;"/>
 			</div>
-			<div class="mb-3 col-2">
+			<div class="mb-4 col-4">
 				<label for="token_deci" class="form-label"> Decimals</label> <input
-					id="token_deci" type="text" class="from-control"
+					id="token_deci" type="text" class="form-control"
 					th:field="*{deci}" />
 			</div>
-			<div class="mb-3 col-2">
+			<div class="mb-4 col-5">
 				<label for="itemImage" class="form-label"> Symbol</label> <input
 					id="itemImage" name="itemImage" type="file"  accept="image/png, image/jpeg" />
 			</div>
-			<div class="mt-3>">
-				<button type="submit" class="btn btn-secondary">Save</button>
+			<div class="mt-4>">
+				<button type="submit" class="form-control" style="background-color: rgb(224, 234, 251);
+				font-size: 18px; width: 200px; height: 50px; border-radius: 40px;">Save</button>
 			</div>
 		</form>
+			</div>
+		</div>
 	</div>
 
 		<div th:replace="fragments/footer"></div>
