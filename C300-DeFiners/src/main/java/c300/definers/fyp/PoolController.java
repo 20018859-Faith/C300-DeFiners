@@ -18,6 +18,9 @@ public class PoolController {
 	@Autowired
 	private PoolRepository poolRepository;
 
+	@Autowired
+	private TokenRepository tokenRepository;
+
 	// view pool
 	@GetMapping("/pool")
 	public String pool(Model model) {
@@ -31,7 +34,11 @@ public class PoolController {
 	// add pool - get
 	@GetMapping("/pool/newPool")
 	public String newPool(Model model) {
+		
 		model.addAttribute("pool", new Pool());
+		
+		List<Token> tokenList = tokenRepository.findAll();
+		model.addAttribute("tokenList", tokenList);
 
 		return "newPos";
 	}
@@ -45,7 +52,7 @@ public class PoolController {
 		}
 
 		poolRepository.save(pool);
-		return "redirect:/pool";
+		return "redirect:/pool/manage";
 	}
 
 	// pool manage view
@@ -67,12 +74,12 @@ public class PoolController {
 	}
 
 	// edit pool - post
-	@PostMapping("/pool/edit/{id}")
+	@PostMapping("/pool/edit/pool/edit/{id}")
 	public String saveEditPool(@PathVariable("id") Integer id, Pool pool) {
 
 		poolRepository.save(pool);
 
-		return "redirect:/pool";
+		return "redirect:/pool/manage";
 	}
 
 	// delete
@@ -80,7 +87,7 @@ public class PoolController {
 	public String deletePool(@PathVariable("id") Integer id) {
 		poolRepository.deleteById(id);
 
-		return "redirect:/pool";
+		return "redirect:/pool/manage";
 	}
 
 }
