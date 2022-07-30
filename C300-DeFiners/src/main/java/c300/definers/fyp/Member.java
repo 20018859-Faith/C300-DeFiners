@@ -17,6 +17,7 @@ public class Member {
 	private String email;
 	private String role;
 	
+	
 	public int getId() {
 		return id;
 	}

@@ -9,92 +9,51 @@
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="style.css" />
 </head>
 
 <body style="background-color: #E1EECC;">
+	<div th:replace="fragments/header"></div>
 
 	<div class="container">
-		<div th:replace="fragments/header"></div>
-		
-		 <nav class="navbar top navbar-light bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand text-light">Top Pool Ranking</a>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-		
-<table class="table table-bordered" style="margin-top: 20px" >
-    <thead>
-      <tr>
-        <th scope="col">UUID</th>
-        <th scope="col">Btc Price</th>
-        <th scope="col">Rank</th>
-        <th scope="col">Tier</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Symbol</th>
 
-      </tr>
-    </thead>
-    <tbody id="data">
-    </tbody>
-  </table>
-  
-  <script>
-  var baseUrl = "https://api.coinranking.com/v2/coins";
-  var proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  var apiKey = "coinrankinga63ae06ff0aba39e657dc5258c5e1a9da0cef5723559072e";
+		<nav class="navbar top navbar-light bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand text-light">Top Pool Ranking</a>
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
 
-  var apiUrl = `${proxyUrl}${baseUrl}`;
-  console.log(apiUrl);
-
-  fetch(`${proxyUrl}${baseUrl}`, { 
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-My-Custom-Header': `${apiKey}`,
-        'Access-Control-Allow-Origin': "*"
-      }
-  })
-    .then((response) => {
-      if (response.ok) {
-        response.json().then((json) => {
-          console.log(json.data);
-          let coinsData = json.data.coins;
-
-          if (coinsData.length > 0) {
-            var cryptoCoin = "";
-          }
-          //For Loop Starts
-          coinsData.forEach((coin) => {
-            cryptoCoin += "<tr>";
-            cryptoCoin += `<td> ${coin.uuid} </td>`;
-            cryptoCoin += `<td> ${coin.btcPrice} </td>`;
-            cryptoCoin += `<td> ${coin.rank}</td>`;
-            cryptoCoin += `<td> ${coin.tier} </td>`;
-            cryptoCoin += `<td> ${coin.name}</td>`;
-            cryptoCoin += `<td> $${Math.round(coin.price)} Billion</td>`;
-            cryptoCoin += `<td> ${coin.symbol}</td>`;"<tr>";
-          });
-          //For Loop Ends
-          document.getElementById("data").innerHTML = cryptoCoin;
-        });
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  
-  </script>
-
-		<div th:replace="fragments/footer"></div>
+		<table class="table table-bordered" style="margin-top: 20px">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Pool name</th>
+					<th scope="col">Token 0 ID</th>
+					<th scope="col">Token 1 ID</th>
+					<th scope="col">Total Value Locked (TVL)</th>
+					<th scope="col">volumeUSD</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
 	</div>
+
+	<div th:replace="fragments/footer"></div>
+
 </body>
 </body>
 </html>
