@@ -99,8 +99,8 @@
 											
 									<a ><button onclick="" th:each="token : ${listTokens}"
 											class="vstablePairs" id="" value=""
-											style="border: none; border-radius: 20px; background-color: #EEE6E6;">
-											<img th:src="@{/uploads/tokens/{id}/{imageName}(id=${token.id}, imageName=${token.imgToken})}" width="22" height="22">
+											style="border: none; border-radius: 20px; background-color: #EEE6E6;"><td th:href="@{/token/{id}(id=${token.id})}">
+											<img th:src="@{/uploads/tokens/{id}/{imageToken}(id=${token.id}, imageToken=${token.imgToken})}" width="22" height="22"></td>
 											<td th:text="${token.name}"></td></button></a> 
 									
 											

@@ -26,7 +26,7 @@
 				<div class="card-body">
 					<h1>Edit New Token</h1>
 					<form th:action="@{/token/edit/{id}(id=${token.id})}"
-						th:object="${token}" method="post">
+						th:object="${token}" method="post" enctype="multipart/form-data">
 						<div class="mb-4 col-4">
 							<label for="token_address" class="form-label"> Contract
 								Address</label> <input id="item_address" type="text"

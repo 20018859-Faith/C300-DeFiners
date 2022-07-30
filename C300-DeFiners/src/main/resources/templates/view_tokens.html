@@ -25,7 +25,6 @@
 		<div class="h1">Token</div>
 		<table class="table bordered">
 			<thead>
-				<th>ID</th>
 				<th>Contract Address</th>
 				<th>Symbol</th>
 				<th>Name</th>
@@ -38,9 +37,8 @@
 					<tr>
 						<!-- th:text evaluate the value of expression and display the value in the table cell  -->
 						<!-- ${} retrive information stored in the model attribute -->
-						<td th:text="${token.id}"></td>
 						<td th:text="${token.address}"></td>
-						<td><img th:src="@{/uploads/token/{id}/{imageName}(id=${token.id}, imageName=${token.imgToken})}" width="22" height="22"></td>
+						<td th:href="@{/token/{id}(id=${token.id})}"><img th:src="@{/uploads/tokens/{id}/{imageToken}(id=${token.id}, imageToken=${token.imgToken})}" width="22" height="22"/></td>
 						<td th:text="${token.name}"></td>
 						<td th:text="${token.deci}"></td>
 						<td><a th:href="@{token/edit/{id}(id=${token.id})}">Edit</a>
