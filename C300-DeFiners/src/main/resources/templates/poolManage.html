@@ -95,7 +95,7 @@
 				<div class="bt d-flex ml-auto bg-light" style="border-radius: 40px;">
 					<button class="text-dark bg-light" id="btnPos"
 						style="border-radius: 40px; border: none;"
-						sec:authorize="hasRole('ROLE_ADMIN')">&#x2B; Create Pool</button>
+						sec:authorize="hasRole('ROLE_ADMIN')">Back to Pool</button>
 				</div>
 				<div class="bt d-flex bg-light ml-auto dropMore"
 					style="border-radius: 40px; margin-left: 20px; margin-right: 15px">
@@ -183,7 +183,7 @@
 	}
 
 	document.getElementById("btnPos").onclick = function() {
-		location.href = "/pool/newPool";
+		location.href = "/pool";
 	};
 </script>
 

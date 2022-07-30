@@ -25,12 +25,14 @@
 	border-radius: 20px;
 }
 
+/* mid box */
 .poolSet {
 	width: 700px;
 	border-radius: 20px;
 	padding: 10px;
 }
 
+/* back arrow */
 .toparrow {
 	text-decoration: none;
 	font-size: 150%;
@@ -41,12 +43,14 @@
 	margin-right: auto;
 }
 
+/* add liquidity */
 .addLiq {
 	padding-top: 8px;
 	padding-left: 15px;
 	text-align: center;
 }
 
+/* clear all */
 .clearall {
 	text-decoration: none;
 	padding-top: 8px;
@@ -55,54 +59,13 @@
 	padding-right: 15px;
 }
 
+/* settings */
 .settingsTop {
 	padding-top: 8px;
 	padding-right: 15px;
 }
 
-.bottomLeft {
-	width: 50%;
-}
-
-.bottomRight {
-	width: 50%;
-}
-
-.bottomPool {
-	display: flex;
-}
-
-.selectPair {
-	padding-top: 5px;
-	padding-left: 15px;
-	margin-left: 0;
-	margin-right: auto;
-}
-
-.setPrice {
-	margin-left: 0;
-	margin-right: auto;
-}
-
-.tokenSel {
-	border: none;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding: 10px;
-	border-radius: 20px;
-	margin-top: 5px;
-	background-color: #D9D9D9;
-}
-
-.leftSpace {
-	margin-top: 15px;
-	padding-left: 15px;
-}
-
-.rightSpace {
-	margin-top: 5px;
-}
-
+/* fee tier */
 .feeTier {
 	margin-top: 25px;
 	padding-top: 10px;
@@ -111,124 +74,6 @@
 	border: 1px solid grey;
 	border-radius: 20px;
 	margin-right: 35px;
-}
-
-.feeText {
-	float: right;
-	padding-right: 20px;
-}
-
-.feeShown {
-	float: right;
-	padding-right: 20px;
-	font-weight: bold;
-}
-
-.editbtn {
-	border: none; /* remove button border (the black thick border) */
-	cursor: pointer; /* change cursor to point */
-	float: left;
-	margin-right: 10px;
-	border: none;
-	background-color: #D9D9D9;
-	border-radius: 20px;
-	padding-right: 10px;
-	padding-left: 10px;
-}
-
-.dropEdit {
-	display: inline-block;
-	position: relative; /* start inline */
-}
-
-.dropEdit-content {
-	margin-top: 45px;
-	border-radius: 20px;
-	display: none;
-	position: absolute;
-	min-width: 170px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 4; /* overlay other elements */
-}
-
-.dropEdit-content a {
-	padding: 12px 16px; /* space between each element */
-	text-decoration: none; /* remove underline - link has underline */
-	display: block;
-}
-
-.dropEdit a:hover {
-	background-color: #D2D2D2; /* hover color */
-}
-
-.showEdit {
-	display: block;
-}
-
-.depAmt {
-	margin-top: 25px;
-}
-
-.dep1 {
-	margin-top: 10px;
-	margin-right: 35px;
-	border-radius: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	background-color: #F6F6F6;
-}
-
-.inputAmt1 {
-	border: 1px solid grey;
-	border-radius: 20px;
-	font-size: large;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	border: none;
-	background-color: #F6F6F6;
-}
-
-.select1 {
-	border: none;
-	background-color: #D9D9D9;
-	border-radius: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-}
-
-.inputAmt2 {
-	border-radius: 20px;
-	font-size: large;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	border: none;
-	background-color: #F6F6F6;
-}
-
-.select2 {
-	border: none;
-	background-color: #D9D9D9;
-	border-radius: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-}
-
-.dep2 {
-	margin-top: 10px;
-	margin-right: 35px;
-	border-radius: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	background-color: #F6F6F6;
 }
 
 .priceRangeMin {
@@ -260,8 +105,10 @@
 }
 
 .sliderMin {
-	margin-top: 5px;
-	margin-left: 10px;
+	float: right;
+	margin-top: 15px;
+	margin-right: 30px;
+	min-width: 170px;
 }
 
 .sliderMax {
@@ -277,6 +124,31 @@
 	margin-top: 30px;
 	background-color: #D9D9D9;
 	font-size: large;
+}
+
+.err {
+	margin-left: 15px;
+	font-size: small;
+}
+
+.boxDeco {
+	margin-left: 15px;
+	max-width: 280px;
+}
+
+.labelDeco {
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.boxDecoMin {
+	margin-left: 15px;
+	max-width: 120px;
+	margin-bottom: 5px;
+}
+
+.minSub {
+	margin-left: 20px;
 }
 </style>
 
@@ -294,111 +166,156 @@
 			<div class="d-flex">
 				<a class="text-dark toparrow" href="/pool">&#129104;</a>
 				<h4 class="addLiq">Add Liquidity</h4>
-				<a class="clearall" href="#">clear all</a> <span class="settingsTop">&#9881;</span>
+				<a class="clearall" href="#" onclick="clearAll()">clear all</a> <span
+					class="settingsTop">&#9881;</span>
 			</div>
 
 			<hr>
 
-			<form class="needs-validation" th:action="@{/pool/save}"
-				th:object="${pool}" method="post" enctype="multipart/form-data"
-				novalidate>
+			<form id="formPool" class="needs-validation"
+				th:action="@{/pool/save}" th:object="${pool}" method="post"
+				enctype="multipart/form-data" novalidate>
 
-				<!-- left side -->
-				<div class="bottomPool d-flex">
-					<div class="bottmLeft">
-						<h6 class="selectPair">Select Pair</h6>
-						<div>
-							<button class="tokenSel">
-								Select a token <span class="fa fa-caret-down"></span>
-							</button>
-							<button class="tokenSel">
-								Select a token <span class="fa fa-caret-down"></span>
-							</button>
-						</div>
+				<div class="row">
 
-						<!-- fee -->
-						<div class="leftSpace">
-							<div class="feeTier">
-								<span class="feeShown"><i style="color: #9A9999;">Default:</i>
-									0.3%</span>
-								<h6 class="feeHead">Fee Tier</h6>
-								<p class="feeText" style="color: #9A9999;">The % you will
-									earn in fees.</p>
-								<div class="dropEdit">
-									<button onclick="dropEdit()" class="editbtn">Edit Fee</button>
-									<div id="dropEdit" class="dropEdit-content bg-light"
-										style="border-radius: 20px;">
-										<a class="text-dark"><button onclick="showFee1()"
-												class="vstablePairs" id="feeTierSel1" value="0.01%"
-												style="border: none; border-radius: 20px;">0.01% -
-												Best for very stable pairs</button></a> <a class="text-dark"><button
-												onclick="showFee2()" class="stablePairs" id="feeTierSel2"
-												value="0.05%" style="border: none; border-radius: 20px;">0.05%
-												- Best for stable pairs</button></a> <a class="text-dark"><button
-												onclick="showFee3()" class="mostPairs" id="feeTierSel3"
-												value="0.3%" style="border: none; border-radius: 20px;">0.3%
-												- Best for most pairs</button></a> <a class="text-dark"><button
-												onclick="showFee4()" class="exoticPairs" id="feeTierSel4"
-												value="1%" style="border: none; border-radius: 20px;">1%
-												- Best for exotic pairs</button></a>
-									</div>
-								</div>
-							</div>
+					<!-- token 1 -->
+					<div class="col needs-validation">
+						<label for="pool_token1" class="form-label labelDeco">Select
+							Token 1:</label> <select id="pool_token1" class="form-control boxDeco"
+							th:field="*{token1}" required>
+							<option value="" disabled selected>Select Token 1:</option>
+							<option value="DAI">DAI</option>
+							<option value="ETH">ETH</option>
+							<option value="SAN">SAN</option>
+						</select>
 
-							<!-- deposit amount -->
-							<div class="depAmt">
-								<h6>Deposit Amounts</h6>
-								<div class="dep1">
-									<input type="text" id="amt1" name="amount1" placeholder="0.0"
-										class="inputAmt1">
-									<button class="select1">
-										SELECT <span class="fa fa-caret-down"></span>
-									</button>
-								</div>
-								<div class="dep2">
-									<input type="text" id="amt2" name="amount2" placeholder="0.0"
-										class="inputAmt2">
-									<button class="select2">
-										SELECT <span class="fa fa-caret-down"></span>
-									</button>
-								</div>
-							</div>
-						</div>
+						<!-- Error -->
+						<div class="invalid-feedback err">Please select a valid
+							token.</div>
+						<p class="text-danger err" th:if="${#fields.hasErrors('token1')}"
+							th:errors="*{token1}"></p>
 					</div>
 
-					<div class="bottomright">
-						<div class="rightSpace">
-							<h6 class="setPrice" style="padding-left: 5px">Set Price
-								range</h6>
-							<div class="priceRangeMin">
-								<p>Min Price</p>
-								<p>
-									$<span class="minPrice">0</span>
-								</p>
-							</div>
-							<div class="minRangeSlide">
-								<input type="range" min="0" max="1000" step="0.01" value="0"
-									class="sliderMin" id="minRange" oninput="sliderChangeMin()">
-							</div>
-							<div class="priceRangeMax">
-								<p>Max Price</p>
-								<p>
-									$<span class="maxPrice">400.00</span>
-								</p>
+					<!-- deposit 1-->
+					<div class="col needs-validation">
+						<label for="pool_deposit1" class="form-label labelDeco">Deposit
+							Token 1: $</label> <input id="pool_deposit1" class="form-control boxDeco"
+							type="number" th:field="*{deposit1}" required step="0.01" min="1"
+							max="1000">
 
-							</div>
-							<div class="maxRangeSlide">
-								<input type="range" min="0" max="1000" step="0.01" value="400"
-									class="sliderMax" id="maxRange" oninput="sliderChangeMax()">
-							</div>
-							<div>
-								<button class="approve" type="submit">APPROVE</button>
-							</div>
-						</div>
+						<!-- Error -->
+						<div class="invalid-feedback err">Please enter a valid
+							amount. (Between $1 and $1000)</div>
+						<p class="text-danger err"
+							th:if="${#fields.hasErrors('deposit1')}" th:errors="*{deposit1}"></p>
 					</div>
+				</div>
+
+				<div class="row" style="padding-top: 20px;">
+
+					<!-- token 2 -->
+					<div class="col needs-validation">
+						<label for="pool_token2" class="form-label labelDeco">Select
+							Token 2:</label> <select id="pool_token2" class="form-control boxDeco"
+							th:field="*{token2}" required>
+							<option value="" disabled selected>Select Token 2:</option>
+							<option value="DAI">DAI</option>
+							<option value="ETH">ETH</option>
+							<option value="SAN">SAN</option>
+						</select>
+
+						<!-- Error -->
+						<div class="invalid-feedback err">Please select a valid
+							token.</div>
+						<p class="text-danger err" th:if="${#fields.hasErrors('token2')}"
+							th:errors="*{token2}"></p>
+					</div>
+
+					<!-- deposit 2 -->
+					<div class="col needs-validation">
+						<label for="pool_deposit2" class="form-label labelDeco">Deposit
+							Token 2: $</label> <input id="pool_deposit2" class="form-control boxDeco"
+							type="number" th:field="*{deposit2}" required step="0.01" min="1"
+							max="1000">
+
+						<!-- Error -->
+						<div class="invalid-feedback err">Please enter a valid
+							amount. (Between $1 and $1000)</div>
+						<p class="text-danger err"
+							th:if="${#fields.hasErrors('deposit2')}" th:errors="*{deposit2}"></p>
+					</div>
+				</div>
+
+				<div class="row" style="padding-top: 20px;">
+
+					<!-- Minimum -->
+					<div class="col needs-validation">
+						<label for="pool_minimum" class="form-label labelDeco">Minimum
+							Amount:</label>
+						<!-- 						<p class="labelDeco"> -->
+						<!-- 							$<span class="minPrice">0</span> -->
+						<!-- 							slider -->
+						<!-- 							<input id="pool_minimum" class="sliderMin" type="range" -->
+						<!-- 								th:field="*{minimum}" min="0" max="500" step="0.01" value="0" -->
+						<!-- 								oninput="sliderChangeMin()" onclick="sliderChangeMin()"> -->
+						<!-- 						</p> -->
+
+						<input id="pool_minimum" class="form-control boxDeco"
+							type="number" th:field="*{minimum}" required step="0.01" min="1"
+							max="500" value="0">
+
+						<!-- Error -->
+						<div class="invalid-feedback err">Please enter a valid
+							amount. (Between $1 and $500)</div>
+						<p class="text-danger err" th:if="${#fields.hasErrors('minimum')}"
+							th:errors="*{minimum}"></p>
+					</div>
+
+					<!-- Maximum -->
+					<div class="col needs-validation">
+						<label for="pool_maximum" class="form-label labelDeco">Maximum
+							Amount: $</label> <input id="pool_maximum" class="form-control boxDeco"
+							type="number" th:field="*{maximum}" required step="0.01"
+							min="500" max="1000">
+
+						<!-- Error -->
+						<div class="invalid-feedback err">Please enter a valid
+							amount. (Between $500 and $1000)</div>
+						<p class="text-danger err" th:if="${#fields.hasErrors('maximum')}"
+							th:errors="*{maximum}"></p>
+					</div>
+				</div>
+
+				<div class="row" style="padding-top: 20px;">
+
+					<!-- Fee -->
+					<div class="col needs-validation">
+						<label for="pool_fee" class="form-label labelDeco">Select
+							Fee Tier:</label> <select id="pool_fee" class="form-control boxDeco"
+							th:field="*{fee}" required>
+							<option value="" disabled selected>Select Fee Tier:</option>
+							<option value="0.01">0.01% | Best For Very Stable Pairs</option>
+							<option value="0.05">0.05% | Best For Stable Pairs</option>
+							<option value="0.3">0.3% | Best For Most Pairs</option>
+							<option value="1">1% | Best For Exotic Pairs</option>
+						</select>
+					</div>
+
+					<!-- Error -->
+					<div class="invalid-feedback err">Please select a fee tier.</div>
+					<p class="text-danger err" th:if="${#fields.hasErrors('fee')}"
+						th:errors="*{fee}"></p>
+
+					<!-- Submit -->
+					<div class="col" style="padding-top: 40px; padding-left: 50px;">
+						<button type="submit" class="btn btn-secondary text-light">Add
+							Pool</button>
+					</div>
+
 				</div>
 			</form>
 
+			<br> <br> <br>
 		</div>
 
 		<!-- footer -->
@@ -427,47 +344,58 @@
 		}
 	}
 
+	function clearAll() {
+		document.getElementById('formPool').reset();
+
+		// 		document.querySelector(".sliderMin").setAttribute('value', 0);
+		// 		var min = document.getElementById("pool_minimum").value;
+		// 		document.querySelector('.minPrice').textContent = min;
+		// 		document.querySelector(".boxDecoMin").setAttribute('value', 0);
+	}
+
 	/* when user select fee tier on dropdown, change the text to show chosen fee tier */
 	// first - v stable
-	function showFee1() {
-		var elem = document.getElementById("feeTierSel1");
-		output = elem.value;
-		document.querySelector('.feeShown').textContent = output;
-	}
-
+	// 	function showFee1() {
+	// 		var elem = document.getElementById("feeTierSel1");
+	// 		output = elem.value;
+	// 		document.querySelector('.feeShown').textContent = output;
+	// 	}
 	// second - stable
-	function showFee2() {
-		var elem = document.getElementById("feeTierSel2");
-		output = elem.value;
-		document.querySelector('.feeShown').textContent = output;
-	}
-
+	// 	function showFee2() {
+	// 		var elem = document.getElementById("feeTierSel2");
+	// 		output = elem.value;
+	// 		document.querySelector('.feeShown').textContent = output;
+	// 	}
 	// third - most
-	function showFee3() {
-		var elem = document.getElementById("feeTierSel3");
-		output = elem.value;
-		document.querySelector('.feeShown').textContent = output;
-	}
-
+	// 	function showFee3() {
+	// 		var elem = document.getElementById("feeTierSel3");
+	// 		output = elem.value;
+	// 		document.querySelector('.feeShown').textContent = output;
+	// 	}
 	// fourth - exotic
-	function showFee4() {
-		var elem = document.getElementById("feeTierSel4");
-		output = elem.value;
-		document.querySelector('.feeShown').textContent = output;
-	}
-
+	// 	function showFee4() {
+	// 		var elem = document.getElementById("feeTierSel4");
+	// 		output = elem.value;
+	// 		document.querySelector('.feeShown').textContent = output;
+	// 	}
 	// change min value according to slider
-	function sliderChangeMin() {
-		var min = document.getElementById("minRange").value;
-		document.querySelector('.minPrice').textContent = min;
-	}
-
+	// 	function sliderChangeMin() {
+	// 		var min = document.getElementById("pool_minimum").value;
+	// 		document.querySelector('.minPrice').textContent = min;
+	// 				document.querySelector(".sliderMin").setAttribute('value', min);
+	// 				document.querySelector(".boxDecoMin").setAttribute('value', min);
+	// 	}
+	// 	function minSub() {
+	// 		var min = document.getElementById("pool_minimumT").value;
+	// 		document.querySelector('.minPrice').textContent = min;
+	// 		document.querySelector(".sliderMin").setAttribute('value', min);
+	// 		document.querySelector(".boxDecoMin").setAttribute('value', min);
+	// 	}
 	// change max value according to slider
-	function sliderChangeMax() {
-		var max = document.getElementById("maxRange").value;
-		document.querySelector('.maxPrice').textContent = max;
-	}
-
+	// 	function sliderChangeMax() {
+	// 		var max = document.getElementById("maxRange").value;
+	// 		document.querySelector('.maxPrice').textContent = max;
+	// 	}
 	// Form validation, use javascript to perform dynamic functions
 	'use strict'
 
