@@ -22,34 +22,45 @@
 <body style="background-color: #E1EECC;">
 	<div th:replace="fragments/header"></div>
 
-	<div class="container">
+	<div class="d-flex justify-content-center">
+		<div class="card w-75" style="border-radius: 20px; color: black;">
+			<div class="card-body">
+				<div class="container">
 
-		<nav class="navbar top navbar-light bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand text-light">Top Pool Ranking</a>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search" placeholder="Search"
-						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
+					<nav class="navbar top navbar-light bg-dark">
+						<div class="container-fluid">
+							<a class="navbar-brand text-light">Top Pool Ranking</a>
+							<form class="d-flex">
+								<input class="form-control me-2" type="search"
+									placeholder="Search" aria-label="Search">
+								<button class="btn btn-outline-success" type="submit">Search</button>
+							</form>
+						</div>
+					</nav>
+
+					<table class="table table-bordered" style="margin-top: 20px">
+						<thead>
+							<tr>
+								<th scope="col">Pool ID</th>
+								<th scope="col">Pool name</th>
+								<th scope="col">Total Value Locked (TVL)</th>
+								<th scope="col">volumeUSD</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="chart : ${listChart}">
+								<td th:text="${chart.id}"></td>
+								<td th:utext="${chart.PoolName}"></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(chart.TVL, 1, 2)}"></span></td>
+								<td>$<span
+									th:text="${#numbers.formatDecimal(chart.volumeUSD, 1, 2)}"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</nav>
-
-		<table class="table table-bordered" style="margin-top: 20px">
-			<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Pool name</th>
-					<th scope="col">Token 0 ID</th>
-					<th scope="col">Token 1 ID</th>
-					<th scope="col">Total Value Locked (TVL)</th>
-					<th scope="col">volumeUSD</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
+		</div>
 	</div>
 
 	<div th:replace="fragments/footer"></div>

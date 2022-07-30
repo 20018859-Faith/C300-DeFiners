@@ -20,11 +20,6 @@ public class MainController {
 
 		return "index";
 	}
-	
-	@GetMapping("/charts")
-	public String charts() {
-		return "charts";
-	}
 
 	@GetMapping("/login")
 	public String login() {
