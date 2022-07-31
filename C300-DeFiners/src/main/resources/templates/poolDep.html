@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>DeFiners Pool - Edit</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+#cen.poolnav {
+	background-color: #D2D2D2;
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
+/* topbar */
+.topbar {
+	margin-bottom: 15px;
+}
+
+/* button more and new position */
+.bt {
+	min-width: 140px;
+	justify-content: center;
+}
+
+/* More dropdown menu*/
+.morebtn {
+	border: none; /* remove button border (the black thick border) */
+	cursor: pointer; /* change cursor to point */
+}
+
+/* More dropdown menu*/
+.dropMore {
+	display: inline-block;
+	position: relative; /* start inline */
+}
+
+/* More dropdown menu*/
+.dropMore-content {
+	margin-top: 45px;
+	border-radius: 20px;
+	display: none;
+	position: absolute;
+	min-width: 140px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 4; /* overlay other elements */
+}
+
+/* More dropdown menu*/
+.dropMore-content a {
+	padding: 12px 16px; /* space between each element */
+	text-decoration: none; /* remove underline - link has underline */
+	display: block;
+}
+
+/* More dropdown menu*/
+.dropMore a:hover {
+	background-color: #D2D2D2; /* hover color */
+}
+
+/* More dropdown menu*/
+.showMore {
+	display: block;
+}
+</style>
+
+<body style="background-color: #E1EECC;">
+
+<!-- header -->
+<div th:replace="fragments/header"></div>
+
+	<div class="container">
+		
+
+		<!-- space between header and top bar -->
+		<br> <br> <br>
+
+		<!-- top bar -->
+		<div class="topbar">
+			<div class="d-flex justify-content-center">
+				<div class="w-50">
+					<h4>Deposit Token 1</h4>
+				</div>
+				<div class="bt d-flex ml-auto bg-light" style="border-radius: 40px;">
+					<button class="text-dark bg-light" id="btnPos"
+						style="border-radius: 40px; border: none;"
+						sec:authorize="hasRole('ROLE_ADMIN')">&#8592; Back to
+						Pool</button>
+				</div>
+				<div class="bt d-flex bg-light ml-auto dropMore"
+					style="border-radius: 40px; margin-left: 20px; margin-right: 15px">
+					<button onclick="dropMore()" class="morebtn bg-light"
+						style="border-radius: 40px; border: none;">
+						More <span class="fa fa-caret-down"></span>
+					</button>
+					<div id="dropMore" class="dropMore-content bg-light"
+						style="border-radius: 20px;">
+						<a class="text-dark" href="/docs">Learn</a> <a class="text-dark"
+							href="/pool/newPool" sec:authorize="hasRole('ROLE_ADMIN')">Create
+							pool</a> <a class="text-dark" href="/pool/manage"
+							sec:authorize="hasRole('ROLE_ADMIN')">Manage pool</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- box, below top bar -->
+		<div class="d-flex justify-content-center">
+			<div class="card w-75" style="border-radius: 20px; color: #D2D2D2;">
+				<div class="card-body">
+					<form class="needs-validation"
+						th:action="@{pool/edit/{id}(id=${pool.id})}" th:object="${pool}"
+						method="post" novalidate>
+						<div class="row">
+							<div class="col needs-validation">
+								<label for="pool_token1" class="form-label text-dark">Token
+									1: </label> <input id="pool_token1" type="text" class="form-control"
+									th:field="*{token1}" required minlength=3 maxlength=100
+									style="background: #D2D2D2;" />
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid token.</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('token1')}"
+									th:errors="*{token1}"></p>
+							</div>
+
+							<div class="col needs-validation">
+								<label for="pool_token2" class="form-label text-dark">Token
+									2: </label> <input id="pool_token2" type="text" class="form-control"
+									th:field="*{token2}" required minlength=3 maxlength=100
+									style="background: #D2D2D2;" />
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid token.</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('token2')}"
+									th:errors="*{token2}"></p>
+							</div>
+						</div>
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col needs-validation">
+								<label for="pool_deposit1" class="form-label text-dark">Token
+									1 Deposit: $</label> <input id="pool_deposit1" class="form-control"
+									type="number" th:field="*{deposit1}" required step="0.01"
+									min="0" max="1000" style="background: #D2D2D2;">
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.
+									(Between $0 and $1000)</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('deposit1')}"
+									th:errors="*{deposit1}"></p>
+							</div>
+
+							<div class="col needs-validation">
+								<label for="pool_deposit2" class="form-label text-dark">Token
+									2 Deposit: $</label> <input id="pool_deposit2" class="form-control"
+									type="number" th:field="*{deposit2}" required step="0.01"
+									min="0" max="1000" style="background: #D2D2D2;">
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.
+									(Between $0 and $1000)</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('deposit2')}"
+									th:errors="*{deposit2}"></p>
+							</div>
+						</div>
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col needs-validation">
+								<label for="pool_minimum" class="form-label text-dark">Minimum
+									Amount: $</label> <input id="pool_minimum" class="form-control"
+									type="number" th:field="*{minimum}" required step="0.01"
+									min="0" max="500" style="background: #D2D2D2;">
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.
+									(Between $0 and $500)</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('minimum')}"
+									th:errors="*{minimum}"></p>
+							</div>
+
+							<div class="col needs-validation">
+								<label for="pool_maximum" class="form-label text-dark">Maximum
+									Amount: $</label><input id="pool_maximum" class="form-control"
+									type="number" th:field="*{maximum}" required step="0.01"
+									min="500" max="1000" style="background: #D2D2D2;">
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.
+									(Between $500 and $1000)</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('maximum')}"
+									th:errors="*{maximum}"></p>
+							</div>
+						</div>
+
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col needs-validation">
+								<label for="pool_fee" class="form-label text-dark">Pool
+									Fee: %</label><select id="pool_fee" class="form-control "
+									th:field="*{fee}" required style="background: #D2D2D2;">
+									<option value="" disabled selected style="background: white;">Select
+										Fee Tier:</option>
+									<option value="0.01" style="background: white;">0.01%
+										| Best For Very Stable Pairs</option>
+									<option value="0.05" style="background: white;">0.05%
+										| Best For Stable Pairs</option>
+									<option value="0.3" style="background: white;">0.3% |
+										Best For Most Pairs</option>
+									<option value="1" style="background: white;">1% | Best
+										For Exotic Pairs</option>
+								</select>
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('fee')}"
+									th:errors="*{fee}"></p>
+							</div>
+
+							<div class="col" style="padding-top: 30px;">
+								<button type="submit" class="btn btn-dark text-light">Update
+									Pool Detail</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- footer -->
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+
+<script>
+	'use strict'
+
+	var form = document.querySelector('.needs-validation')
+
+	form.addEventListener('submit', function(event) {
+		if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		}
+		form.classList.add('was-validated')
+	})
+
+	/* When user click button, toggle between hiding and showing the dropdown content */
+	function dropMore() {
+		document.getElementById("dropMore").classList.toggle("showMore");
+	}
+
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.morebtn')) {
+			var dropdownsm = document
+					.getElementsByClassName("dropMore-content");
+			var i;
+			for (i = 0; i < dropdownsm.length; i++) {
+				var openDropdownm = dropdownsm[i];
+				if (openDropdownm.classList.contains('showMore')) {
+					openDropdownm.classList.remove('showMore');
+				}
+			}
+		}
+	}
+
+	document.getElementById("btnPos").onclick = function() {
+		location.href = "/pool";
+	};
+</script>
+
+</html>

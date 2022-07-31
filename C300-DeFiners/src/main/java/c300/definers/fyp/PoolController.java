@@ -31,12 +31,31 @@ public class PoolController {
 		return "pool";
 	}
 
+	// deposit amount 1 - get
+	@GetMapping("/pool/Dep1/{id}")
+	public String dep1(@PathVariable("id") Integer id, Model model) {
+		Pool pool = poolRepository.getById(id);
+		model.addAttribute("pool", pool);
+		
+		return "poolDep";
+	}
+	
+	// deposit amount 1 - post
+	@PostMapping("/pool/Dep1/pool/Dep1/{id}")
+	public String saveDep1(@PathVariable("id") Integer id, Pool pool) {
+
+		poolRepository.save(pool);
+
+		return "redirect:/pool";
+	}
+	
+
 	// add pool - get
 	@GetMapping("/pool/newPool")
 	public String newPool(Model model) {
-		
+
 		model.addAttribute("pool", new Pool());
-		
+
 		List<Token> tokenList = tokenRepository.findAll();
 		model.addAttribute("tokenList", tokenList);
 

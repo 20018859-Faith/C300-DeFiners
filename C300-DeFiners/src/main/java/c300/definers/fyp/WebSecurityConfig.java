@@ -40,30 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-<<<<<<< HEAD
-		
-		//Members functions
-		.antMatchers("/members","/members/edit/*","/members/delete/*").hasRole("ADMIN")
-		//"/members/add" & "/members/save" open for visitors to sign up
-		
-		//Pool
-		.antMatchers("/pool/newPool").hasRole("ADMIN")
-		.antMatchers("/").hasRole("ADMIN")
-	
-		
-		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs", "/docs/definers").permitAll()
-		.antMatchers("/bootstrap/*/*").permitAll()
-		.antMatchers("/images/*").permitAll()
-		.antMatchers("/css/*").permitAll()
-		.anyRequest().authenticated()
-		.and()
-		.formLogin().loginPage("/login").permitAll()
-		.defaultSuccessUrl("/", true)
-		.and()
-		.logout().logoutUrl("/logout").permitAll()
-		.and()
-		.exceptionHandling().accessDeniedPage("/403");
-=======
 
 				// Members functions
 				.antMatchers("/members", "/members/edit/*", "/members/delete/*").hasRole("ADMIN")
@@ -87,7 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
 				.defaultSuccessUrl("/", true).and().logout().logoutUrl("/logout").permitAll().and().exceptionHandling()
 				.accessDeniedPage("/403");
->>>>>>> branch 'master' of https://github.com/20018859-Faith/C300-DeFiners.git
 
 	}
 }
