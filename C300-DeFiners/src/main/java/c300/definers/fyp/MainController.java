@@ -10,16 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-	@Autowired
-	private TokenRepository tokenRepository;
-	
-	@GetMapping("/")
-	public String index(Model model) {
-		List<Token> listTokens = tokenRepository.findAll();
-		model.addAttribute("listTokens", listTokens);
-
-		return "index";
-	}
 
 	@GetMapping("/login")
 	public String login() {
