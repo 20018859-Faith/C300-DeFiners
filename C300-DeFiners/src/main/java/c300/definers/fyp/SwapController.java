@@ -43,11 +43,16 @@ public class SwapController {
 		public String saveSwap(@Valid Swap swap, BindingResult bindingResult) {
 
 			if (bindingResult.hasErrors()) {
-				return "index";
+				return "success";
 			}
 
 			swapRepository.save(swap);
-			return "redirect:index";
+			return "redirect:success";
+		}
+		
+		@GetMapping("/success")
+		public String docs() {
+			return "success";
 		}
 
 }

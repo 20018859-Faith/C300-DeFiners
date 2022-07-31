@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		//Pool
 		.antMatchers("/pool/newPool").hasRole("ADMIN")
+		.antMatchers("/").hasRole("ADMIN")
 	
 		
 		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs", "/docs/definers").permitAll()
