@@ -50,7 +50,7 @@
 						<tbody>
 							<tr th:each="chart : ${listChart}">
 								<td th:text="${chart.id}"></td>
-								<td th:utext="${chart.PoolName}"></td>
+								<td th:text="${chart.PoolName}"></td>
 								<td>$<span
 									th:text="${#numbers.formatDecimal(chart.TVL, 1, 2)}"></span></td>
 								<td>$<span
