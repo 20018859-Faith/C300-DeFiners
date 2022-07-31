@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>DeFiners Docs - Learn Definers</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link href="/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+<link href="/font-awesome/css/brands.min.css" rel="stylesheet" />
+<link href="/font-awesome/css/solid.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+.title-doc {
+	padding: 20px;
+	align-content: center;
+	text-align: center;
+	background-color: #E1EECC;
+	border: 2px dotted grey;
+	border-radius: 20px;
+	max-width: 800px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cardIntro {
+	padding: 20px;
+	align-content: center;
+	text-align: center;
+	background-color: #f0fff0;
+	border-radius: 20px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cardComp {
+	padding: 20px;
+	align-content: center;
+	text-align: center;
+	background-color: #f0fff0;
+	border-radius: 20px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+</style>
+
+<body style="background-color: #E1EECC;">
+
+	<div th:replace="fragments/header"></div>
+
+	<div class="container">
+
+		<br> <br>
+
+		<div class="title-doc text-dark mx-auto">
+			<h3>What is DeFiners?</h3>
+			<h6>More About Us</h6>
+		</div>
+
+		<br> <br>
+
+		<div class="row">
+			<div class="card text-center cardIntro">
+				<div class="card-header">Introduction</div>
+				<div class="card-body">
+					<p class="card-text">
+						DeFiners protocol is a peer-to-peer system designed for exchanging
+						cryptocurrencies (<a
+							href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/">ERC-20
+							Tokens</a>) on the <a href="https://ethereum.org/en/">Ethereum</a>
+						blockchain. The protocol is implemented as a set of persistent,
+						non-upgradable smart contracts; designed to prioritize censorship
+						resistence, security, self-custody, and to function without any
+						trusted intermediaries who may selectively restrict access.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<br> <br>
+
+		<div class="row">
+			<div class="card text-center cardComp">
+				<div class="card-header">Compare</div>
+				<div class="card-body">
+					<p class="card-text">
+						DeFiners protocol is a peer-to-peer system designed for exchanging
+						cryptocurrencies (<a
+							href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/">ERC-20
+							Tokens</a>) on the <a href="https://ethereum.org/en/">Ethereum</a>
+						blockchain. The protocol is implemented as a set of persistent,
+						non-upgradable smart contracts; designed to prioritize censorship
+						resistence, security, self-custody, and to function without any
+						trusted intermediaries who may selectively restrict access.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<br> <br>
+
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+</html>
+
