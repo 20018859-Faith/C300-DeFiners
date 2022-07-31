@@ -17,6 +17,14 @@
 </head>
 
 <style>
+#cen.docsnav {
+	background-color: #D2D2D2;
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
 .title-doc {
 	padding: 20px;
 	align-content: center;
@@ -26,6 +34,16 @@
 	border-radius: 20px;
 	max-width: 800px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.prevDocs {
+	border-radius: 20px;
+	border: none;
+	background-color: #f0fff0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .cardIntro {
@@ -55,6 +73,11 @@
 
 		<br> <br>
 
+		<button id="prevDocs" class="prevDocs">&#129104; Back to
+			previous Docs page.</button>
+
+		<br> <br>
+
 		<div class="title-doc text-dark mx-auto">
 			<h3>What is DeFiners?</h3>
 			<h6>More About Us</h6>
@@ -67,8 +90,8 @@
 				<div class="card-header">Introduction</div>
 				<div class="card-body">
 					<p class="card-text">
-						DeFiners protocol is a peer-to-peer system designed for exchanging
-						cryptocurrencies (<a
+						DeFiners protocol is a peer-to-peer* system designed for
+						exchanging cryptocurrencies (<a
 							href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/">ERC-20
 							Tokens</a>) on the <a href="https://ethereum.org/en/">Ethereum</a>
 						blockchain. The protocol is implemented as a set of persistent,
@@ -77,6 +100,11 @@
 						trusted intermediaries who may selectively restrict access.
 					</p>
 				</div>
+				<div class="card-footer text-muted">* Ethereum protocols are
+					sometimes referred to as peer-to-contract systems as well. These
+					are similar to a peer-to-peer systems, but with immutable,
+					persistent programs known as smart contracts taking the place of a
+					peer.</div>
 			</div>
 		</div>
 
@@ -86,24 +114,45 @@
 			<div class="card text-center cardComp">
 				<div class="card-header">Compare</div>
 				<div class="card-body">
-					<p class="card-text">
-						DeFiners protocol is a peer-to-peer system designed for exchanging
-						cryptocurrencies (<a
-							href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/">ERC-20
-							Tokens</a>) on the <a href="https://ethereum.org/en/">Ethereum</a>
-						blockchain. The protocol is implemented as a set of persistent,
-						non-upgradable smart contracts; designed to prioritize censorship
-						resistence, security, self-custody, and to function without any
-						trusted intermediaries who may selectively restrict access.
+					<p class="card-title">
+						<b>How does DeFiners protocol compare to typical market?</b>
 					</p>
+					<p class="card-text">To compete against the typical
+						Decentralized Exchange markets, DeFiners has a unique prediction
+						machine learning algorithm feature that provides simple and
+						straightforward way to confirm trends of the pools. This helps to
+						predict better returns for liquidity providers, and to provide
+						better profits for swappers.</p>
 				</div>
 			</div>
 		</div>
 
 		<br> <br>
 
+		<div class="row">
+			<div class="card text-center cardComp">
+				<div class="card-header">More Information</div>
+				<div class="card-body">
+					<p class="card-text">
+						For further research of Decentralized Exchange, check out our <a
+							href="https://docs.google.com/document/d/1nBYMcHeidmw78x7-pkqahAQIXmFvASHn/edit?usp=sharing&ouid=107277337922542361271&rtpof=true&sd=true">research</a>
+						page.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<br> <br> <br>
+
 		<div th:replace="fragments/footer"></div>
 	</div>
 </body>
+
+<script>
+	document.getElementById("prevDocs").onclick = function() {
+		location.href = "/docs";
+	};
+</script>
+
 </html>
 
