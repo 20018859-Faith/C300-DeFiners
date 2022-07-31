@@ -26,4 +26,9 @@ public class MainController {
 		return "docs";
 	}
 	
+	@GetMapping("/docs/definers")
+	public String docsDefiners() {
+		return "docsDefiners";
+	}
+	
 }

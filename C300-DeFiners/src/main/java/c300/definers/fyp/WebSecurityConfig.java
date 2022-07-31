@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/pool/newPool").hasRole("ADMIN")
 	
 		
-		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs").permitAll()
+		.antMatchers("/", "/members/add", "/pool", "/charts", "/about", "/docs", "/docs/definers").permitAll()
 		.antMatchers("/bootstrap/*/*").permitAll()
 		.antMatchers("/images/*").permitAll()
 		.antMatchers("/css/*").permitAll()
