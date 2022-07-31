@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>DeFiners Pool</title>
+<title>DeFiners Pool - Deposit 1</title>
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
@@ -16,6 +16,14 @@
 </head>
 
 <style>
+#cen.poolnav {
+	background-color: #D2D2D2;
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
 /* topbar */
 .topbar {
 	margin-bottom: 15px;
@@ -76,6 +84,7 @@
 
 	<div class="container">
 
+
 		<!-- space between header and top bar -->
 		<br> <br> <br>
 
@@ -83,13 +92,13 @@
 		<div class="topbar">
 			<div class="d-flex justify-content-center">
 				<div class="w-50">
-					<h4>Pools Overview</h4>
+					<h4>Deposit Token 1</h4>
 				</div>
-				<div class="bt d-flex ml-auto"
-					style="border-radius: 40px; background-color: #E1EECC;">
+				<div class="bt d-flex ml-auto bg-light" style="border-radius: 40px;">
 					<button class="text-dark bg-light" id="btnPos"
 						style="border-radius: 40px; border: none;"
-						sec:authorize="hasRole('ROLE_ADMIN')">&#x2B; Create Pool</button>
+						sec:authorize="hasRole('ROLE_ADMIN')">&#8592; Back to
+						Pool</button>
 				</div>
 				<div class="bt d-flex bg-light ml-auto dropMore"
 					style="border-radius: 40px; margin-left: 20px; margin-right: 15px">
@@ -112,50 +121,82 @@
 		<div class="d-flex justify-content-center">
 			<div class="card w-75" style="border-radius: 20px; color: #D2D2D2;">
 				<div class="card-body">
-					<table class="table bordered">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Token 1</th>
-								<th>Deposit Amount</th>
-								<th sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">Token
-									1<span>&#43;</span>
-								</th>
-								<th>Token 2</th>
-								<th>Deposit Amount</th>
-								<th sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">Token
-									2<span>&#43;</span>
-								</th>
-								<th>Pool Fee</th>
-								<th>Minimum</th>
-								<th>Maximum</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="poolitem : ${listPool}">
-								<td th:text="${poolitem.id}"></td>
-								<td th:text="${poolitem.token1}"></td>
-								<td>$<span
-									th:text="${#numbers.formatDecimal(poolitem.deposit1, 1, 2)}"></span>
-								</td>
-								<td sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"><a
-									th:href="@{/pool/Dep1/{id}(id=${poolitem.id})}">Add <span>&#43;</span>
-								</a></td>
-								<td th:text="${poolitem.token2}"></td>
-								<td>$<span
-									th:text="${#numbers.formatDecimal(poolitem.deposit2, 1, 2)}"></span></td>
-								<td sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"><a
-									th:href="@{/pool/Dep2/{id}(id=${poolitem.id})}">Add <span>&#43;</span>
-								</a></td>
-								<td><span th:text="${poolitem.fee}"></span>%</td>
-								<td>$<span
-									th:text="${#numbers.formatDecimal(poolitem.minimum, 1, 2)}"></span></td>
-								<td>$<span
-									th:text="${#numbers.formatDecimal(poolitem.maximum, 1, 2)}"></span></td>
-							</tr>
-						</tbody>
-					</table>
-					<br> <br> <br> <br>
+					<form class="needs-validation"
+						th:action="@{pool/Dep2/{id}(id=${pool.id})}" th:object="${pool}"
+						method="post" novalidate>
+						<div class="row">
+							<div class="col">
+								<input id="pool_token1" type="text" class="form-control"
+									th:field="*{token1}" required hidden
+									style="background: #D2D2D2;" />
+							</div>
+
+							<div class="col">
+								<input id="pool_token2" type="text" class="form-control"
+									th:field="*{token2}" required hidden
+									style="background: #D2D2D2;" />
+							</div>
+						</div>
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col needs-validation">
+								<label for="pool_deposit2" class="form-label text-dark">Token
+									2 Deposit: $</label> <input id="pool_deposit2" class="form-control"
+									type="number" th:field="*{deposit2}" required step="0.01"
+									min="0" max="1000">
+
+								<!-- Input Validation -->
+								<div class="invalid-feedback">Please enter a valid amount.
+									(Between $0 and $1000)</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('deposit2')}"
+									th:errors="*{deposit2}"></p>
+							</div>
+
+							<div class="col" style="padding-top: 30px;">
+								<button type="submit" class="btn btn-dark text-light">Deposit
+									Amount 2</button>
+							</div>
+						</div>
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col">
+								<input id="pool_minimum" class="form-control" type="number"
+									th:field="*{minimum}" required hidden
+									style="background: #D2D2D2;">
+							</div>
+
+							<div class="col needs-validation">
+								<input id="pool_maximum" class="form-control" type="number"
+									th:field="*{maximum}" required hidden
+									style="background: #D2D2D2;">
+							</div>
+						</div>
+
+						<div class="row" style="padding-top: 20px;">
+							<div class="col">
+								<input id="pool_deposit1" class="form-control" type="number"
+									th:field="*{deposit1}" required hidden
+									style="background: #D2D2D2;">
+							</div>
+
+							<div class="col">
+								<select id="pool_fee" class="form-control " th:field="*{fee}"
+									required hidden style="background: #D2D2D2;">
+									<option value="" disabled selected style="background: white;">Select
+										Fee Tier:</option>
+									<option value="0.01" style="background: white;">0.01%
+										| Best For Very Stable Pairs</option>
+									<option value="0.05" style="background: white;">0.05%
+										| Best For Stable Pairs</option>
+									<option value="0.3" style="background: white;">0.3% |
+										Best For Most Pairs</option>
+									<option value="1" style="background: white;">1% | Best
+										For Exotic Pairs</option>
+								</select>
+							</div>
+						</div>
+
+					</form>
 				</div>
 			</div>
 		</div>
@@ -166,6 +207,18 @@
 </body>
 
 <script>
+	'use strict'
+
+	var form = document.querySelector('.needs-validation')
+
+	form.addEventListener('submit', function(event) {
+		if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		}
+		form.classList.add('was-validated')
+	})
+
 	/* When user click button, toggle between hiding and showing the dropdown content */
 	function dropMore() {
 		document.getElementById("dropMore").classList.toggle("showMore");
@@ -187,9 +240,8 @@
 	}
 
 	document.getElementById("btnPos").onclick = function() {
-		location.href = "/pool/newPool";
+		location.href = "/pool";
 	};
 </script>
 
 </html>
-

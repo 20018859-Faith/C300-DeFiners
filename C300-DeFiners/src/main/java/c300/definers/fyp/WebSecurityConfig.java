@@ -50,6 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/pool/newPool", "/pool/save", "/pool/manage", "/pool/edit/*", "/pool/edit/pool/edit/*",
 						"/pool/delete/*")
 				.hasRole("ADMIN").antMatchers("/pool").permitAll()
+				.antMatchers("/pool/Dep1/*", "/pool/Dep1/pool/Dep1/*", "/pool/Dep2/*", "/pool/Dep2/pool/Dep2/*")
+				.hasAnyRole("ADMIN", "USER")
 
 				// Token
 				.antMatchers("/tokens/add", "/tokens/save", "/token/edit/*", "/token/delete/*")

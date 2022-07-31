@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>DeFiners Pool - Edit</title>
+<title>DeFiners Pool - Deposit 1</title>
 
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script src="/bootstrap/js/bootstrap.js"></script>
@@ -79,11 +79,11 @@
 
 <body style="background-color: #E1EECC;">
 
-<!-- header -->
-<div th:replace="fragments/header"></div>
+	<!-- header -->
+	<div th:replace="fragments/header"></div>
 
 	<div class="container">
-		
+
 
 		<!-- space between header and top bar -->
 		<br> <br> <br>
@@ -122,31 +122,19 @@
 			<div class="card w-75" style="border-radius: 20px; color: #D2D2D2;">
 				<div class="card-body">
 					<form class="needs-validation"
-						th:action="@{pool/edit/{id}(id=${pool.id})}" th:object="${pool}"
+						th:action="@{pool/Dep1/{id}(id=${pool.id})}" th:object="${pool}"
 						method="post" novalidate>
 						<div class="row">
-							<div class="col needs-validation">
-								<label for="pool_token1" class="form-label text-dark">Token
-									1: </label> <input id="pool_token1" type="text" class="form-control"
-									th:field="*{token1}" required minlength=3 maxlength=100
+							<div class="col">
+								<input id="pool_token1" type="text" class="form-control"
+									th:field="*{token1}" required hidden
 									style="background: #D2D2D2;" />
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid token.</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('token1')}"
-									th:errors="*{token1}"></p>
 							</div>
 
-							<div class="col needs-validation">
-								<label for="pool_token2" class="form-label text-dark">Token
-									2: </label> <input id="pool_token2" type="text" class="form-control"
-									th:field="*{token2}" required minlength=3 maxlength=100
+							<div class="col">
+								<input id="pool_token2" type="text" class="form-control"
+									th:field="*{token2}" required hidden
 									style="background: #D2D2D2;" />
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid token.</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('token2')}"
-									th:errors="*{token2}"></p>
 							</div>
 						</div>
 
@@ -155,7 +143,7 @@
 								<label for="pool_deposit1" class="form-label text-dark">Token
 									1 Deposit: $</label> <input id="pool_deposit1" class="form-control"
 									type="number" th:field="*{deposit1}" required step="0.01"
-									min="0" max="1000" style="background: #D2D2D2;">
+									min="0" max="1000">
 
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid amount.
@@ -164,54 +152,36 @@
 									th:errors="*{deposit1}"></p>
 							</div>
 
-							<div class="col needs-validation">
-								<label for="pool_deposit2" class="form-label text-dark">Token
-									2 Deposit: $</label> <input id="pool_deposit2" class="form-control"
-									type="number" th:field="*{deposit2}" required step="0.01"
-									min="0" max="1000" style="background: #D2D2D2;">
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid amount.
-									(Between $0 and $1000)</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('deposit2')}"
-									th:errors="*{deposit2}"></p>
+							<div class="col" style="padding-top: 30px;">
+								<button type="submit" class="btn btn-dark text-light">Deposit
+									Amount 1</button>
 							</div>
 						</div>
 
 						<div class="row" style="padding-top: 20px;">
-							<div class="col needs-validation">
-								<label for="pool_minimum" class="form-label text-dark">Minimum
-									Amount: $</label> <input id="pool_minimum" class="form-control"
-									type="number" th:field="*{minimum}" required step="0.01"
-									min="0" max="500" style="background: #D2D2D2;">
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid amount.
-									(Between $0 and $500)</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('minimum')}"
-									th:errors="*{minimum}"></p>
+							<div class="col">
+								<input id="pool_minimum" class="form-control" type="number"
+									th:field="*{minimum}" required hidden
+									style="background: #D2D2D2;">
 							</div>
 
 							<div class="col needs-validation">
-								<label for="pool_maximum" class="form-label text-dark">Maximum
-									Amount: $</label><input id="pool_maximum" class="form-control"
-									type="number" th:field="*{maximum}" required step="0.01"
-									min="500" max="1000" style="background: #D2D2D2;">
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid amount.
-									(Between $500 and $1000)</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('maximum')}"
-									th:errors="*{maximum}"></p>
+								<input id="pool_maximum" class="form-control" type="number"
+									th:field="*{maximum}" required hidden
+									style="background: #D2D2D2;">
 							</div>
 						</div>
 
-
 						<div class="row" style="padding-top: 20px;">
-							<div class="col needs-validation">
-								<label for="pool_fee" class="form-label text-dark">Pool
-									Fee: %</label><select id="pool_fee" class="form-control "
-									th:field="*{fee}" required style="background: #D2D2D2;">
+							<div class="col">
+								<input id="pool_deposit2" class="form-control" type="number"
+									th:field="*{deposit2}" required hidden
+									style="background: #D2D2D2;">
+							</div>
+
+							<div class="col">
+								<select id="pool_fee" class="form-control " th:field="*{fee}"
+									required hidden style="background: #D2D2D2;">
 									<option value="" disabled selected style="background: white;">Select
 										Fee Tier:</option>
 									<option value="0.01" style="background: white;">0.01%
@@ -223,16 +193,6 @@
 									<option value="1" style="background: white;">1% | Best
 										For Exotic Pairs</option>
 								</select>
-
-								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid amount.</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('fee')}"
-									th:errors="*{fee}"></p>
-							</div>
-
-							<div class="col" style="padding-top: 30px;">
-								<button type="submit" class="btn btn-dark text-light">Update
-									Pool Detail</button>
 							</div>
 						</div>
 

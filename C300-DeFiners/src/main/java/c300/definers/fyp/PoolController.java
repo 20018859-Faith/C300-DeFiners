@@ -36,10 +36,10 @@ public class PoolController {
 	public String dep1(@PathVariable("id") Integer id, Model model) {
 		Pool pool = poolRepository.getById(id);
 		model.addAttribute("pool", pool);
-		
+
 		return "poolDep";
 	}
-	
+
 	// deposit amount 1 - post
 	@PostMapping("/pool/Dep1/pool/Dep1/{id}")
 	public String saveDep1(@PathVariable("id") Integer id, Pool pool) {
@@ -48,7 +48,24 @@ public class PoolController {
 
 		return "redirect:/pool";
 	}
-	
+
+	// deposit amount 2 - get
+	@GetMapping("/pool/Dep2/{id}")
+	public String dep2(@PathVariable("id") Integer id, Model model) {
+		Pool pool = poolRepository.getById(id);
+		model.addAttribute("pool", pool);
+
+		return "poolDep2";
+	}
+
+	// deposit amount 2 - post
+	@PostMapping("/pool/Dep2/pool/Dep2/{id}")
+	public String saveDep2(@PathVariable("id") Integer id, Pool pool) {
+
+		poolRepository.save(pool);
+
+		return "redirect:/pool";
+	}
 
 	// add pool - get
 	@GetMapping("/pool/newPool")
