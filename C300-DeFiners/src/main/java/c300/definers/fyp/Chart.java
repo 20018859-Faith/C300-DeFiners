@@ -9,7 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Chart {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String PoolName;
 	private String token0_id;

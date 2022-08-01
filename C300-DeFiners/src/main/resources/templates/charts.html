@@ -51,7 +51,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="chart : ${listChart}">
-								<td th:text="${chart.id}"></td>
+								<td><a th:href="@{https://etherscan.io/address/{id}(id=${chart.id})}" th:text="${chart.id}"></a></td>		
 								<td th:text="${chart.PoolName}"></td>
 								<td>$<span
 									th:text="${#numbers.formatDecimal(chart.TVL, 1, 2)}"></span></td>
