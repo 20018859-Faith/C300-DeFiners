@@ -60,6 +60,7 @@ public class MemberController {
 
 	@PostMapping("/members/edit/{id}")
 	public String saveUpdatedMember(@PathVariable("id") Integer id, Member member) {
+		member.setRole(member.getRole());
 		memberRepository.save(member);
 		return "redirect:/members";
 	}
