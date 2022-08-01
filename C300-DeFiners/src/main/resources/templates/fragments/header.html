@@ -172,10 +172,11 @@
 					id="cen" class="nav-link text-dark" href="/members"
 					sec:authorize="hasRole('ROLE_ADMIN')">Members</a> <a id="cen"
 					class="nav-link text-dark" href="/about">About Us</a> <a id="cen"
-					class="docsnav nav-link text-dark" href="/docs">Docs</a>
+					class="docsnav nav-link text-dark" href="/docs">Docs</a> <a
+					id="cen" class="walletnav nav-link text-dark" href="/wallet"
+					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">Wallet</a>
 				<button id="connect-button" class="connectbtn text-dark bg-light"
-					style="border-radius: 20px; border-right: 0.5px dotted grey; border-left: 0.5px dotted grey; border-top: none; border-bottom: none;">Connect
-					Wallet</button>
+					style="border-radius: 20px; border-right: 0.5px dotted grey; border-left: 0.5px dotted grey; border-top: none; border-bottom: none;">MetaMask</button>
 
 			</div>
 

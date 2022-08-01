@@ -60,6 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// Swap
 				.antMatchers("/swap/save").hasAnyRole("ADMIN", "USER")
 
+				// Wallet
+				.antMatchers("/wallet").hasAnyRole("ADMIN", "USER")
+
 				.antMatchers("/", "/charts", "/about", "/docs", "/docs/definers").permitAll()
 				.antMatchers("/bootstrap/*/*").permitAll().antMatchers("/images/*").permitAll().antMatchers("/css/*")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()

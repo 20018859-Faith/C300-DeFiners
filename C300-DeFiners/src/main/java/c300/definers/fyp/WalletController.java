@@ -24,27 +24,30 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class WalletController {
-	
+
 	@Autowired
 	private WalletRepository walletRepository;
-	
+
 	@Autowired
 	private MemberRepository memberRepository;
-	
-	// view token
-			@GetMapping("/wallet")
-			public String wallet(Model model, Principal principal) {
-				
-				// Get currently logged in user
-				MemberDetails loggedInMember = (MemberDetails) SecurityContextHolder.getContext().getAuthentication()
-						.getPrincipal();
-				int loggedInMemberId = loggedInMember.getMember().getId();
-				
-				List<Wallet> listWallet = walletRepository.findAll();
-				model.addAttribute("listWallet", listWallet);
-				model.addAttribute("memberId", loggedInMemberId);
 
-				return "view_wallet";
-			}
+	// view token
+	@GetMapping("/wallet")
+	public String wallet(Model model, Principal principal) {
+
+		// Get currently logged in user
+		MemberDetails loggedInMember = (MemberDetails) SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal();
+
+		int loggedInMemberId = loggedInMember.getMember().getId();
+
+		List<Wallet> listWallet = walletRepository.findByMemberId(loggedInMemberId);
+
+		model.addAttribute("listWallet", listWallet);
+
+		model.addAttribute("memberId", loggedInMemberId);
+
+		return "view_wallet";
+	}
 
 }
