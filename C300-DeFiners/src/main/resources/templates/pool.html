@@ -85,14 +85,15 @@
 				<div class="w-50">
 					<h4>Pools Overview</h4>
 				</div>
+
+				<!-- ADMIN, Create Pool -->
 				<div class="bt d-flex ml-auto"
-					style="border-radius: 40px; background-color: #E1EECC;">
-					<button class="text-dark bg-light" id="btnPos"
-						style="border-radius: 40px; border: none;"
-						sec:authorize="hasRole('ROLE_ADMIN')">&#x2B; Create Pool</button>
-				</div>
+					style="border-radius: 40px; background-color: #E1EECC; margin-right: 210px;"
+					sec:authorize="hasRole('ROLE_USER')"></div>
+
 				<div class="bt d-flex bg-light ml-auto dropMore"
-					style="border-radius: 40px; margin-left: 20px; margin-right: 15px">
+					style="border-radius: 40px; margin-right: 5px">
+
 					<button onclick="dropMore()" class="morebtn bg-light"
 						style="border-radius: 40px; border: none;">
 						More <span class="fa fa-caret-down"></span>
@@ -110,21 +111,21 @@
 
 		<!-- box, below top bar -->
 		<div class="d-flex justify-content-center">
-			<div class="card w-75" style="border-radius: 20px; color: #D2D2D2;">
+			<div class="card w-80" style="border-radius: 20px; color: #D2D2D2;">
 				<div class="card-body">
 					<table class="table bordered">
 						<thead>
 							<tr>
 								<th>ID</th>
 								<th>Token 1</th>
-								<th>Deposit Amount</th>
-								<th sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">Token
-									1<span>&#43;</span>
+								<th>Amount Deposited</th>
+								<th sec:authorize="hasAnyRole('ROLE_USER')">Deposit for
+									Token 1<span>&#43;</span>
 								</th>
 								<th>Token 2</th>
-								<th>Deposit Amount</th>
-								<th sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">Token
-									2<span>&#43;</span>
+								<th>Amount Deposited</th>
+								<th sec:authorize="hasAnyRole('ROLE_USER')">Deposit for
+									Token 2<span>&#43;</span>
 								</th>
 								<th>Pool Fee</th>
 								<th>Minimum</th>
@@ -138,13 +139,13 @@
 								<td>$<span
 									th:text="${#numbers.formatDecimal(poolitem.deposit1, 1, 2)}"></span>
 								</td>
-								<td sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"><a
+								<td sec:authorize="hasAnyRole('ROLE_USER')"><a
 									th:href="@{/pool/Dep1/{id}(id=${poolitem.id})}">Add <span>&#43;</span>
 								</a></td>
 								<td th:text="${poolitem.token2}"></td>
 								<td>$<span
 									th:text="${#numbers.formatDecimal(poolitem.deposit2, 1, 2)}"></span></td>
-								<td sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"><a
+								<td sec:authorize="hasAnyRole('ROLE_USER')"><a
 									th:href="@{/pool/Dep2/{id}(id=${poolitem.id})}">Add <span>&#43;</span>
 								</a></td>
 								<td><span th:text="${poolitem.fee}"></span>%</td>
@@ -192,4 +193,5 @@
 </script>
 
 </html>
+
 

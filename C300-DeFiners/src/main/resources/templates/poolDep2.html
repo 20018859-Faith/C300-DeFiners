@@ -97,7 +97,7 @@
 				<div class="bt d-flex ml-auto bg-light" style="border-radius: 40px;">
 					<button class="text-dark bg-light" id="btnPos"
 						style="border-radius: 40px; border: none;"
-						sec:authorize="hasRole('ROLE_ADMIN')">&#8592; Back to
+						sec:authorize="hasAnyRole('ROLE_USER')">&#8592; Back to
 						Pool</button>
 				</div>
 				<div class="bt d-flex bg-light ml-auto dropMore"
@@ -124,19 +124,6 @@
 					<form class="needs-validation"
 						th:action="@{pool/Dep2/{id}(id=${pool.id})}" th:object="${pool}"
 						method="post" novalidate>
-						<div class="row">
-							<div class="col">
-								<input id="pool_token1" type="text" class="form-control"
-									th:field="*{token1}" required hidden
-									style="background: #D2D2D2;" />
-							</div>
-
-							<div class="col">
-								<input id="pool_token2" type="text" class="form-control"
-									th:field="*{token2}" required hidden
-									style="background: #D2D2D2;" />
-							</div>
-						</div>
 
 						<div class="row" style="padding-top: 20px;">
 							<div class="col needs-validation">
@@ -158,43 +145,29 @@
 							</div>
 						</div>
 
-						<div class="row" style="padding-top: 20px;">
-							<div class="col">
-								<input id="pool_minimum" class="form-control" type="number"
-									th:field="*{minimum}" required hidden
-									style="background: #D2D2D2;">
-							</div>
+						<!-- Token 2 -->
+						<input id="pool_token2" type="text" th:field="*{token2}" required
+							hidden />
 
-							<div class="col needs-validation">
-								<input id="pool_maximum" class="form-control" type="number"
-									th:field="*{maximum}" required hidden
-									style="background: #D2D2D2;">
-							</div>
-						</div>
+						<!-- Token 1 -->
+						<input id="pool_token1" type="text" th:field="*{token1}" required
+							hidden />
 
-						<div class="row" style="padding-top: 20px;">
-							<div class="col">
-								<input id="pool_deposit1" class="form-control" type="number"
-									th:field="*{deposit1}" required hidden
-									style="background: #D2D2D2;">
-							</div>
+						<!-- token 1 deposit -->
+						<input id="pool_deposit1" type="number" th:field="*{deposit1}"
+							required hidden>
 
-							<div class="col">
-								<select id="pool_fee" class="form-control " th:field="*{fee}"
-									required hidden style="background: #D2D2D2;">
-									<option value="" disabled selected style="background: white;">Select
-										Fee Tier:</option>
-									<option value="0.01" style="background: white;">0.01%
-										| Best For Very Stable Pairs</option>
-									<option value="0.05" style="background: white;">0.05%
-										| Best For Stable Pairs</option>
-									<option value="0.3" style="background: white;">0.3% |
-										Best For Most Pairs</option>
-									<option value="1" style="background: white;">1% | Best
-										For Exotic Pairs</option>
-								</select>
-							</div>
-						</div>
+						<!-- minimum -->
+						<input id="pool_minimum" type="number" th:field="*{minimum}"
+							required hidden>
+
+						<!-- maximum -->
+						<input id="pool_maximum" type="number" th:field="*{maximum}"
+							required hidden>
+
+						<!-- fee -->
+						<input id="pool_fee" type="text" th:field="*{fee}" required hidden />
+
 
 					</form>
 				</div>

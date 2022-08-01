@@ -34,6 +34,7 @@ public class PoolController {
 	// deposit amount 1 - get
 	@GetMapping("/pool/Dep1/{id}")
 	public String dep1(@PathVariable("id") Integer id, Model model) {
+
 		Pool pool = poolRepository.getById(id);
 		model.addAttribute("pool", pool);
 
@@ -43,6 +44,14 @@ public class PoolController {
 	// deposit amount 1 - post
 	@PostMapping("/pool/Dep1/pool/Dep1/{id}")
 	public String saveDep1(@PathVariable("id") Integer id, Pool pool) {
+
+		// get current deposited amount
+		double currentDeposited = poolRepository.getById(id).getDeposit1();
+
+		// get amount to be deposited
+		double depositAmount = pool.getDeposit1();
+
+		pool.setDeposit1(depositAmount + currentDeposited);
 
 		poolRepository.save(pool);
 
