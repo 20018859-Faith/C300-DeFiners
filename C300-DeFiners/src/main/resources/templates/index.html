@@ -48,12 +48,12 @@
 					<div class="input-group mb-3">
 						<div class="input-group-prepend"></div>
 						<select class="form-control to" id="sel1"
-							style="border-radius: 25px; margin-left: 400px;">
+							style="border-radius: 25px; margin-left: 400px;" th:each="token : ${listTokens}">
 							<option value="">Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="GVT">GVT</option>
-
+							<option value="" th:text="${token.name}"></option>
 						</select>
 					</div>
 				</div>
@@ -62,12 +62,12 @@
 					<div class="input-group mb-3">
 						<div class="input-group-prepend"></div>
 						<select class="form-control from" id="sel2"
-							style="border-radius: 25px; margin-right: 400px;">
+							style="border-radius: 25px; margin-right: 400px;" th:each="token : ${listTokens}">
 							<option value="">Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="GVT">GVT</option>
-
+							<option value="" th:text="${token.name}"></option>
 						</select>
 					</div>
 				</div>
@@ -84,8 +84,12 @@
 				<!-- reset button -->
 				<button class="btn btn-primary m-2" onclick="clearVal()"
 					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
-					Reset</button>
-			</div>
+					Reset</button><br>
+					
+				<button class="btn btn-primary m-2" onclick=""
+					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
+					Swap</button>
+			</div><br>
 
 		</div>
 
@@ -100,7 +104,7 @@
 			</h2>
 		</div>
 	</div>
-
+<br>
 	<div th:replace="fragments/footer"></div>
 
 	<script>

@@ -20,7 +20,7 @@ public class Member {
 	private String role;
 	
 	@OneToMany(mappedBy="member")
-	private Set<Wallet> wallet;
+	private Set<Wallet> Wallet;
 	
 	public int getId() {
 		return id;

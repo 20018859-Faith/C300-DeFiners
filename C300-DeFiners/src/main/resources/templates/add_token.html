@@ -29,7 +29,8 @@
 		<form th:action="@{/tokens/save}" method="post" th:object="${token}" enctype="multipart/form-data">
 			<div class="mb-4 col-4">
 				<label for="token_address" class="form-label">Contract Address</label> <input
-					id="token_address" type="text" class="form-control" th:field="*{address}" style="width:500px;"/>
+					id="token_address" type="text" class="form-control" th:field="*{address}" 
+					style="width:500px;" required pattern="0x+[A-F,a-f,0-9]{40}"/>
 			</div>
 			<div class="mb-4 col-4">
 				<label for="token_name" class="form-label">
