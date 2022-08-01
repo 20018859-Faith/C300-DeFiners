@@ -5,23 +5,59 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Chart {
+	
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@NotNull
+	@NotEmpty(message = "Pool id cannot be empty!")
+	@Size(max = 50, message = "Pool id length must be less than 50 characters")
+	private String Pool_id;
+	
+	@NotNull
+	@NotEmpty(message = "Pool name cannot be empty!")
 	private String PoolName;
+	
+	@NotNull
+	@NotEmpty(message = "Token0_id cannot be empty!")
+	@Size(max = 50, message = "Token0_id length must be less than 50 characters")
 	private String token0_id;
+	
+	@NotNull
+	@NotEmpty(message = "Token1_id cannot be empty!")
+	@Size(max = 50, message = "Token1_id length must be less than 50 characters")
 	private String token1_id;
-	private String TVL;
-	private String volumeUSD;
+	
+	@NotNull
+	@DecimalMin(value = "0.00", inclusive = false, message = "Total Value Locked(TVL) cannot be empty!")
+	private double TVL;
+	
+	@NotNull
+	@DecimalMin(value = "0.00", inclusive = false, message = "VolumeUSD cannot be empty!")
+	private double volumeUSD;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getPool_id() {
+		return Pool_id;
+	}
+
+	public void setPool_id(String pool_id) {
+		Pool_id = pool_id;
 	}
 
 	public String getPoolName() {
@@ -48,19 +84,19 @@ public class Chart {
 		this.token1_id = token1_id;
 	}
 
-	public String getTVL() {
+	public double getTVL() {
 		return TVL;
 	}
 
-	public void setTVL(String tVL) {
+	public void setTVL(double tVL) {
 		TVL = tVL;
 	}
 
-	public String getVolumeUSD() {
+	public double getVolumeUSD() {
 		return volumeUSD;
 	}
 
-	public void setVolumeUSD(String volumeUSD) {
+	public void setVolumeUSD(double volumeUSD) {
 		this.volumeUSD = volumeUSD;
 	}
 

@@ -37,7 +37,7 @@ public class SwapController {
 		model.addAttribute("listTokens", listTokens);
 		return "index";
 	}
-	
+	 
 	// add pool - post
 		@PostMapping("/swap/save")
 		public String saveSwap(@Valid Swap swap, BindingResult bindingResult) {
