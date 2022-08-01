@@ -35,8 +35,8 @@ public class Token {
 
   private String imgToken;
 
-//  @OneToMany(mappedBy = "token")
-//  private Set<Pool> Pool;
+  @OneToMany(mappedBy = "token")
+  private Set<Pool> Pool;
 
   public int getId() {
     return id;

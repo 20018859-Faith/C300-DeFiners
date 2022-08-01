@@ -17,59 +17,57 @@
 </head>
 
 <style>
-
 .searchBox {
-border-radius: 25px;
-max-width: 300px;
-margin-bottom: 10px;
+	border-radius: 25px;
+	max-width: 300px;
+	margin-bottom: 10px;
 }
-
-
 </style>
 
 <body style="background-color: #E1EECC;">
 
 	<div th:replace="fragments/header"></div>
-	<br><br>
-	<h1 class="heading text-center display-2"><b>SWAP</b></h1>
+	<br>
+	<br>
+	<h1 class="heading text-center display-2">
+		<b>SWAP</b>
+	</h1>
 
 	<div class="container">
 
 		<div class="main">
 
 			<div class="form-group">
-				<label for="oamount"></label> <input
-					type="text" class="form-control searchBox mx-auto" placeholder="0.00"
+				<label for="oamount"></label> <input type="text"
+					class="form-control searchBox mx-auto" placeholder="0.00"
 					id="oamount">
 			</div>
 
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							
-						</div>
-						<select class="form-control to" id="sel1" style="border-radius: 25px; margin-left: 400px;">
+						<div class="input-group-prepend"></div>
+						<select class="form-control to" id="sel1"
+							style="border-radius: 25px; margin-left: 400px;">
 							<option value="">Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="GVT">GVT</option>
-							
+
 						</select>
 					</div>
 				</div>
 
 				<div class="col-sm-6">
 					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							
-						</div>
-						<select class="form-control from" id="sel2" style="border-radius: 25px; margin-right: 400px;">
+						<div class="input-group-prepend"></div>
+						<select class="form-control from" id="sel2"
+							style="border-radius: 25px; margin-right: 400px;">
 							<option value="">Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="GVT">GVT</option>
-							
+
 						</select>
 					</div>
 				</div>
@@ -78,17 +76,21 @@ margin-bottom: 10px;
 			<div class="text-center">
 
 				<!-- convert button -->
-				<button class="btn btn-primary convert m-2" type="submit" id="btnConvert">
+				<button class="btn btn-primary convert m-2" type="submit"
+					id="btnConvert"
+					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
 					Convert</button>
 
 				<!-- reset button -->
-				<button class="btn btn-primary m-2" onclick="clearVal()">
+				<button class="btn btn-primary m-2" onclick="clearVal()"
+					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
 					Reset</button>
 			</div>
 
 		</div>
 
-		<div id="finalAmount" class="text-center">
+		<div id="finalAmount" class="text-center"
+			sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
 
 			<!-- Display the converted amount -->
 			<h2>

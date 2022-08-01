@@ -79,11 +79,11 @@
 
 <body style="background-color: #E1EECC;">
 
-<!-- header -->
-<div th:replace="fragments/header"></div>
+	<!-- header -->
+	<div th:replace="fragments/header"></div>
 
 	<div class="container">
-		
+
 
 		<!-- space between header and top bar -->
 		<br> <br> <br>
@@ -127,9 +127,13 @@
 						<div class="row">
 							<div class="col needs-validation">
 								<label for="pool_token1" class="form-label text-dark">Token
-									1: </label> <input id="pool_token1" type="text" class="form-control"
-									th:field="*{token1}" required minlength=3 maxlength=100
-									style="background: #D2D2D2;" />
+									1: </label> <select id="pool_token1" class="form-control"
+									th:field="*{token1}" required style="background: #D2D2D2;">
+									<option value="" disabled selected style="background: white;">Select
+										Token 1:</option>
+									<option th:each="token : ${tokenList}" th:value="${token.id}"
+										th:text="${token.name}" style="background: white;"></option>
+								</select>
 
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid token.</div>
@@ -139,9 +143,13 @@
 
 							<div class="col needs-validation">
 								<label for="pool_token2" class="form-label text-dark">Token
-									2: </label> <input id="pool_token2" type="text" class="form-control"
-									th:field="*{token2}" required minlength=3 maxlength=100
-									style="background: #D2D2D2;" />
+									2: </label> <select id="pool_token2" class="form-control"
+									th:field="*{token2}" required style="background: #D2D2D2;">
+									<option value="" disabled selected style="background: white;">Select
+										Token 2:</option>
+									<option th:each="token : ${tokenList}" th:value="${token.id}"
+										th:text="${token.name}" style="background: white;"></option>
+								</select>
 
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid token.</div>

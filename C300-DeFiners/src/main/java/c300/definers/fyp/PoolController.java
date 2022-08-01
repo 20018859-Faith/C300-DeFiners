@@ -123,6 +123,9 @@ public class PoolController {
 		Pool pool = poolRepository.getById(id);
 		model.addAttribute("pool", pool);
 
+		List<Token> tokenList = tokenRepository.findAll();
+		model.addAttribute("tokenList", tokenList);
+
 		return "poolEdit";
 	}
 

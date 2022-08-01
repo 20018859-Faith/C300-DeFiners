@@ -154,11 +154,11 @@
 
 <body style="background-color: #E1EECC;">
 
-<!-- header -->
-<div th:replace="fragments/header"></div>
+	<!-- header -->
+	<div th:replace="fragments/header"></div>
 
 	<div class="container">
-		
+
 
 		<!-- space between header and card -->
 		<br> <br> <br>
@@ -186,9 +186,8 @@
 							Token 1:</label> <select id="pool_token1" class="form-control boxDeco"
 							th:field="*{token1}" required>
 							<option value="" disabled selected>Select Token 1:</option>
-							<option value="DAI">DAI</option>
-							<option value="ETH">ETH</option>
-							<option value="SAN">SAN</option>
+							<option th:each="token : ${tokenList}" th:value="${token.id}"
+								th:text="${token.name}"></option>
 						</select>
 
 						<!-- Error -->
@@ -219,11 +218,10 @@
 					<div class="col needs-validation">
 						<label for="pool_token2" class="form-label labelDeco">Select
 							Token 2:</label> <select id="pool_token2" class="form-control boxDeco"
-							th:field="*{token2}" required>
+							th:field="*{token}" required>
 							<option value="" disabled selected>Select Token 2:</option>
-							<option value="DAI">DAI</option>
-							<option value="ETH">ETH</option>
-							<option value="SAN">SAN</option>
+							<option th:each="token : ${tokenList}" th:value="${token.id}"
+								th:text="${token.name}"></option>
 						</select>
 
 						<!-- Error -->

@@ -56,17 +56,17 @@ public class Pool {
 	@DecimalMax(value = "1000.00", inclusive = true, message = "Maximum cannot exceed $1000!")
 	private double maximum;
 
-//	@ManyToOne
-//	@JoinColumn(name = "token_id", nullable = false)
-//	private Token token;
-//
-//	public Token getToken() {
-//		return token;
-//	}
-//
-//	public void setToken(Token token) {
-//		this.token = token;
-//	}
+	@ManyToOne
+	@JoinColumn(name = "token_id", nullable = true)
+	private Token token;
+
+	public Token getToken() {
+		return token;
+	}
+
+	public void setToken(Token token) {
+		this.token = token;
+	}
 
 	public int getId() {
 		return id;
