@@ -24,7 +24,6 @@ public class Wallet {
 	
 	private String address;
 	
-	
 	private double totalAmount;
 	
 	 @ManyToOne
@@ -47,13 +46,6 @@ public class Wallet {
 		this.address = address;
 	}
 
-	public double getTotalAmount() {
-		return totalAmount;
-	}
-
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
 
 	public Member getMember() {
 		return member;
@@ -62,7 +54,13 @@ public class Wallet {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	
-	
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 
 }

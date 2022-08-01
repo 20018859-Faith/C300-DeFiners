@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -23,6 +24,7 @@ public class Token {
 
   @NotNull
   @NotEmpty(message = "Contract address cannot be empty!")
+  @Pattern(regexp = "0x+[A-F,a-f,0-9]{40}")
   private String address;
 
   @NotNull
