@@ -31,6 +31,8 @@ public class Swap {
 	@DecimalMin(value = "0.00", inclusive = false, message = "Deposit amount 1 cannot be empty!")
 	@DecimalMax(value = "1000.00", inclusive = true, message = "Deposit amount 1 cannot exceed $1000!")
 	private double amt2;
+	
+	
 
 	public int getId() {
 		return id;

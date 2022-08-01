@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+<title>DeFiners Wallet</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #E1EECC;">
+
+<!-- header -->
+<div th:replace="fragments/header"></div>
+
+	<div class="container">
+		
+<br>
+<div class="d-flex justify-content-center">
+	<div class="card w-75" style="border-radius: 20px;">
+		<div class="card-body">
+		<div class="h1">Wallet</div>
+		<table class="table bordered">
+			<thead>
+				<th>ID</th>
+				<th>Address</th>
+				<th>Amount</th>
+			</thead>
+			<tbody>
+				<!-- iterates the list. for loop each item -->
+				<th:block th:each="wallet : ${listWallet}">
+					<tr>
+						<!-- th:text evaluate the value of expression and display the value in the table cell  -->
+						<!-- ${} retrive information stored in the model attribute -->
+						<td th:text="${wallet.id}"></td>
+						<td th:text="${wallet.address}"></td>
+						<td th:text="${wallet.totalAmount}"></td>
+					</tr>
+					</th:block>
+			</tbody>
+		</table>
+		
+		</div></div></div>
+		<div th:replace="fragments/footer"></div>
+	</div>
+</body>
+</html>

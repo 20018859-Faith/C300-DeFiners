@@ -17,417 +17,150 @@
 </head>
 
 <style>
-/* Wallet dropdown menu*/
-.dropbtn2 {
-	border: none; /* remove button border (the black thick border) */
-	cursor: pointer; /* change cursor to point */
-	background-color: #E1EECC;
+
+.searchBox {
+border-radius: 25px;
+max-width: 300px;
+margin-bottom: 10px;
 }
 
-/* Wallet dropdown menu*/
-.dropdown2 {
-	display: inline-block;
-	position: relative; /* start inline */
-}
 
-/* Wallet dropdown menu*/
-.dropdown-content2 {
-	margin-top: 30px;
-	border-radius: 15px;
-	display: none;
-	position: absolute;
-	min-width: 330px;
-	overflow: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 4; /* overlay other elements */
-}
-
-/* Wallet dropdown menu*/
-.dropdown-content2 a {
-	padding: 12px 16px; /* space between each element */
-	text-decoration: none; /* remove underline - link has underline */
-	display: block;
-}
-
-/* Wallet dropdown menu*/
-.dropdown2 a:hover {
-	background-color: #E1EECC; /* hover color */
-}
-
-/* Wallet dropdown menu*/
-.show2 {
-	display: block;
-}
-
-.switch {
-	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-}
-
-.switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider {
-	background-color: #2196F3;
-}
-
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
-	border-radius: 50%;
-}
-
-.input-container {
-	display: flex;
-	width: 500px;
-	border: 1px solid #a9a9a9;
-	justify-content: space-between;
-	border-radius: 40px;
-	background-color: rgb(211, 211, 211);
-}
-
-.input-container input:focus, .input-container input:active {
-	outline: none;
-}
-
-.input-container input {
-	width: 100%;
-	border: none;
-	border-radius: 40px;
-}
-
-.input-container button {
-	float: right;
-	border-radius: 40px;
-	width: 130px;
-	height: 50px;
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	font-size: 18px;
-}
-
-.input-field {
-	font-size: 35px;
-	text-align: left;
-	background-color: rgb(211, 211, 211);
-	font-weight: bold;
-}
-
-.input {
-	text-align: center;
-}
 </style>
 
 <body style="background-color: #E1EECC;">
 
 	<div th:replace="fragments/header"></div>
+	<br><br>
+	<h1 class="heading text-center display-2"><b>SWAP</b></h1>
+
 	<div class="container">
 
-		<br>
-		<div class="d-flex justify-content-around">
-			<h4 class="card-title" style="margin-left: 140px; margin-top: 15px;">
-				<b>SWAP</b>
-			</h4>
-			<div class="d-flex justify-content-start"
-				style="margin-right: 140px;">
-				<div
-					class="navbar navbar-nav justify-content-center  ml-auto dropdown">
-					<button onclick="mySetting()" class="dropbtn2 ">
-						<i class="fa fa-gear"
-							style="font-size: 36px; background-color: #E1EECC;"></i>
-					</button>
-					<div id="settingdown" class="dropdown-content2 bg-light">
-						<p>
-							&nbsp; <b>Transaction setting</b><br> <span>&nbsp;
-								Slippage tolerance ?</span><br>
-						<div class="input-group">
-							&nbsp;&nbsp;
-							<button
-								style="border-radius: 40px; background-color: rgb(224, 234, 251); width: 100px;">Auto</button>
-							&nbsp;<input type="tol" class="form-control"
-								style="background-color: rgb(211, 211, 211); text-align: right; border-radius: 40px;"
-								id="exampleInputamt1" placeholder="0.0%">&nbsp;
+		<div class="main">
+
+			<div class="form-group">
+				<label for="oamount"></label> <input
+					type="text" class="form-control searchBox mx-auto" placeholder="0.00"
+					id="oamount">
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							
 						</div>
-						<span>&nbsp; Transaction deadline ?</span><br> &nbsp;&nbsp;<input
-							type="tol" class="input"
-							style="background-color: rgb(211, 211, 211); text-align: center; border-radius: 40px;"
-							id="exampleInputamt1" placeholder="30">&nbsp; minutes <br>
-						<br> &nbsp;&nbsp;&nbsp;<b>Interface setting</b><br> <span>&nbsp;&nbsp;
-							Auto Router API ?</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label
-							class="switch"> <input type="checkbox"> <span
-							class="slider round "></span>
-						</label><br> <br> <span>&nbsp;&nbsp; Expert Mode ?</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label class="switch"> <input type="checkbox"> <span
-							class="slider round "></span>
-						</label>
-						</p>
+						<select class="form-control to" id="sel1" style="border-radius: 25px; margin-left: 400px;">
+							<option value="">Select Token</option>
+							<option value="BTC">BTC</option>
+							<option value="ETH">ETH</option>
+							<option value="GVT">GVT</option>
+							
+						</select>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							
+						</div>
+						<select class="form-control from" id="sel2" style="border-radius: 25px; margin-right: 400px;">
+							<option value="">Select Token</option>
+							<option value="BTC">BTC</option>
+							<option value="ETH">ETH</option>
+							<option value="GVT">GVT</option>
+							
+						</select>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="d-flex justify-content-center">
-			<div class="card w-55" style="border-radius: 20px;">
-				<div class="card-body">
+			<div class="text-center">
 
-					<br>
-					<form class="needs-validation" th:action="@{/swap/save}" method="post" th:object="${swap}">
-						<div class="input-container">
-							<input type="amt1" class="input-field" id="exampleInputamt1"
-								placeholder="0.0" style="text-align: center;" th:field="*{amt1}"required>
+				<!-- convert button -->
+				<button class="btn btn-primary convert m-2" type="submit" id="btnConvert">
+					Convert</button>
 
-							<button id="demo" type="button" class="form-control"
-								style="background-color: #EEE6E6; font-size: 15px;"
-								data-bs-toggle="modal" data-bs-target="#exampleModal">
-								<b> SELECT <i class="fa fa-caret-down"></i></b>
-							</button>
-
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1"
-								aria-labelledby="exampleModalLabel" aria-hidden="true"
-								data-bs-backdrop="static">
-								<div class="modal-dialog">
-									<div class="modal-content" style="border-radius: 20px;">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">
-												<b>Select a token</b>
-											</h5>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-										</div>
-										<div class="modal-body">
-											<input type="text" class="form-control"
-												style="background-color: rgb(211, 211, 211);" id="text1"
-												placeholder="search name or paste address">
-										</div>
-										<div class="modal-body">
-											<button id="eth" onclick="displayCurr1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">ETH</button>
-											<button id="dai" onclick="displayCurr2()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">DAI</button>
-											<button id="usdt" onclick="displayCurr3()" type="button"
-												class="btn" style="background-color: rgb(211, 211, 211);"
-												data-bs-dismiss="modal">USDT</button>
-											<br> <br>
-											<button id="wbtc" onclick="displayCurr4()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 80px;"
-												data-bs-dismiss="modal">WBTC</button>
-											<button id="usdc" onclick="displayCurr5()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 40px;"
-												data-bs-dismiss="modal">USDC</button>
-										</div>
-										<div class="modal-body">
-											<button id="eth" onclick="displayCurr1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px"
-												data-bs-dismiss="modal">ETH</button>
-											<br> <br>
-											<button id="iinch" onclick="displayCurr6()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px"
-												data-bs-dismiss="modal">lINCH</button>
-											<br> <br>
-											<button id="aave" onclick="displayCurr7()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px"
-												data-bs-dismiss="modal">AAVE</button>
-											<br> <br>
-											<button id="ach" onclick="displayCurr8()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px"
-												data-bs-dismiss="modal">ACH</button>
-											<br> <br>
-											<button id="aergo" onclick="displayCurr9()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px"
-												data-bs-dismiss="modal">AERGO</button>
-											<br> <br>
-											<button id="" onclick="" type="button"
-												th:each="token : ${listTokens}" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">
-
-												<td th:text="${token.name}"></td>
-											</button>
-											<br> <br>
-										</div>
-										<div class="modal-footer">
-											<a href="/tokens">
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 460px;">Manage
-													token list</button>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-
-
-						</div>
-						<br>
-						<div class="input-container">
-							<input type="amt2" class="input-field" id="exampleInputamt2"
-								placeholder="0.0" style="text-align: center;" th:field="*{amt2}"required>
-
-							<button id="demo2" type="button" class="form-control"
-								style="background-color: #EEE6E6; font-size: 15px;"
-								data-bs-toggle="modal" data-bs-target="#exampleModal2">
-								<b> SELECT <i class="fa fa-caret-down"></i></b>
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade2" id="exampleModal2" tabindex="-1"
-								aria-labelledby="exampleModalLabel2" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content" style="border-radius: 20px;">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">
-												<b>Select a token</b>
-											</h5>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-										</div>
-										<div class="modal-body">
-											<input type="text" class="form-control"
-												style="background-color: rgb(211, 211, 211);" id="text2"
-												placeholder="search name or paste address">
-										</div>
-										<div class="modal-body">
-											<button id="eth1" onclick="displayCur1()" type="button"
-												value="1000" class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">ETH</button>
-											<button id="dai1" onclick="displayCur2()" type="button"
-												value="2000" class="btn"
-												style="background-color: rgb(211, 211, 211); margin-left: 25px;"
-												data-bs-dismiss="modal">DAI</button>
-											<button id="usdt1" onclick="displayCur3()" type="button"
-												class="btn" style="background-color: rgb(211, 211, 211);"
-												data-bs-dismiss="modal">USDT</button>
-											<br> <br>
-											<button id="wbtc1" onclick="displayCur4()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 80px;"
-												data-bs-dismiss="modal">WBTC</button>
-											<button id="usdc1" onclick="displayCur5()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); margin-right: 40px;"
-												data-bs-dismiss="modal">USDC</button>
-										</div>
-										<div class="modal-body">
-											<button id="eth1" onclick="displayCur1()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">ETH</button>
-											<br> <br>
-											<button id="iinch1" onclick="displayCur6()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">lINCH</button>
-											<br> <br>
-											<button id="aave1" onclick="displayCur7()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">AAVE</button>
-											<br> <br>
-											<button id="ach1" onclick="displayCur8()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">ACH</button>
-											<br> <br>
-											<button id="aergo1" onclick="displayCur9()" type="button"
-												class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">AERGO</button>
-											<br> <br>
-
-											<button id="" onclick="" type="button"
-												th:each="token : ${listTokens}" class="btn"
-												style="background-color: rgb(211, 211, 211); width: 450px; text-align: center; padding-left: 6px;"
-												data-bs-dismiss="modal">
-
-												<td th:text="${token.name}"></td>
-											</button>
-											<br> <br>
-										</div>
-										<div class="modal-footer">
-											<a href="/tokens">
-												<button type="button" class="btn"
-													style="background-color: rgb(211, 211, 211); width: 460px;">Manage
-													token list</button>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<br>
-						<div class="d-flex justify-content-center">
-							<button type="submit" class="btn"
-								style="background-color: rgb(224, 234, 251); font-size: 18px; width: 200px; height: 50px; border-radius: 40px;"
-								sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
-								<b>Swap</b>
-							</button>
-						</div>
-					</form>
-				</div>
+				<!-- reset button -->
+				<button class="btn btn-primary m-2" onclick="clearVal()">
+					Reset</button>
 			</div>
+
 		</div>
-		<div th:replace="fragments/footer"></div>
+
+		<div id="finalAmount" class="text-center">
+
+			<!-- Display the converted amount -->
+			<h2>
+				Converted Amount : <span type="text" class="finalValue"
+					id="finalValueOutput"> </span>
+
+			</h2>
+		</div>
 	</div>
 
+	<div th:replace="fragments/footer"></div>
+
 	<script>
+	// include api for currency change
+	const api = "http://api.coinlayer.com/api/live?access_key=6c9cd310c1a5583ca5999024d6c82244";
+
+	// for selecting different controls
+	var search = document.querySelector(".searchBox");
+	var convert = document.querySelector(".convert");
+	var fromCurrecy = document.querySelector(".from");
+	var toCurrecy = document.querySelector(".to");
+	var finalValue = document.querySelector(".finalValue");
+	
+	var finalAmount = document.getElementById("finalAmount");
+	var resultFrom;
+	var resultTo;
+	var searchValue;
+
+	// Event when currency is changed
+	fromCurrecy.addEventListener('change', (event) => {
+		resultFrom = `${event.target.value}`;
+	});
+
+	// Event when currency is changed
+	toCurrecy.addEventListener('change', (event) => {
+		resultTo = `${event.target.value}`;
+	});
+
+	search.addEventListener('input', updateValue);
+
+	// function for updating value
+	function updateValue(e) {
+		searchValue = e.target.value;
+	}
+
+	// when user clicks, it calls function getresults
+	convert.addEventListener("click", getResults);
+
+	// function getresults
+	function getResults() {
+		fetch(`${api}`)
+			.then(currency => {
+				return currency.json();
+			}).then(displayResults);
+	}
+
+	// display results after convertion
+	function displayResults(currency) {
+		let fromRate = currency.rates[resultFrom];
+		let toRate = currency.rates[resultTo];
+		finalValue.innerHTML =
+		((toRate / fromRate) * searchValue).toFixed(18);
+		finalAmount.style.display = "block";
+	}
+
+	// when user click on reset button
+	function clearVal() {
+		window.location.reload();
+		document.getElementsByClassName("finalValue").innerHTML = "";
+	};
+
+	
 	
 	'use strict'
 
@@ -446,98 +179,7 @@ input:checked+.slider:before {
 		function mySetting() {
 			document.getElementById("settingdown").classList.toggle("show");
 		}
-		//
-		function displayCurr1() {
-			let html = document.getElementById("eth").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr2() {
-			let html = document.getElementById("dai").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr3() {
-			let html = document.getElementById("usdt").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr4() {
-			let html = document.getElementById("wbtc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr5() {
-			let html = document.getElementById("usdc").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr6() {
-			let html = document.getElementById("iinch").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr7() {
-			let html = document.getElementById("aave").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr8() {
-			let html = document.getElementById("ach").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		function displayCurr9() {
-			let html = document.getElementById("aergo").innerHTML;
-			document.getElementById("demo").innerHTML = html;
-		}
-
-		///
-
-		function displayCur1() {
-			let html = document.getElementById("eth1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur2() {
-			let html = document.getElementById("dai1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur3() {
-			let html = document.getElementById("usdt1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur4() {
-			let html = document.getElementById("wbtc1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur5() {
-			let html = document.getElementById("usdc1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur6() {
-			let html = document.getElementById("iinch1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur7() {
-			let html = document.getElementById("aave1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur8() {
-			let html = document.getElementById("ach1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
-
-		function displayCur9() {
-			let html = document.getElementById("aergo1").innerHTML;
-			document.getElementById("demo2").innerHTML = html;
-		}
+		
 	</script>
 
 </body>

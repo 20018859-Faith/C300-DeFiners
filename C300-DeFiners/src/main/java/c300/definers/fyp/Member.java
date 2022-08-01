@@ -1,10 +1,12 @@
-
 package c300.definers.fyp;
+
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Member {
@@ -17,6 +19,8 @@ public class Member {
 	private String email;
 	private String role;
 	
+	@OneToMany(mappedBy="member")
+	private Set<Wallet> wallet;
 	
 	public int getId() {
 		return id;

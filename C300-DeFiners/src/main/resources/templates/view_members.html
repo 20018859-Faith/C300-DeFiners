@@ -56,7 +56,8 @@
 									<td th:text="${member.email}"></td>
 									<td th:text="${member.role}"></td>
 									<td><a th:href="@{/members/edit/{id}(id=${member.id})}">Edit</a>
-										| <a th:href="@{/members/delete/{id}(id=${member.id})}">Delete</a></td>
+										| <a th:href="@{/members/delete/{id}(id=${member.id})}">Delete</a>
+											| <a th:href="@{/wallet}">Wallet</a></td>
 								</tr>
 							</tbody>
 						</table>
