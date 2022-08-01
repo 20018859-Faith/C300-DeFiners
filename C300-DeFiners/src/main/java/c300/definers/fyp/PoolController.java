@@ -71,6 +71,14 @@ public class PoolController {
 	@PostMapping("/pool/Dep2/pool/Dep2/{id}")
 	public String saveDep2(@PathVariable("id") Integer id, Pool pool) {
 
+		// get current deposited amount
+		double currentDeposited = poolRepository.getById(id).getDeposit2();
+
+		// get amount to be deposited
+		double depositAmount = pool.getDeposit2();
+
+		pool.setDeposit2(depositAmount + currentDeposited);
+
 		poolRepository.save(pool);
 
 		return "redirect:/pool";

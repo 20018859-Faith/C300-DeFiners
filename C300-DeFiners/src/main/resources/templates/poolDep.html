@@ -129,9 +129,9 @@
 						<div class="row" style="padding-top: 20px;">
 							<div class="col needs-validation">
 								<label for="pool_deposit1" class="form-label text-dark">Token
-									1 Deposit: $</label> <input id="pool_deposit1" class="form-control"
-									type="number" th:field="*{deposit1}" required step="0.01"
-									min="0" max="1000">
+									1 Deposit: $</label> <input id="pool_deposit1" onfocus="this.value=''"
+									class="form-control" type="number" th:field="*{deposit1}"
+									required step="0.01" min="0" max="1000">
 
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid amount.

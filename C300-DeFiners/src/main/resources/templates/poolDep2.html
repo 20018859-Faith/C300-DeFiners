@@ -125,12 +125,13 @@
 						th:action="@{pool/Dep2/{id}(id=${pool.id})}" th:object="${pool}"
 						method="post" novalidate>
 
+						<!-- Token 2 deposit -->
 						<div class="row" style="padding-top: 20px;">
 							<div class="col needs-validation">
 								<label for="pool_deposit2" class="form-label text-dark">Token
-									2 Deposit: $</label> <input id="pool_deposit2" class="form-control"
-									type="number" th:field="*{deposit2}" required step="0.01"
-									min="0" max="1000">
+									2 Deposit: $</label> <input id="pool_deposit2" onfocus="this.value=''"
+									class="form-control" type="number" th:field="*{deposit2}"
+									required step="0.01" min="0" max="1000">
 
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid amount.
