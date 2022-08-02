@@ -24,12 +24,12 @@ public class Pool {
 
 	@NotNull
 	@NotEmpty(message = "Pool token 1 name cannot be empty!")
-	@Size(min = 2, max = 100, message = "Pool token 1 name length must be between 2 and 100 charaters")
+	@Size(min = 1, max = 100, message = "Pool token 1 name length must be between 1 and 100 charaters")
 	private String token1;
 
 	@NotNull
 	@NotEmpty(message = "Pool token 2 name cannot be empty!")
-	@Size(min = 2, max = 100, message = "Pool token 2 name length must be between 2 and 100 charaters")
+	@Size(min = 1, max = 100, message = "Pool token 2 name length must be between 1 and 100 charaters")
 	private String token2;
 
 	@NotNull
@@ -37,12 +37,12 @@ public class Pool {
 	private String fee;
 
 	@NotNull
-	@DecimalMin(value = "0.00", inclusive = false, message = "Deposit amount 1 cannot be empty!")
+	@DecimalMin(value = "0.00", inclusive = true, message = "Deposit amount 1 must be above $0!")
 	@DecimalMax(value = "1000.00", inclusive = true, message = "Deposit amount 1 cannot exceed $1000!")
 	private double deposit1;
 
 	@NotNull
-	@DecimalMin(value = "0.00", inclusive = false, message = "Deposit amount 2 cannot be empty!")
+	@DecimalMin(value = "0.00", inclusive = true, message = "Deposit amount 2 must be above $0!")
 	@DecimalMax(value = "1000.00", inclusive = true, message = "Deposit amount 2 cannot exceed $1000!")
 	private double deposit2;
 

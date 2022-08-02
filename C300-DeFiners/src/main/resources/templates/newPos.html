@@ -167,9 +167,8 @@
 		<div class="poolSet mx-auto bg-light">
 			<div class="d-flex">
 				<a class="text-dark toparrow" href="/pool">&#129104;</a>
-				<h4 class="addLiq">Add Liquidity</h4>
-				<a class="clearall" href="#" onclick="clearAll()">clear all</a> <span
-					class="settingsTop">&#9881;</span>
+				<h4 class="addLiq mx-auto" style="padding-right: 210px;">Add
+					Liquidity</h4>
 			</div>
 
 			<hr>
@@ -186,7 +185,7 @@
 							Token 1:</label> <select id="pool_token1" class="form-control boxDeco"
 							th:field="*{token1}" required>
 							<option value="" disabled selected>Select Token 1:</option>
-							<option th:each="token : ${tokenList}" th:value="${token.id}"
+							<option th:each="token : ${tokenList}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
 
@@ -218,9 +217,9 @@
 					<div class="col needs-validation">
 						<label for="pool_token2" class="form-label labelDeco">Select
 							Token 2:</label> <select id="pool_token2" class="form-control boxDeco"
-							th:field="*{token}" required>
+							th:field="*{token2}" required>
 							<option value="" disabled selected>Select Token 2:</option>
-							<option th:each="token : ${tokenList}" th:value="${token.id}"
+							<option th:each="token : ${tokenList}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
 

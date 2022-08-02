@@ -131,7 +131,7 @@
 									th:field="*{token1}" required style="background: #D2D2D2;">
 									<option value="" disabled selected style="background: white;">Select
 										Token 1:</option>
-									<option th:each="token : ${tokenList}" th:value="${token.id}"
+									<option th:each="token : ${tokenList}" th:value="${token.name}"
 										th:text="${token.name}" style="background: white;"></option>
 								</select>
 
@@ -147,7 +147,7 @@
 									th:field="*{token2}" required style="background: #D2D2D2;">
 									<option value="" disabled selected style="background: white;">Select
 										Token 2:</option>
-									<option th:each="token : ${tokenList}" th:value="${token.id}"
+									<option th:each="token : ${tokenList}" th:value="${token.name}"
 										th:text="${token.name}" style="background: white;"></option>
 								</select>
 

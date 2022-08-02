@@ -167,9 +167,9 @@
 				<a id="cen" class="swapnav nav-link text-dark" href="/">Swap</a> <a
 					id="cen" class="poolnav nav-link text-dark" href="/pool">Pool</a> <a
 					id="cen" class="nav-link text-dark" href="/tokens"
-					sec:authorize="hasRole('ROLE_ADMIN')">Token</a> <a id="cen"
-					class="nav-link text-dark" href="/charts">Charts&#11127;</a> <a
-					id="cen" class="nav-link text-dark" href="/members"
+					sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">Token</a> <a
+					id="cen" class="nav-link text-dark" href="/charts">Charts&#11127;</a>
+				<a id="cen" class="nav-link text-dark" href="/members"
 					sec:authorize="hasRole('ROLE_ADMIN')">Members</a> <a id="cen"
 					class="nav-link text-dark" href="/about">About Us</a> <a id="cen"
 					class="docsnav nav-link text-dark" href="/docs">Docs</a> <a
