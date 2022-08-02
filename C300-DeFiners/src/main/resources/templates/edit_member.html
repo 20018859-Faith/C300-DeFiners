@@ -18,66 +18,73 @@
 
 <body style="background-color: #E1EECC;">
 
-<!-- header -->
-<div th:replace="fragments/header"></div>
+	<!-- header -->
+	<div th:replace="fragments/header"></div>
 
 	<div class="container">
-		
-		
+
+
 		<br>
 		<main>
-		
-		<div class="d-flex justify-content-center">
-			<div class="card w-50" style="border-radius: 20px; color: black;">
-				<div class="card-body">
-				
+
+			<div class="d-flex justify-content-center">
+				<div class="card w-50" style="border-radius: 20px; color: black;">
+					<div class="card-body">
+
 						<h2>Edit Member Details</h2>
-						
+
 						<form th:action="@{/members/edit/{id}(id=${member.id})}"
 							th:object="${member}" method="post">
 
 							<div class="mb-3 col-10">
-								<label for="member_name" class="form-label">Name: </label> 
-								<input id="member_name" type="text" class="form-control"
-								th:field="*{name}" required minlength=3 maxlength=50 />
-								
+								<label for="member_name" class="form-label">Name: </label> <input
+									id="member_name" type="text" class="form-control"
+									th:field="*{name}" required minlength=3 maxlength=50 />
+
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid name.</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('name')}" 
-								th:errors="*{name}"></p>
+								<p class="text-danger" th:if="${#fields.hasErrors('name')}"
+									th:errors="*{name}"></p>
 							</div>
 
 							<div class="mb-3 col-10">
-								<label for="member_username" class="form-label">Username: </label> 
-								<input id="member_username" type="text" class="form-control"
-								th:field="*{username}" required minlength=3 maxlength=100 />
-								
+								<label for="member_username" class="form-label">Username:
+								</label> <input id="member_username" type="text" class="form-control"
+									th:field="*{username}" required minlength=3 maxlength=100 />
+
 								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid username.</div>
-								<p class="text-danger" th:if="${#fields.hasErrors('username')}" 
-								th:errors="*{username}"></p>
+								<div class="invalid-feedback">Please enter a valid
+									username.</div>
+								<p class="text-danger" th:if="${#fields.hasErrors('username')}"
+									th:errors="*{username}"></p>
 							</div>
 
+							<input id="member_role" type="text" th:field="*{role}" required
+								hidden />
+
 							<div class="mb-3 col-10">
-								<label for="member_password" class="form-label">Password: </label> 
-								<input id="member_password" type="password" class="form-control" 
-								th:field="*{password}" required minlength=3 maxlength=100 />
-								
+								<label for="member_password" class="form-label">Password:
+								</label> <input id="member_password" type="password"
+									class="form-control" th:field="*{password}" required
+									minlength=3 maxlength=100 />
+
 								<!-- Input Validation -->
-								<div class="invalid-feedback">Please enter a valid password.</div>
+								<div class="invalid-feedback">Please enter a valid
+									password.</div>
 								<p class="text-danger" th:if="${#fields.hasErrors('password')}"
-								th:errors="*{password}"></p>
+									th:errors="*{password}"></p>
 							</div>
 
 							<div class="mb-3 col-10">
-								<label for="member_email" class="form-label">Email: </label> 
-								<input id="member_email" type="text" class="form-control"
-								th:field="*{email}" required pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
-								
+								<label for="member_email" class="form-label">Email: </label> <input
+									id="member_email" type="text" class="form-control"
+									th:field="*{email}" required
+									pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
+
 								<!-- Input Validation -->
 								<div class="invalid-feedback">Please enter a valid email.</div>
 								<p class="text-danger" th:if="${#fields.hasErrors('email')}"
-								th:errors="*{email}"></p>
+									th:errors="*{email}"></p>
 							</div>
 
 
@@ -103,10 +110,10 @@
 								form.classList.add('was-validated')
 							})
 						</script>
-						<!-- End form validation -->			
+						<!-- End form validation -->
+					</div>
 				</div>
 			</div>
-		</div>
 		</main>
 
 		<div th:replace="fragments/footer"></div>
