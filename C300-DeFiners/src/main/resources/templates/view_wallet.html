@@ -40,7 +40,7 @@
 						<!-- ${} retrive information stored in the model attribute -->
 						<td th:text="${wallet.id}"></td>
 						<td th:text="${wallet.address}"></td>
-						<td th:text="${wallet.totalAmount}"></td>
+						<td th:text="${wallet.totalAmount} - ${finalValue};"></td>
 					</tr>
 					</th:block>
 			</tbody>
