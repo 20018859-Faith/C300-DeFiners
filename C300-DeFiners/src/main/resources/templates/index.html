@@ -33,14 +33,14 @@
 		<b>SWAP</b>
 	</h1>
 
-	<div class="container">
+	<div class="container needs-validation" novalidate>
 
 		<div class="main">
 
 			<div class="form-group">
 				<label for="oamount"></label> <input type="text"
 					class="form-control searchBox mx-auto" placeholder="0.00"
-					id="oamount">
+					id="oamount" required>
 			</div>
 
 			<div class="row">
@@ -86,9 +86,9 @@
 					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
 					Reset</button><br>
 					
-				<button class="btn btn-primary m-2" onclick=""
+				<button class="btn btn-primary m-2" type="submit" 
 					sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
-					Swap</button>
+					<a href="/success" style="color: white;">Swap</a></button>
 			</div><br>
 
 		</div>

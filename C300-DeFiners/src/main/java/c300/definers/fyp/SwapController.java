@@ -29,7 +29,7 @@ public class SwapController {
 	private TokenRepository tokenRepository;
 	
 
-	// add token - get
+	// get
 	@GetMapping("/")
 	public String addSwap(Model model) {
 		model.addAttribute("swap", new Swap());
@@ -38,7 +38,7 @@ public class SwapController {
 		return "index";
 	}
 	 
-	// add pool - post
+	//   post
 		@PostMapping("/swap/save")
 		public String saveSwap(@Valid Swap swap, BindingResult bindingResult) {
 
