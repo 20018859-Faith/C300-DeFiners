@@ -49,7 +49,9 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control to" id="sel1"
 							style="border-radius: 25px; margin-left: 400px;">
-							<option value="" diasbled>Select Token</option>
+							<option value="">Select Token</option>
+							<option value="ETH">ETH</option>
+							<option value="BTC">BTC</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
@@ -61,7 +63,9 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control from" id="sel2"
 							style="border-radius: 25px; margin-right: 400px;">
-							<option value="" diasbled>Select Token</option>
+							<option value="">Select Token</option>
+							<option value="ETH">ETH</option>
+							<option value="BTC">BTC</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
