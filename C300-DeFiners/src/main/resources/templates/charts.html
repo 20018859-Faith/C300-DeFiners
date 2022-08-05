@@ -49,7 +49,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="chart : ${listChart}">
-								<td><a th:href="@{https://v2.info.uniswap.org/pair/{id}(id=${chart.Pool_id})}" th:text="${chart.Pool_id}"></a></td>
+								<td><a th:href="@{https://v2.info.uniswap.org/pair/{id}(id=${chart.PoolHashIdentifier})}" th:text="${chart.PoolHashIdentifier}"></a></td>
 								<td th:text="${chart.PoolName}"></td>
 								<td>$<span
 									th:text="${#numbers.formatDecimal(chart.TVL/1000000, 1, 2)}"></span>m</td>

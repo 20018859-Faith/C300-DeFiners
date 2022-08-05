@@ -49,9 +49,10 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control to" id="sel1"
 							style="border-radius: 25px; margin-left: 400px;">
-							<option value="">Select Token</option>
-							<option value="ETH">ETH</option>
+							<option value="" disabled>Select Token</option>
 							<option value="BTC">BTC</option>
+							<option value="ETH">ETH</option>
+							<option value="DAI">DAI</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
@@ -63,9 +64,10 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control from" id="sel2"
 							style="border-radius: 25px; margin-right: 400px;">
-							<option value="">Select Token</option>
-							<option value="ETH">ETH</option>
+							<option value="" disabled>Select Token</option>
 							<option value="BTC">BTC</option>
+							<option value="ETH">ETH</option>
+							<option value="DAI">DAI</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
 								th:text="${token.name}"></option>
 						</select>
@@ -74,6 +76,18 @@
 			</div>
 
 			<div class="text-center">
+
+				<br>
+				<h6 sec:authorize="!isAuthenticated()">You have to be Logged In
+					to conduct a swap!</h6>
+
+				<!-- login button -->
+				<button class="btn btn-primary convert m-2" id="btnLogin"
+					sec:authorize="!isAuthenticated()">Login</button>
+
+				<!-- signup button -->
+				<button class="btn btn-primary convert m-2" id="btnSignup"
+					sec:authorize="!isAuthenticated()">Sign Up</button>
 
 				<!-- convert button -->
 				<button class="btn btn-primary convert m-2" type="submit"
@@ -111,6 +125,15 @@
 	<div th:replace="fragments/footer"></div>
 
 	<script>
+	
+	document.getElementById("btnLogin").onclick = function() {
+		location.href = "/login";
+	};
+	
+	document.getElementById("btnSignup").onclick = function() {
+		location.href = "/members/add";
+	};
+	
 	// include api for currency change
 	const api = "http://api.coinlayer.com/api/live?access_key=6c9cd310c1a5583ca5999024d6c82244";
 
@@ -169,8 +192,6 @@
 		document.getElementsByClassName("finalValue").innerHTML = "";
 	};
 
-	
-	
 	'use strict'
 
 	var form = document.querySelector('.needs-validation')
