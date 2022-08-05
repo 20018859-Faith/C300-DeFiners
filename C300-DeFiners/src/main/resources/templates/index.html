@@ -51,7 +51,8 @@
 							style="border-radius: 25px; margin-left: 400px;">
 							<option value="" diasbled>Select Token</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
-								th:text="${token.name}"></option>
+								value="BTC" th:text="${token.name}"></option>
+							<option value="BTC">BTC</option>
 						</select>
 					</div>
 				</div>
@@ -63,7 +64,8 @@
 							style="border-radius: 25px; margin-right: 400px;">
 							<option value="" diasbled>Select Token</option>
 							<option th:each="token : ${listTokens}" th:value="${token.name}"
-								th:text="${token.name}"></option>
+								value="ETH" th:text="${token.name}"></option>
+							<option value="ETH">ETH</option>
 						</select>
 					</div>
 				</div>
