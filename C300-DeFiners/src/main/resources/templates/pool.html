@@ -156,16 +156,20 @@
 							</tr>
 						</tbody>
 					</table>
-					<br> <br> <br> <br>
+					<br> <br>
 				</div>
 			</div>
 		</div>
 
 		<br> <br>
-		
+
 		<div class="text-center">
 			<h5 sec:authorize="!isAuthenticated()">You have to be Logged In
 				as a member to deposit liquidity into pools!</h5>
+
+
+			<h6 sec:authorize="hasAnyRole('ROLE_ADMIN')">You have to be a
+				member to conduct a swap!</h6>
 
 			<!-- login button -->
 			<button class="btn btn-primary convert m-2" id="btnLogin"

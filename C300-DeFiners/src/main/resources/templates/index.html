@@ -49,14 +49,12 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control to" id="sel1"
 							style="border-radius: 25px; margin-left: 400px;">
-							<option value="">Select Token</option>
-							<option value="ETH">ETH</option>
-							<option value="BTC">BTC</option>
-							<option th:each="token : ${listTokens}" th:value="${token.name}"
-								th:text="${token.name}"></option>
+							<option value="" disabled>Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="DAI">DAI</option>
+							<option th:each="token : ${listTokens}" th:value="${token.name}"
+								th:text="${token.name}"></option>
 						</select>
 					</div>
 				</div>
@@ -66,14 +64,12 @@
 						<div class="input-group-prepend"></div>
 						<select class="form-control from" id="sel2"
 							style="border-radius: 25px; margin-right: 400px;">
-							<option value="">Select Token</option>
-							<option value="ETH">ETH</option>
-							<option value="BTC">BTC</option>
-							<option th:each="token : ${listTokens}" th:value="${token.name}"
-								value="ETH" th:text="${token.name}"></option>
+							<option value="" disabled>Select Token</option>
 							<option value="BTC">BTC</option>
 							<option value="ETH">ETH</option>
 							<option value="DAI">DAI</option>
+							<option th:each="token : ${listTokens}" th:value="${token.name}"
+								th:text="${token.name}"></option>
 						</select>
 					</div>
 				</div>
@@ -196,8 +192,6 @@
 		document.getElementsByClassName("finalValue").innerHTML = "";
 	};
 
-	
-	
 	'use strict'
 
 	var form = document.querySelector('.needs-validation')
