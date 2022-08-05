@@ -35,7 +35,7 @@ public class Token {
   @NotNull
   private double deci;
 
-  private String imgToken;
+  
 
   @OneToMany(mappedBy = "token")
   private Set<Pool> Pool;
@@ -72,12 +72,6 @@ public class Token {
     this.deci = deci;
   }
 
-  public String getImgToken() {
-    return imgToken;
-  }
-
-  public void setImgToken(String imgToken) {
-    this.imgToken = imgToken;
-  }
+ 
 
 }

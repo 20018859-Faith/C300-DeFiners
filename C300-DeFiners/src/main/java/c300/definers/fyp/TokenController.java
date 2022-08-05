@@ -45,58 +45,18 @@ public class TokenController {
 		
 		// add token - post
 		@PostMapping("/tokens/save")
-		public String saveToken(Token token, @RequestParam("itemImage") MultipartFile imgFile) {
+		public String saveToken(@Valid Token token, BindingResult bindingResult) {
 
-			if (!imgFile.isEmpty()) {
-
-				// get file name of the image uploaded
-				String imageToken = imgFile.getOriginalFilename();
-				System.out.println("Image name from imgFile: " + imageToken);
-
-				// set file name to item object
-				token.setImgToken(imageToken);
-
-				Token savedToken = tokenRepository.save(token);
-
-				// upload file to local directory
-				try {
-					// create directory to upload
-					String uploadDir = "uploads/tokens/" + savedToken.getId();
-
-					Path uploadPath = Paths.get(uploadDir);
-
-					System.out.println("Directory path: " + uploadPath);
-
-					// check if the directory path exists
-					// if it does not exist create the directory path
-					if (!Files.exists(uploadPath)) {
-						Files.createDirectories(uploadPath);
-					}
-					// copy the file to the directory path
-					Path fileToCreatePath = uploadPath.resolve(imageToken);
-
-					System.out.println("File path: " + fileToCreatePath);
-
-					// source is the input
-					// destination is to fileToCreatePath
-					// in case file exist, replace, overwrite
-					Files.copy(imgFile.getInputStream(), fileToCreatePath, StandardCopyOption.REPLACE_EXISTING);
-
-				} catch (IOException io) {
-					// if it fails throw an exception
-					io.printStackTrace();
-				}
-
+			if (bindingResult.hasErrors()) {
+				return "add_token";
 			}
 
-			// no edit to image, save item object as passed.
-			else {
-				System.out.println("Image name from item object: " + token.getImgToken());
-				tokenRepository.save(token);
-			}
-
+			tokenRepository.save(token);
 			return "redirect:/tokens";
-		}
+
+			}
+
+		
 		
 		@GetMapping("/token/edit/{id}")
 		public String editToken(@PathVariable("id") Integer id, Model model) {
@@ -108,42 +68,9 @@ public class TokenController {
 		}
 		
 		@PostMapping("/token/edit/{id}")
-		public String saveUpdatedToken(@PathVariable("id") Integer id, Token token,
-				@RequestParam("itemImage") MultipartFile imgFile, BindingResult bindingResult) {
+		public String saveEditToken(@PathVariable("id") Integer id, Token token) {
 
-			if (bindingResult.hasErrors()) {
-				return "edit_token";
-			}
-
-			if (!imgFile.isEmpty()) {
-				String imageToken = imgFile.getOriginalFilename();
-
-				token.setImgToken(imageToken);
-
-				Token savedToken = tokenRepository.save(token);
-
-				try {
-					String uploadDir = "uploads/tokens/" + savedToken.getId();
-
-					Path uploadPath = Paths.get(uploadDir);
-
-					if (!Files.exists(uploadPath)) {
-						Files.createDirectory(uploadPath);
-					}
-
-					Path fileToCreatePath = uploadPath.resolve(imageToken);
-					Files.copy(imgFile.getInputStream(), fileToCreatePath, StandardCopyOption.REPLACE_EXISTING); // Overwrite
-																													// existing
-																													// image.
-					// Converts whole image into bytes of data and store it there
-
-				} catch (IOException io) {
-					io.printStackTrace();
-				}
-
-			} else { // no edit to image, save item object as passed
-				tokenRepository.save(token);
-			}
+			tokenRepository.save(token);
 
 			return "redirect:/tokens";
 		}
