@@ -18,9 +18,9 @@ public class Chart {
 	private int id;
 	
 	@NotNull
-	@NotEmpty(message = "Pool id cannot be empty!")
-	@Size(max = 50, message = "Pool id length must be less than 50 characters")
-	private String Pool_id;
+	@NotEmpty(message = "Pool Hash Identifier cannot be empty!")
+	@Size(max = 50, message = "Pool hash length must be less than 50 characters")
+	private String PoolHashIdentifier;
 	
 	@NotNull
 	@NotEmpty(message = "Pool name cannot be empty!")
@@ -51,14 +51,16 @@ public class Chart {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 
-	public String getPool_id() {
-		return Pool_id;
+	public String getPoolHashIdentifier() {
+		return PoolHashIdentifier;
 	}
 
-	public void setPool_id(String pool_id) {
-		Pool_id = pool_id;
+	public void setPoolHashIdentifier(String poolHashIdentifier) {
+		PoolHashIdentifier = poolHashIdentifier;
 	}
+
 
 	public String getPoolName() {
 		return PoolName;
